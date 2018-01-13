@@ -92,18 +92,18 @@ function autoInitialize(){
 
 			if (alliance === "RED") {
 				teamNo = matches[match - 1].red[robot - 1];
-				elem.innerHTML = teamNo;
+				/*elem.innerHTML = teamNo;
 				elem.style.color = RED;
 				title.style.color = RED;
 				sub.style.color = RED;
-				sub.style.borderColor = RED;
+				sub.style.borderColor = RED;*/
 			} else {
 				teamNo = matches[match - 1].blue[robot - 1];
-				elem.innerHTML = teamNo;
+				/*elem.innerHTML = teamNo;
 				elem.style.color = BLUE;
 				title.style.color = BLUE;
 				sub.style.color = BLUE;
-				sub.style.borderColor = BLUE;
+				sub.style.borderColor = BLUE;*/
 			}
 
 			elem = document.getElementById("teamNoTele");
