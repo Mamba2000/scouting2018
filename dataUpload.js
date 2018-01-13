@@ -1,4 +1,4 @@
-BlueAllianceURL = "https://www.thebluealliance.com/event/";
+BlueAllianceURL = "https://www.thebluealliance.com/api/v2/event/";
 xbtAPP_ID = "?X-TBA-App-Id=FRC1983:Scouting:v2";
 DatabaseURL = "http://ec2-52-42-95-150.us-west-2.compute.amazonaws.com:8080";
 // Global Variables //
@@ -9,7 +9,20 @@ window.onload = function() {
   table = document.getElementById("matchData");
 
   matches = [];
-
+  events = ["2016wagg","2018waahs","2018wasno","2018idbo","2018pncmp"];
+  for (var j=0; j<events.length; j++) {
+    eventName = events[j];
+    for (var i=0; i<localStorage.length; i++)	{
+  		var key = localStorage.key(i);
+      //console.log(key);															// Test
+      	if (eventName.concat("Matches") == key)
+      	{
+      		isThere = true;
+          checkForMatches(true);
+      		break;
+      	}
+  	}
+  }
   for (var key in localStorage) {
     try {
       key = JSON.parse(localStorage.getItem(key));
@@ -64,6 +77,7 @@ function download() {
     	if (eventName.concat("Matches") == key)
     	{
     		isThere = true;
+        checkForMatches(true);
     		break;
     	}
 	}
@@ -81,6 +95,7 @@ function download() {
 }
 
 function matchesHaveBeenDownloaded(contents) {
+  console.log("Hi");
   var alliances;
 	var i, j;
 	var red, blue;
@@ -103,6 +118,7 @@ function matchesHaveBeenDownloaded(contents) {
 }
 
 function sortMatches(sched) {
+  console.log("hi");
   var i, j, k; var swapped;
 	var temp;
 	swapped = true;
@@ -126,6 +142,7 @@ function sortMatches(sched) {
 }
 
 function generateJSON(matrix) {
+  console.log("Hi");
   var i;
   var row = newMatch(matrix[0][0], matrix[0][1], matrix[0][2], matrix[0][3], matrix[0][4], matrix[0][5], matrix[0][6]);
   //console.log(row);													// Test
@@ -138,6 +155,7 @@ function generateJSON(matrix) {
   localStorage.setItem(lsName, JSON.stringify(parsed));
 }
 function issueRequestHTTP(reqType, URL, callback) {
+  console.log("Hi");
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function (e)
 	{
@@ -163,8 +181,10 @@ function issueRequestHTTP(reqType, URL, callback) {
 		issueError(xhr.statusText, false);
 		console.log(xhr.statusText);																						// Test
 	}
+  console.log("hi");
 }
 function issueHTTPForm(formObj, URL, callback) {
+  console.log("Hi");
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function (e)
 	{
@@ -194,10 +214,21 @@ function issueHTTPForm(formObj, URL, callback) {
 	}
 }
 function newMatch(matchNo, red1, red2, red3, blue1, blue2, blue3) {
+  console.log("Hi");
+  checkForMatches(true);
 //	console.log('{"matchNo":' + matchNo + ',"red":[', red1 + ',' + red2 + ',' + red3 + '], "blue":[' + blue1 + ',' + blue2 + ',' + blue3 + ']}');
-	return JSON.parse('{"matchNo":' + matchNo + ',"red":[' + red1 + ',' + red2 + ',' + red3 + '],"blue":[' + blue1 + ',' + blue2 + ',' + blue3 + ']}');
+  return JSON.parse('{"matchNo":' + matchNo + ',"red":[' + red1 + ',' + red2 + ',' + red3 + '],"blue":[' + blue1 + ',' + blue2 + ',' + blue3 + ']}');
 }
 
-function checkForMatches(){
+function issueError(msg, writeOver) {
+	console.log(msg);
+}
 
+function checkForMatches(statement){
+  elem = document.getElementById("matchesImage");
+  if (statement === true) {
+    elem.src = "images/greenCheck.png";
+  } else {
+    elem.src = "images/redX.png";
+  }
 }

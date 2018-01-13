@@ -1,0 +1,37 @@
+<!-- LS Clear File -->
+<!DOCTYPE html>
+<html>
+<title>Local Clear</title>
+<head>
+<title>Waste Management</title>
+<script language="javascript">
+function trashRemoval() {
+	localStorage.clear();
+	console.log("Thank you for your patronage");
+}
+</script>
+<style type="text/css">
+	.garbagePickup {
+	position: absolute;
+	left: 240px;
+  top: 830px;
+	border-color: red;
+	border-width: 10px;
+	border-radius: 4px;
+	color: red;
+	font-size: 84px;
+	height: 225px;
+	width: 500px;
+	}
+	body{
+	background-image:url("images/marioLogo.png");
+	background-size:20%;
+	}
+</style>
+</head>
+<body>
+	<!-- <IMG src="images/Waste_management_logo.jpg"><br> -->
+	<button onClick="trashRemoval()"; class="garbagePickup">Erase All Local Data</BUTTON>
+	<IMG src="images/sleepyboye.gif" style="width: 80%; position: relative; left: 70px; top: 150px; z-index: -1;">
+</body>
+</html>
