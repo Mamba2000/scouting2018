@@ -1,0 +1,94 @@
+/* Adding Skunk Works Fonts */
+@font-face {
+font-family: "Lobster";
+src: url("fonts/Lobster-Regular.ttf");
+}
+@font-face{
+  font-family: "Titillium";
+  src: url("fonts/Titillium-Regular.otf");
+}
+
+html {
+  height: 99.6%;
+  border-style: solid;
+  border-width: regular;
+  background-color: #BBBBBB;
+}
+
+.splashSheet {
+  text-align: center;
+  font-family:"Titillium";
+  font-size: 2em;
+}
+
+.teleAutoSheet{
+
+}
+
+#splashSheetHeader{
+
+}
+#teleHeader{
+
+}
+
+.heading {
+  font-family: "Lobster";
+  font-size: 2em;
+}
+
+.dropDown {
+  font-size: 2em
+}
+
+.headers {
+position: relative;
+top: 30px;
+}
+.checkBoxes {
+height: 40px;
+width: 40px;
+border: 2px;
+border-color: SOLID WHITE;
+position: relative;
+top: 12px;
+}
+
+#teamNo {
+position: absolute;
+left: -5px;
+top: -85px;
+font-size: 60pt;
+font-style: sans-serif;
+border-style: solid;
+border-color: BLACK;
+border-width: thick;
+background-color: #EFEFEF;
+padding: 5px;
+}
+.submitButtons {
+position: absolute;
+top: 80%;
+right: 1%;
+border-style: solid;
+border-color: BLACK;
+border-width: thick;
+background-color: #EFEFEF;
+font-size: 22pt;
+font-weight: bold;
+height: 110px;
+width: 140px;
+}
+.backButtons {
+position: absolute;
+top: 80%;
+right: 18%;
+border-style: solid;
+border-color: black;
+border-width: thick;
+background-color: #EFEFEF;
+font-size: 26px;
+font-weight: bold;
+height: 110px;
+width: 140px;
+}
