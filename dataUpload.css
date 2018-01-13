@@ -22,6 +22,9 @@
   top: 10px;
 }
 #download_matches {
+  border:.1em #BE1E2D solid;
+  text-align:Center;
+  background-color: #F8F8F8;
   font-size: 250%;
   position: relative;
   top: 7px;
