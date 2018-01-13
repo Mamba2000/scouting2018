@@ -197,3 +197,7 @@ function newMatch(matchNo, red1, red2, red3, blue1, blue2, blue3) {
 //	console.log('{"matchNo":' + matchNo + ',"red":[', red1 + ',' + red2 + ',' + red3 + '], "blue":[' + blue1 + ',' + blue2 + ',' + blue3 + ']}');
 	return JSON.parse('{"matchNo":' + matchNo + ',"red":[' + red1 + ',' + red2 + ',' + red3 + '],"blue":[' + blue1 + ',' + blue2 + ',' + blue3 + ']}');
 }
+
+function checkForMatches(){
+
+}
