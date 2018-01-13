@@ -128,16 +128,6 @@
 				<BUTTON onClick="downUnits('teleGears')" class="fuelScoreButtons">-1</BUTTON>
 			</SPAN>
 		</div>
-		<div id="teleFouls">
-			<p id="teleFoulHeader" class="headers">Foul Points Caused:</p>
-			<SPAN id="teleFoulSpan">
-				<BUTTON onClick="up25ths('teleFoul')" class="foulScoreButtons">+25</BUTTON>
-				<BUTTON onClick="upFifths('teleFoul')" class="foulScoreButtons">+5</BUTTON>
-				<INPUT type="text" id="teleFoul" value="0" class="foulScoreboard" disabled>
-				<BUTTON onClick="down25ths('teleFoul')" class="foulScoreButtons">-25</BUTTON>
-				<BUTTON onClick="downFifths('teleFoul')" class="foulScoreButtons">-5</BUTTON>
-			</SPAN>
-		</div>
 		<div id="climb">
 			<p id="miscHeader" class="headers">Climb:</p>
 			<input type="checkbox" value="false" class="checkBoxes" id="climbSuccess" onChange="buttonCheck('climb', 0)">&nbsp;<label for="climbSuccess" class="labels">: Successful
@@ -145,12 +135,6 @@
 			<input type="checkbox" value="false" class="checkBoxes" id="climbFailed" onChange="buttonCheck('climb', 1)">&nbsp;<label for="climbFailed" class="labels">: Failed/Fell
 			<p class="spacing"> </p>
 			<input type="checkbox" value="false" class="checkBoxes" id="climbNone" onChange="buttonCheck('climb', 2)">&nbsp;<label for="climbNone" class="labels">: Did Not Try
-		</div>
-		<div id="stopWatch">
-			<p id="watchTime">Time&nbsp;&nbsp;<span id="seconds">00</span>:<span id="tens">00</span></p>
-			<button id="button-start" class="watchButtons">Start</button>
-			<button id="button-stop" class="watchButtons">Stop</button>
-			<button id="button-reset" class="watchButtons">Reset</button>
 		</div>
 		<div id="teleMiscCheck">
 			<p id="miscHeader" class="headers">Miscellaneous:</p>
