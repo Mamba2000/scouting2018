@@ -1,1 +1,29 @@
 /*dataUpload.css*/
+.tables {
+  width: 100%;
+  border: 2px solid;
+  font-size: 24pt;
+}
+#matchData {
+  border-color: #BE1E2D; /*Red*/
+  position: relative;
+  top: 20px;
+}
+#send_messages {
+  border-color: #1E2BDE; /*Blue*/
+  position: relative;
+  top: 25px;
+}
+#eventSelect {
+  font-size: 300%;
+  text-align: center;
+  width: 350px;
+  position: relative;
+  top: 10px;
+}
+#download_matches {
+  font-size: 250%;
+  position: relative;
+  top: 7px;
+  height: 56px;
+}
