@@ -22,12 +22,78 @@ html {
 }
 
 .teleAutoSheet{
-
+  font-family: "Titillium";
+  font-size: 2em;
 }
 
+
+
+
+/* Common data input types styling */
+.checkBoxes {
+height: 40px;
+width: 40px;
+border: 2px;
+border-color: SOLID WHITE;
+}
+
+.submitButtons {
+position: absolute;
+top: 80%;
+right: 1%;
+border-style: solid;
+border-color: BLACK;
+border-width: thick;
+background-color: #EFEFEF;
+font-size: 22pt;
+font-weight: bold;
+height: 110px;
+width: 140px;
+}
+
+.backButtons {
+position: absolute;
+top: 80%;
+right: 18%;
+border-style: solid;
+border-color: black;
+border-width: thick;
+background-color: #EFEFEF;
+font-size: 26px;
+font-weight: bold;
+height: 110px;
+width: 140px;
+}
+
+
+
+
+
+/* Splash Sheet individual ids */
 #splashSheetHeader{
 
 }
+
+#matchNumber{
+
+}
+
+#scoutSelect{
+
+}
+
+#eventSelect{
+
+}
+
+#splashSubmit{
+
+}
+
+
+
+
+/* Auto Page ids */
 #teleHeader{
 
 }
@@ -45,14 +111,6 @@ html {
 position: relative;
 top: 30px;
 }
-.checkBoxes {
-height: 40px;
-width: 40px;
-border: 2px;
-border-color: SOLID WHITE;
-position: relative;
-top: 12px;
-}
 
 #teamNo {
 position: absolute;
@@ -66,29 +124,15 @@ border-width: thick;
 background-color: #EFEFEF;
 padding: 5px;
 }
-.submitButtons {
-position: absolute;
-top: 80%;
-right: 1%;
-border-style: solid;
-border-color: BLACK;
-border-width: thick;
-background-color: #EFEFEF;
-font-size: 22pt;
-font-weight: bold;
-height: 110px;
-width: 140px;
+
+
+
+
+
+/* Debug */
+#idNothing{
+
 }
-.backButtons {
-position: absolute;
-top: 80%;
-right: 18%;
-border-style: solid;
-border-color: black;
-border-width: thick;
-background-color: #EFEFEF;
-font-size: 26px;
-font-weight: bold;
-height: 110px;
-width: 140px;
+.cNothing{
+
 }
