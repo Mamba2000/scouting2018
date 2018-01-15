@@ -1,18 +1,28 @@
 /*dataUpload.css*/
 .tables {
   width: 100%;
-  border: 2px solid;
-  font-size: 24pt;
+  border: 3px solid;
+  border-collapse: collapse;
+}
+tr, th, td {
+    border-width: 3px;
+    border: solid;
+    border-collapse: collapse;
+    text-align: center;
 }
 #matchData {
-  border-color: #BE1E2D; /*Red*/
   position: relative;
   top: 20px;
+  text-align: center;
+  font-size: 42pt;
 }
 #send_messages {
-  border-color: #1E2BDE; /*Blue*/
   position: relative;
   top: 25px;
+  font-size: 22pt;
+}
+#send_messages {
+    border: 3px solid;
 }
 #eventSelect {
   font-size: 300%;
@@ -44,4 +54,13 @@
 #showSchedule {
   position: absolute;
   right: 70px;
+}
+.submitButtons {
+    position: relative;
+    top: -5px;
+    border-width: 1px;
+    border-color: black;
+    border: solid;
+    font-size: 28pt;
+    background-color: #F7F7F7;
 }
