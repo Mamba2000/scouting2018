@@ -1,33 +1,41 @@
 <!-- dataUpload.html -->
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" type="text/css" href="dataUpload.css">
-<script type="text/javascript" src="dataUpload.js"></script>
-</head>
-<body>
-  <div id="download_inputs">
-    <select id="eventSelect">
-        <option value="default">- Select Event -</option>
-        <option value="2018waahs">Auburn HS</option>
-        <option value="2018wasno">Glacier Peak</option>
-        <option value="2018IDBO">Idaho Regional</option>
-        <option value="2018PNCMP">District Champs</option>
-        <option value="2016wagg">Test</option>
-      </select>
-      <button id="download_matches" onClick="download();">Download Matches</button>
-  </div>
-  <table id="matchData" class="tables">
-    <tr>
-      <th>Match Number</th>
-      <th>Team Number</th>
-      <th>Data Uploaded?</th>
-      <th>Submit</th>
-    </tr>
-  </table>
+    <title>Data Upload/Matches Download</title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="dataUpload.css">
+        <script type="text/javascript" src="dataUpload.js"></script>
+        <script type="text/javascript" src="dataDownload.js"></script>
+        <script type="text/javascript" src="jQuery.js"></script>
+        <img src="images/AppTitleSkunkworks.png">
+    </head>
 
-  <table id="send_messages" class="tables">
+    <body>
+        <div id="showSchedule">
+            <p id="scheduleText">Downloaded:<img id="matchesImage" src="images/redX.png" /></p>
+        </div>
 
-  </table>
-</body>
+        <div id="download_inputs">
+            <select id="eventSelect">
+                <option value="default">- Select Event -</option>
+                <option value="2018waahs">Auburn HS</option>
+                <option value="2018wasno">Glacier Peak</option>
+                <option value="2018idbo">Idaho Regional</option>
+                <option value="2018pncmp">District Champs</option>
+                <option value="2016wagg">Test</option>
+            </select>
+            <button id="download_matches" onClick="download();">Download Matches</button>
+        </div>
+
+        <table id="matchData" class="tables">
+            <tr>
+                <th>Match Number</th>
+                <th>Team Number</th>
+                <th>Data Uploaded?</th>
+                <th>Submit</th>
+            </tr>
+        </table>
+
+        <table id="send_messages" class="tables"></table>
+    </body>
 </html>
