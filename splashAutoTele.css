@@ -94,13 +94,16 @@ width: 140px;
 
 
 /* Auto Page ids */
+.startPosition{
+  transform: scale(2);
+}
+
 #autoSwitch{
 
 }
 #autoScale{
 
 }
-
 
 /* Tele Page ids */
 #teleSwitch{
@@ -113,7 +116,7 @@ width: 140px;
 
 }
 #AssistOthersClimb{
-  
+
 }
 .heading {
   font-family: "Lobster";

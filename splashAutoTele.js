@@ -136,7 +136,9 @@ function validateInp(elem) {
     elem.value = strOut;
 }
 
-function fakeRadioButtons(field, condition){
+function fakeRadioButtons(set, choice){
+	var optionSet = $(set);
+	console.log(optionSet);
 
 }
 
@@ -149,6 +151,8 @@ function changeCounter(field, condition){
 	}
 }
 
+
+//need to clean this shit up with an array
 function switchPage(currentPage, direction){
 	if(currentPage == 'splash' && direction == 'forward'){
 		autoInitialize();
