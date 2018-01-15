@@ -136,8 +136,17 @@ function validateInp(elem) {
     elem.value = strOut;
 }
 
-function fakeRadioButtons(){
+function fakeRadioButtons(field, condition){
 
+}
+
+function changeCounter(field, condition){
+	var counter = document.getElementById(field);
+	if(Number(counter.value) + condition > -1){
+		counter.value =String(Number(counter.value) + condition);
+	} else {
+		counter.value = "0";
+	}
 }
 
 function switchPage(currentPage, direction){

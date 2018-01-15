@@ -50,15 +50,15 @@
 		<div>
 			<p>Boxes Placed:</p>
 			<SPAN>Scale:&nbsp;
-				<BUTTON onClick="upUnits('teleHighScores')">+1</BUTTON>
-				<INPUT type="text"value="0"  disabled>
-				<BUTTON onClick="downUnits('teleHighScores')">-1</BUTTON>
+				<BUTTON onClick="changeCounter('autoScale', 1)">+1</BUTTON>
+				<INPUT id="autoScale" type="text" value = "0"  disabled>
+				<BUTTON onClick="changeCounter('autoScale', -1)">-1</BUTTON>
 			</SPAN>
 			<BR>
 			<SPAN>Switch:&nbsp;
-				<BUTTON onClick="upUnits('teleHighScores')">+1</BUTTON>
-				<INPUT type="text"value="0"  disabled>
-				<BUTTON onClick="downUnits('teleHighScores')">-1</BUTTON>
+				<BUTTON onClick="changeCounter('autoSwitch', 1)">+1</BUTTON>
+				<INPUT type="text" id="autoSwitch" value="0"  disabled>
+				<BUTTON onClick="changeCounter('autoSwitch', -1)">-1</BUTTON>
 			</SPAN>
 			<BR>
 		</div>
@@ -84,21 +84,21 @@
 		<div>
 			<p>Boxes Placed:</p>
 			<SPAN>Scale:&nbsp;
-				<BUTTON onClick="upUnits('teleHighScores')">+1</BUTTON>
-				<INPUT type="text"value="0"  disabled>
-				<BUTTON onClick="downUnits('teleHighScores')">-1</BUTTON>
+				<BUTTON onClick="changeCounter('teleScale', 1)">+1</BUTTON>
+				<INPUT type="text" id= "teleScale" value="0"  disabled>
+				<BUTTON onClick="changeCounter('teleScale', -1)">-1</BUTTON>
 			</SPAN>
 			<BR>
 			<SPAN>Switch:&nbsp;
-				<BUTTON onClick="upUnits('teleHighScores')">+1</BUTTON>
-				<INPUT type="text"value="0"  disabled>
-				<BUTTON onClick="downUnits('teleHighScores')">-1</BUTTON>
+				<BUTTON onClick="changeCounter('teleSwitch', 1)">+1</BUTTON>
+				<INPUT type="text" id="teleSwitch" value="0"  disabled>
+				<BUTTON onClick="changeCounter('teleSwitch', -1)">-1</BUTTON>
 			</SPAN>
 			<BR>
 			<SPAN>Exchange:&nbsp;
-				<BUTTON onClick="upUnits('teleHighScores')">+1</BUTTON>
-				<INPUT type="text"value="0"  disabled>
-				<BUTTON onClick="downUnits('teleHighScores')">-1</BUTTON>
+				<BUTTON onClick="changeCounter('teleExchange', 1)">+1</BUTTON>
+				<INPUT type="text" id="teleExchange" value="0"  disabled>
+				<BUTTON onClick="changeCounter('teleExchange', -1)">-1</BUTTON>
 			</SPAN>
 			<BR>
 		</div>
@@ -111,9 +111,9 @@
 			<input type="checkbox" value="false" onChange="buttonCheck('climb', 2)">&nbsp;<label for="climbNone" class="labels">: Was assisted
 			<p class="spacing"> </p>
 			<SPAN>Assisted Others:&nbsp;
-				<BUTTON onClick="upUnits('teleHighScores')">+1</BUTTON>
-				<INPUT type="text"value="0"  disabled>
-				<BUTTON onClick="downUnits('teleHighScores')">-1</BUTTON>
+				<BUTTON onClick="changeCounter('AssistOthersClimb', 1)">+1</BUTTON>
+				<INPUT type="text" id="AssistOthersClimb" value="0"  disabled>
+				<BUTTON onClick="changeCounter('AssistOthersClimb', -1)">-1</BUTTON>
 			</SPAN>
 		</div>
 	</div>
