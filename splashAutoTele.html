@@ -3,6 +3,7 @@
 <head>
 <title>Skunk Scout</title>
 <script type="text/javascript" src="splashAutoTele.js"></script>
+<script type="text/javascript" src="jQuery.js"></script>
 <link rel="stylesheet" type="text/css" href="splashAutoTele.css">
 </head>
 <body onload="initialize()">
@@ -42,37 +43,46 @@
 	<div class="teleAutoSheet" id="autoPage" hidden>
 		<p>AUTONOMOUS</p>
 		<div>
-			<p>Start Location:</p>
-			<input type="checkbox" value="false" onClick="buttonCheck('startCheck', 0)">&nbsp;<label for="boiler" class="labels">: Outside
-			<p> </p>
-			<input type="checkbox" value="false" onClick="buttonCheck('startCheck', 1)">&nbsp;<label for="center" class="labels">: Center
-		</div>
-		<div>
+			<form>
+			  <p>Start Position:</p>
+			  <div>
+			    <input type="radio" name = 'startPos' class='startPosition' id="outsideStart">
+			    <label for="outsideStart">Outside</label>
+
+			    <input type="radio" name = 'startPos' class='startPosition' id="centerStart">
+			    <label for="centerStart">Center</label>
+			  </div>
+			  <div>
+			    <button type="submit">Submit</button>
+			  </div>
+			</form>
+			<div>
 			<p>Boxes Placed:</p>
 			<SPAN>Scale:&nbsp;
-				<BUTTON onClick="upUnits('teleHighScores')">+1</BUTTON>
-				<INPUT type="text"value="0"  disabled>
-				<BUTTON onClick="downUnits('teleHighScores')">-1</BUTTON>
+				<BUTTON onClick="changeCounter('autoScale', 1)">+1</BUTTON>
+				<INPUT id="autoScale" type="text" value = "0"  disabled>
+				<BUTTON onClick="changeCounter('autoScale', -1)">-1</BUTTON>
 			</SPAN>
 			<BR>
 			<SPAN>Switch:&nbsp;
-				<BUTTON onClick="upUnits('teleHighScores')">+1</BUTTON>
-				<INPUT type="text"value="0"  disabled>
-				<BUTTON onClick="downUnits('teleHighScores')">-1</BUTTON>
+				<BUTTON onClick="changeCounter('autoSwitch', 1)">+1</BUTTON>
+				<INPUT type="text" id="autoSwitch" value="0"  disabled>
+				<BUTTON onClick="changeCounter('autoSwitch', -1)">-1</BUTTON>
 			</SPAN>
 			<BR>
+			</div>
+			<div>
+				<p>Miscellaneous:&nbsp;</p>
+				<input type="checkbox"  value="false">&nbsp;<label for="passLine" class="labels">: Crossed Line
+				<p class="spacing"> </p>
+				<input type="checkbox" value="false">&nbsp;<label for="noShow" class="labels">: No Show
+				<p class="spacing"> </p>
+				<input type="checkbox" value="false">&nbsp;<label for="deadBot" class="labels">: Dead Bot
+			</div>
+			<p>0000</p>
+			<BUTTON onClick="switchPage('auto', 'backward')" class="backButtons">GO<BR>BACK</BUTTON>
+			<BUTTON onClick="switchPage('auto', 'forward')" id="autoSubmit" class="submitButtons">GO TO<BR>TELEOP</BUTTON>
 		</div>
-		<div>
-			<p>Miscellaneous:&nbsp;</p>
-			<input type="checkbox"  value="false">&nbsp;<label for="passLine" class="labels">: Crossed Line
-			<p class="spacing"> </p>
-			<input type="checkbox" value="false">&nbsp;<label for="noShow" class="labels">: No Show
-			<p class="spacing"> </p>
-			<input type="checkbox" value="false">&nbsp;<label for="deadBot" class="labels">: Dead Bot
-		</div>
-		<p>0000</p>
-		<BUTTON onClick="switchPage('auto', 'backward')" class="backButtons">GO<BR>BACK</BUTTON>
-		<BUTTON onClick="switchPage('auto', 'forward')" id="autoSubmit" class="submitButtons">GO TO<BR>TELEOP</BUTTON>
 	</div>
 
 	<!-- Tele page -->
@@ -84,36 +94,36 @@
 		<div>
 			<p>Boxes Placed:</p>
 			<SPAN>Scale:&nbsp;
-				<BUTTON onClick="upUnits('teleHighScores')">+1</BUTTON>
-				<INPUT type="text"value="0"  disabled>
-				<BUTTON onClick="downUnits('teleHighScores')">-1</BUTTON>
+				<BUTTON onClick="changeCounter('teleScale', 1)">+1</BUTTON>
+				<INPUT type="text" id= "teleScale" value="0"  disabled>
+				<BUTTON onClick="changeCounter('teleScale', -1)">-1</BUTTON>
 			</SPAN>
 			<BR>
 			<SPAN>Switch:&nbsp;
-				<BUTTON onClick="upUnits('teleHighScores')">+1</BUTTON>
-				<INPUT type="text"value="0"  disabled>
-				<BUTTON onClick="downUnits('teleHighScores')">-1</BUTTON>
+				<BUTTON onClick="changeCounter('teleSwitch', 1)">+1</BUTTON>
+				<INPUT type="text" id="teleSwitch" value="0"  disabled>
+				<BUTTON onClick="changeCounter('teleSwitch', -1)">-1</BUTTON>
 			</SPAN>
 			<BR>
 			<SPAN>Exchange:&nbsp;
-				<BUTTON onClick="upUnits('teleHighScores')">+1</BUTTON>
-				<INPUT type="text"value="0"  disabled>
-				<BUTTON onClick="downUnits('teleHighScores')">-1</BUTTON>
+				<BUTTON onClick="changeCounter('teleExchange', 1)">+1</BUTTON>
+				<INPUT type="text" id="teleExchange" value="0"  disabled>
+				<BUTTON onClick="changeCounter('teleExchange', -1)">-1</BUTTON>
 			</SPAN>
 			<BR>
 		</div>
 		<div>
-			<p>Climb:</p>
-			<input type="checkbox" value="false" onChange="buttonCheck('climb', 0)">&nbsp;<label for="climbSuccess" class="labels">: Park
-			<p class="spacing"> </p>
-			<input type="checkbox" value="false" onChange="buttonCheck('climb', 0)">&nbsp;<label for="climbSuccess" class="labels">: Self-climb
-			<p class="spacing"> </p>
-			<input type="checkbox" value="false" onChange="buttonCheck('climb', 2)">&nbsp;<label for="climbNone" class="labels">: Was assisted
-			<p class="spacing"> </p>
+			<input type="radio" name = 'endClimb' class='climb' id="outsideStart">
+			<label for="outsideStart">Outside</label>
+			<input type="radio" name = 'endClimb' class='climb' id="centerStart">
+			<label for="centerStart">Center</label>
+			<input type="radio" name = 'endClimb' class='climb' id="centerStart">
+			<label for="centerStart">Center</label>
+			<br>
 			<SPAN>Assisted Others:&nbsp;
-				<BUTTON onClick="upUnits('teleHighScores')">+1</BUTTON>
-				<INPUT type="text"value="0"  disabled>
-				<BUTTON onClick="downUnits('teleHighScores')">-1</BUTTON>
+				<BUTTON onClick="changeCounter('AssistOthersClimb', 1)">+1</BUTTON>
+				<INPUT type="text" id="AssistOthersClimb" value="0"  disabled>
+				<BUTTON onClick="changeCounter('AssistOthersClimb', -1)">-1</BUTTON>
 			</SPAN>
 		</div>
 	</div>

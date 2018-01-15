@@ -136,10 +136,23 @@ function validateInp(elem) {
     elem.value = strOut;
 }
 
-function fakeRadioButtons(){
+function fakeRadioButtons(set, choice){
+	var optionSet = $(set);
+	console.log(optionSet);
 
 }
 
+function changeCounter(field, condition){
+	var counter = document.getElementById(field);
+	if(Number(counter.value) + condition > -1){
+		counter.value =String(Number(counter.value) + condition);
+	} else {
+		counter.value = "0";
+	}
+}
+
+
+//need to clean this shit up with an array
 function switchPage(currentPage, direction){
 	if(currentPage == 'splash' && direction == 'forward'){
 		autoInitialize();

@@ -94,7 +94,30 @@ width: 140px;
 
 
 /* Auto Page ids */
+.startPosition{
+  transform: scale(2);
+}
 
+#autoSwitch{
+
+}
+#autoScale{
+
+}
+
+/* Tele Page ids */
+#teleSwitch{
+
+}
+#teleScale{
+
+}
+#teleExchange{
+
+}
+#AssistOthersClimb{
+
+}
 .heading {
   font-family: "Lobster";
   font-size: 2em;
@@ -115,12 +138,4 @@ border-color: BLACK;
 border-width: thick;
 background-color: #EFEFEF;
 padding: 5px;
-}
-
-/* Debug */
-#idNothing{
-
-}
-.cNothing{
-
 }
