@@ -1,0 +1,22 @@
+/*mainPage.css*/
+html {
+  background-image: url("");
+  background-size: 10%;
+  background-position: center;
+  background-attachment: fixed;
+}
+body{
+  text-align: center;
+}
+.bigger {
+  position: relative;
+  height: 2.5em;
+  width: 10em;
+  top: 175px;
+}
+.smaller {
+  position: relative;
+  height: 1.5em;
+  width:5em;
+  top:240px;
+}
