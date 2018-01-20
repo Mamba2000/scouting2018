@@ -35,7 +35,7 @@
       <br>
 
       <!-- Get ready to switch to the Auto and Tele Sheet -->
-      <button id="splashSubmit" onclick="switchPage('splash', 'forward')">SUBMIT</button>
+      <button id="splashSubmit" onclick="switchPage('splashPage', 'forward')">SUBMIT</button>
 		</div>
 	</div>
 
@@ -72,8 +72,8 @@
 				<input class="checkbox" id="autoDeadBot" type="checkbox" value="false">&nbsp;<label for="deadBot" class="labels">: Dead Bot <br>
 			</div>
 			<p>0000</p>
-			<BUTTON onClick="switchPage('auto', 'backward')" class="backButtons">GO<BR>BACK</BUTTON>
-			<BUTTON onClick="switchPage('auto', 'forward')" id="autoSubmit" class="submitButtons">GO TO<BR>TELEOP</BUTTON>
+			<BUTTON onClick="switchPage('autoPage', 'backward')" class="backButtons">GO<BR>BACK</BUTTON>
+			<BUTTON onClick="switchPage('autoPage', 'forward')" id="autoSubmit" class="submitButtons">GO TO<BR>TELEOP</BUTTON>
 		</div>
 	</div>
 
@@ -113,7 +113,7 @@
 			<input class="checkbox" id="helpedClimb" type="checkbox" value="false">&nbsp;<label for="teleDeadBot" class="labels">: Helped Climb <br>
 			<input class="checkbox" id="climb" type="checkbox" value="false">&nbsp;<label for="teleDeadBot" class="labels">: Self Climb <br>
 		</div>
-		<BUTTON class="backButtons" onClick="switchPage('tele', 'backward')">GO<BR>BACK</BUTTON>
+		<BUTTON class="backButtons" onClick="switchPage('telePage', 'backward')">GO<BR>BACK</BUTTON>
 		<BUTTON class="submitButtons" id="teleSubmit" onClick="submitTele()">SUBMIT</BUTTON>
 	</div>
 </body>

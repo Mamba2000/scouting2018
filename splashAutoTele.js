@@ -1,24 +1,23 @@
 //Global constants
 RED = "#BE1E2D";
 BLUE = "#1E2BBE";
-
+BlueAllianceURL = "https://www.thebluealliance.com/api/v2/event/";
+xbtAPP_ID = "?X-TBA-App-Id=FRC1983:Scouting:v2";
 //Global variables
 var robot;
 var alliance;
+var jStr;
+var jObj;
+var LSName
 
 //initialize the splash sheet
 function initialize() {
+	jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","auto":{"StartPos":"default","CrossLine":false,"Scale":0,"Switch":0,"noShow":false},"tele":{"Scale":0,"Switch":0,"Exchange":0},"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false}';
+    jObj = JSON.parse(jStr);
 	var str = window.location.search;
  	var tabletID = str.split("=");
 	matchTablet(tabletID[1]);
-	scout = localStorage.getItem("ScoutName");
-	if (scout != null) {
-		document.getElementById('scoutselect').value = scout;
-	}
-	evnt = localStorage.getItem("Event");
-	if (evnt != null) {
-		document.getElementById('eventselect').value = evnt;
-	}
+	
 }
 
 //Determine which tablet is doing the scouting from splashPage input
@@ -52,13 +51,6 @@ function matchTablet(argument){
 			alliance = "ANY";
 			robot = 0;
 			break;
-	}
-	document.getElementById("splashSheetHeader").innerHTML = alliance + " " + robot;
-	if (alliance === "BLUE") {
-		document.getElementById("splashSheetHeader").style.color = "blue";
-	}
-	else if (alliance === "RED") {
-		document.getElementById("splashSheetHeader").style.color = "red";
 	}
 }
 
@@ -152,43 +144,29 @@ function changeCounter(field, condition){
 	}
 }
 
-
-//need to clean this shit up with an array
 function switchPage(currentPage, direction){
-	if(currentPage == 'splash' && direction == 'forward'){
+	var pages = ['splashPage', 'autoPage', 'telePage'];
+	var currentPos = pages.indexOf(currentPage);
+	if(currentPos == 0){
 		autoInitialize();
-		document.getElementById('splashPage').hidden = true;
-		document.getElementById("autoPage").hidden = false;
-	} else if(currentPage == 'auto' && direction == 'forward'){
-		document.getElementById("autoPage").hidden = true;
-		document.getElementById("telePage").hidden = false;
-	} else if(currentPage == 'tele' && direction == 'backward'){
-		document.getElementById("autoPage").hidden = false;
-		document.getElementById("telePage").hidden = true;
-	} else if(currentPage == 'auto' && direction == 'backward'){
-		document.getElementById('splashPage').hidden = false;
-		document.getElementById("autoPage").hidden = true;
+	}
+	if(direction === 'forward'){
+		document.getElementById(pages[currentPos]).hidden = true;
+		document.getElementById(pages[currentPos+1]).hidden = false;
+	} else {
+		document.getElementById(pages[currentPos]).hidden = true;
+		document.getElementById(pages[currentPos-1]).hidden = false;
 	}
 }
 
-// array[a, b, c, d]
-// function(currentPage)
-// 	if (forward)
-// 		pos = posinarray.(currentPage)
-// 		document.getElementById([pos]).hidden
-// 		document.getElementById([pos+1]).hidden
 
-
-
-
+//takes all the data from the three pages and puts them into one jObj, then puts that in local storage
 function submitTele() {
-    var jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","auto":{"StartPos":"default","CrossLine":false,"Scale":0,"Switch":0,"noShow":false},"tele":{"Scale":0,"Switch":0,"Exchange":0},"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false}';
-    var jObj = JSON.parse(jStr);
     jObj.scoutName = document.getElementById("scoutSelect").value;
 	jObj.eventName = document.getElementById("eventSelect").value;
 	jObj.teamNumber = parseInt(document.getElementById(""));
 	jObj.match = parseInt(document.getElementById("matchNumber")).value;
-	jObj.alliance = document.getElementById("");
+	jObj.alliance = alliance;
 	if(document.getElementById("outsideStart").checked)	{
 		jObj.auto.StartPos = "outside";
 	} else {
@@ -210,7 +188,7 @@ function submitTele() {
 	jObj.AssistedClimb = parseInt(document.getElementById("AssistOthersClimb").value, 10);
 	jObj.ReceivedClimb = document.getElementById("helpedClimb").checked;
 
-	var LSName = "name";
+	LSName = "name";
 
 	localStorage.setItem(LSName, JSON.stringify(jObj));
 
