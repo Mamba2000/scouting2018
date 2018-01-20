@@ -1,0 +1,212 @@
+html {
+font-size: 22pt;
+}
+.logo {
+position: absolute;
+right: 1.25%;
+top: 2.5%;
+width: 65%;
+}
+#autoHeader {
+font-size: 28pt;
+position: absolute;
+right: 1.25%;
+top: 6%;
+}
+#autonomousHalf {
+visibility: visible;
+}
+#startLocation {
+position: absolute;
+left: 3%;
+top: 9%;
+z-index: 1;
+}
+.headers {
+position: relative;
+top: 30px;
+}
+.checkBoxes {
+height: 40px;
+width: 40px;
+border: 2px;
+border-color: SOLID WHITE;
+position: relative;
+top: 12px;
+}
+.spacing {
+font-size: 5pt;
+}
+#autoGearScores {
+position: absolute;
+top: 45%;
+left: 3%;
+}
+#autoFuelScores {
+position: absolute;
+top: 17.5%;
+right: 10%;
+}
+#autoHighScoreButtons {
+position: relative;
+bottom: 20px;
+}
+.fuelScoreButtons {
+height: 2.1em;
+border-radius: 10px;
+width: 2.4em;
+text-align: center;
+padding: 0px;
+border-style: solid;
+border-color: black;
+font-size: 22px;
+}
+.fuelScoreboard {
+font-size: 22pt;
+width: 5em;
+position: relative;
+top: 3px;
+}
+#autoLowScoreButtons {
+position: relative;
+left: 5px;
+}
+#autoMisc {
+position: absolute;
+left: 32.5%;
+top: 54%;
+}
+#teamNo {
+position: absolute;
+left: -5px;
+top: -85px;
+font-size: 60pt;
+font-style: sans-serif;
+border-style: solid;
+border-color: BLACK;
+border-width: thick;
+background-color: #EFEFEF;
+padding: 5px;
+}
+.submitButtons {
+position: absolute;
+top: 80%;
+right: 1%;
+border-style: solid;
+border-color: BLACK;
+border-width: thick;
+background-color: #EFEFEF;
+font-size: 22pt;
+font-weight: bold;
+height: 110px;
+width: 140px;
+}
+.backButtons {
+position: absolute;
+top: 80%;
+right: 18%;
+border-style: solid;
+border-color: black;
+border-width: thick;
+background-color: #EFEFEF;
+font-size: 26px;
+font-weight: bold;
+height: 110px;
+width: 140px;
+}
+#autoFouls {
+width: 40%;
+position: absolute;
+top: 47.5%;
+right: 0%;
+}
+.foulScoreboard {
+font-size: 22pt;
+width: 3em;
+position: relative;
+top: 3px;
+}
+.foulScoreButtons {
+height: 2.1em;
+border-radius: 10px;
+width: 2.4em;
+text-align: center;
+padding: 0px;
+border-style: solid;
+border-color: black;
+font-size: 22px;
+}
+#autoFoulHeader {
+position: relative;
+top: 15px;
+}
+
+/* TELE OP CSS */
+
+#teleHeader {
+font-size: 28pt;
+position: absolute;
+right: 1.25%;
+top: 6%;
+}
+#teamNoTele {
+position: absolute;
+left: -5px;
+top: -85px;
+font-size: 60pt;
+font-style: sans-serif;
+border-style: solid;
+border-color: BLACK;
+border-width: thick;
+background-color: #EFEFEF;
+padding: 5px;
+}
+#teleFuel {
+position: absolute;
+left: 4%;
+top: 15%;
+}
+#teleGearScores {
+position: absolute;
+left: 6.5%;
+top: 49.5%;
+}
+#teleFouls {
+position: absolute;
+left: 15%;
+bottom: 1%;
+}
+#climb {
+position: absolute;
+right: 5%;
+top: 10.5%;
+}
+#stopWatch {
+z-index: -1;
+position: absolute;
+top: 49%;
+right: 2%;
+font-size: 32pt;
+text-align: center;
+}
+.watchButtons {
+font-size: 18pt;
+height: 55px;
+width: 100px;
+border-color: black;
+background-color: #EFEFEF;
+position: relative;
+bottom: 40px;
+}
+#teleMiscCheck {
+position: absolute;
+left: 4%;
+top: 50%;
+z-index: -1;
+}
+#teleMiscCheck2 {
+position: absolute;
+left: 34%;
+top: 65.525%;
+z-index: -1;
+}

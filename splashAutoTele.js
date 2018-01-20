@@ -184,14 +184,35 @@ function switchPage(currentPage, direction){
 function submitTele() {
     var jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","auto":{"StartPos":"default","CrossLine":false,"Scale":0,"Switch":0,"noShow":false},"tele":{"Scale":0,"Switch":0,"Exchange":0},"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false}';
     var jObj = JSON.parse(jStr);
-    jObj.scoutName = document.getElementById("scoutSelect");
-	jObj.eventName = document.getElementById("eventSelect");
+    jObj.scoutName = document.getElementById("scoutSelect").value;
+	jObj.eventName = document.getElementById("eventSelect").value;
 	jObj.teamNumber = parseInt(document.getElementById(""));
-	jObj.match = parseInt(document.getElementById(""));
+	jObj.match = parseInt(document.getElementById("matchNumber")).value;
 	jObj.alliance = document.getElementById("");
-	jObj.auto.StartPos = document.getElementById("");
-	jObj.auto.CrossLine = document.getElementById("");
-	jObj.auto.Scale = parseInt(document.getElementById(""));
-	jObj.auto.Switch = parseInt(document.getElementById(""));
-	jObj.auto. = parseInt(document.getElementById(""));
+	if(document.getElementById("outsideStart").checked)	{
+		jObj.auto.StartPos = "outside";
+	} else {
+		jObj.autoStartPos = "center";
+	}
+	jObj.auto.CrossLine = document.getElementById("crossedLine").checked;
+	jObj.auto.Scale = parseInt(document.getElementById("autoScale").value, 10);
+	jObj.auto.Switch = parseInt(document.getElementById("autoSwitch").value, 10);
+	jObj.auto.noShow = document.getElementById("noShow").checked;
+	jObj.tele.Scale = parseInt(document.getElementById("teleScale").value, 10);
+	jObj.tele.Switch = parseInt(document.getElementById("teleSwitch").value, 10);
+	jObj.tele.Exchange = parseInt(document.getElementById("teleExchange").value, 10);
+	if (document.getElementById("autoDeadBot").checked || document.getElementById("teleDeadBot").checked){
+		jObj.deadBot = true;
+	} else {
+		jObj.deadBot = false;
+	}
+	jObj.Climb = document.getElementById("climb").checked;
+	jObj.AssistedClimb = parseInt(document.getElementById("AssistOthersClimb").value, 10);
+	jObj.ReceivedClimb = document.getElementById("helpedClimb").checked;
+
+	var LSName = "name";
+
+	localStorage.setItem(LSName, JSON.stringify(jObj));
+
+	console.log(JSON.stringify(jObj));
 }

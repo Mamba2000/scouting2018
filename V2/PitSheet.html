@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Skunk Scout: Pit Scouting Edition</title>
+<script language="javascript">
+/* THIS IS SOME JS BABY */
+function validateInp(elem) {
+	var validChars = /[0-9]/;
+	var strIn = elem.value;
+	var strOut = '';
+    for (var i=0; i < strIn.length; i++) strOut += (validChars.test(strIn.charAt(i)))? strIn.charAt(i) : '';
+    elem.value = strOut;
+}
+
+function nextField(evt, elem)
+//////////////////////
+//                  //
+// Next Field //
+//                  //
+//////////////////////
+//
+{
+//	console.log(evt.keyCode);					// Test
+	if (evt.keyCode == 13)
+	{
+		switch(elem.id)
+		{
+			case "skunkName":
+				document.getElementById("teamNum").focus();
+				break;
+			case "teamNum":
+				document.getElementById("leadScout").focus();
+				break;
+			case "leadScout":
+				document.getElementById("CIMs").focus();
+				break;
+/*			case "scoutNum1":
+				document.getElementById("scoutNum2").focus();
+				break;
+			case "scoutNum2":
+				document.getElementById("scoutNum3").focus();
+				break;
+			case "scoutNum3":
+				document.getElementById("CIMs").focus();
+				break;	*/
+			case "CIMs":
+				document.getElementById("hopperSize").focus();
+				break;
+		}
+	}
+}
+
+function pitSubmit() {
+	var jSon =  '{"PitScoutName":"';
+	jSon = jSon.concat(document.getElementById("skunkName").value);
+	// Event //
+	jSon = jSon.concat('","PitEvent":"');
+	jSon = jSon.concat( document.getElementById("pitEvent").value);
+	// Team Number //
+	jSon = jSon.concat('","TeamNo":');
+	jSon = jSon.concat(document.getElementById("teamNum").value);
+	// Lead Scout //
+	jSon = jSon.concat(',"LeadScout":"');
+	jSon = jSon.concat(document.getElementById("leadScout").value);
+	// Scout Number //
+	jSon = jSon.concat('","ScoutNumber":"6666666666');
+//	jSon = jSon.concat(document.getElementById("scoutNum1").value + document.getElementById("scoutNum2").value + document.getElementById("scoutNum3").value);
+	// CIMs //
+	jSon = jSon.concat('","CIMS":');
+	jSon = jSon.concat(document.getElementById("CIMs").value);
+	// Hopper Size //
+	jSon = jSon.concat(',"hopperSize":');
+	jSon = jSon.concat(document.getElementById("hopperSize").value);
+	// Frame //
+	jSon = jSon.concat(',"frame":"');
+	jSon = jSon.concat(document.getElementById("frame").value);
+	// Robot Weight //
+	jSon = jSon.concat('","weight":"');
+	jSon = jSon.concat(document.getElementById("roboWeight").value);
+	// Drive Base //
+	jSon = jSon.concat('","driveBase":"');
+	jSon = jSon.concat(document.getElementById("wheels").value);
+	// Climber //
+	jSon = jSon.concat('","climber":');
+	jSon = jSon.concat(document.getElementById("climber").value);
+	// Custom Rope //
+	jSon = jSon.concat(',"CustomRope":"');
+	jSon = jSon.concat(document.getElementById("rope").value);
+	// Ball Pick Up //≈
+	jSon = jSon.concat('","ballPickUp":"');
+	jSon = jSon.concat( document.getElementById("ballPickUp").value);
+	// Gear Acquire // 
+	jSon = jSon.concat('","gearAcquire":"');
+	jSon = jSon.concat( document.getElementById("gearPickUp").value);
+	// Camera //
+	jSon = jSon.concat('","camera":"');
+	jSon = jSon.concat(document.getElementById("camera").value);
+	// Shooting //
+	jSon = jSon.concat('","shooting":"');
+	jSon = jSon.concat(document.getElementById("shot").value);
+	//Vision //
+	jSon = jSon.concat('","Vision":');
+	jSon = jSon.concat(document.getElementById("vision").value);
+	jSon = jSon.concat('}');
+	console.log(jSon);																	// Test
+	var test = JSON.parse(jSon);													// Test
+	var pitObj = document.getElementById("pitEvent").value;
+	pitObj = pitObj.concat("_");
+	pitObj = pitObj.concat(document.getElementById("teamNum").value);
+	pitObj = pitObj.concat("_");
+	pitObj = pitObj.concat("Pit");
+	localStorage.setItem(pitObj, jSon);
+	console.log(pitObj);
+	console.log(jSon);
+	document.body.scrollTop = document.documentElement.scrollTop = 0;
+	location.reload();
+}
+</script>
+<style type="text/css">
+	html {
+		background-image: url("images/TransparentSkunk.png");
+		background-size: 7.68%;
+		background-position: center;
+		width: 100%;
+		background-attachment: fixed;
+
+	}
+
+	#pitSheet {
+		position: relative;
+		width: 85%;
+		left: 7.5%;
+		border-style: solid;
+		border-width: regular;
+		background-color: #FFFFFF;
+		overflow-x: hidden;
+		font-size: 2em;
+	}
+
+	.input {
+		font-size: 1em;
+		width: 20%;
+		border-style: solid;
+		border-width: 1px;
+	}
+
+	#inputs {
+		text-align: center-left;
+		position: relative;
+		left: 1.5em;
+	}
+
+	.select {
+		font-size: 1em;
+	}
+
+	.phoneNum {
+		font-size: 1em;
+		border-style: solid;
+		border-width: 1px;
+	}
+
+	.buttons {
+		font-family: "Times New Roman", Times, Serif;
+		border: outset;
+		border-radius: 2px;
+		font-size: 1em;
+		color: #BE1E2D;
+		border-color: #BE1E2D;
+	}
+
+	#scoutNum1, #scoutNum2 {
+		width: 10%;
+	}
+
+	#scoutNum3 {
+		width: 13.5%;
+	}
+
+	#submitBtn {
+		text-align: center;
+	}
+
+	#skunkName, #leadScout {
+		width: 10em;
+	}
+</style>
+<br>
+<br>
+</head>
+<body>
+	<div id="pitSheet">
+		<img src="images/PitScouting.png" alt="Skunkworks" style="width:100%;height:auto;">
+		<div id="inputs">
+			<div>
+				<br>Pit Scout Name: <input type="text" id="skunkName" class="input" value="" onKeyPress="nextField(event, this);" autocomplete=off>
+			</div>
+			<div>
+				<br>Event: 
+				<select class="select" id="pitEvent">
+					<option value="Default">- - Select Event - -</option>
+					<option value="2017waamv">Auburn Mtn View</option>
+					<option value="2017waell">Central WA</option>
+					<option value="2017wasno">Glacier Peak</option>
+					<option value="2017wacmp">Spokane</option>
+					<option value="2017tur">Houston</option>
+					<option value="test">Test</option>
+				</select>
+			</div>
+			<div>
+				<br>Team Number: <input type="text" id="teamNum" class="input" value="" maxlength="4" onkeyup="validateInp(this);" onKeyPress="nextField(event, this);" autocomplete=off>
+			</div>
+			<div>
+				<br>Name of Lead Scout: <input type="text" id="leadScout" class="input" value="" onKeyPress="nextField(event, this);" autocomplete=off>
+			</div>
+<!--		<div>
+				<br>Lead Scout Phone #: <input type="text" id="scoutNum1" class="phoneNum" value="" maxlength="3" onkeyup="validateInp(this);" onKeyPress="nextField(event, this);" autocomplete=off> - <input type="text" id="scoutNum2" class="phoneNum" value="" maxlength="3" onkeyup="validateInp(this);" onKeyPress="nextField(event, this);" autocomplete=off> - <input type="text" id="scoutNum3" class="phoneNum" value="" maxlength="4" onkeyup="validateInp(this);" onKeyPress="nextField(event, this);" autocomplete=off>
+			</div>		-->
+			<div>
+				<br># of Drive Base CIMs: <input type="text" id="CIMs" class="input" value="" maxlength="1" onkeyup="validateInp(this);" onKeyPress="nextField(event, this);" autocomplete=off>
+			</div>
+			<div>
+				<br>Hopper Size: <input type="text" id="hopperSize" class="input" value="" maxlength="2" onkeyup="validateInp(this);" onKeyPress="nextField(event, this);" autocomplete=off> Balls
+			</div>
+			<div>
+				<br>Robot Weight (w/ battery & bumpers): <input type="text" id="roboWeight" class="input" value="" maxlength="3" onkeyup="validateInp(this);" onkeypress="nextField(event, this);" autocomplete=off> lbs
+			</div>
+			<div>
+				<br>Frame Type:
+				<select class="select" id="frame">
+					<option value="default"> - - Select - - </option> 
+					<option value="a"> A (Short) </option>
+					<option value="b"> B (Tall) </option>
+				</select>
+			</div>
+			<div>
+				<br>Drive Base Type:
+				<select class="select" id="wheels">
+					<option value="default"> - - Select - - </option>
+					<option value="tank">Tank Drive</option>
+					<option value="mecanum">Mecanum Drive</option>
+					<option value="swerve">Swerve Drive</option>
+					<option value="omni">Omni Drive</option>
+				</select>
+			</div>
+			<div>
+				<br>Climber? 
+				<select class="select" id="climber">
+					<option value="default"> - - Select - - </option>
+					<option value="true"> Yes </option>
+					<option value="false"> No </option>
+				</select>
+			</div>
+			<div>
+				<br>Type of Rope: 
+				<select class="select" id="rope">
+					<option value="default">- - Select - -</option>
+					<option value="custom"> Custom Rope </option>
+					<option value="field"> Field Rope </option>
+					<option value="noClimb"> No Climb </option>
+				</select>
+			</div>
+			<div>
+				<br>Ball Acquisition:
+				<select class="select" id="ballPickUp">
+					<option value="default">- - Select - -</option>
+					<option value="floor"> Floor Pick Up </option>
+					<option value="top"> Feeder Station </option>
+					<option value="hopper"> Field Hopper </option>
+					<option value="f+t"> Floor and Feeder </option>
+					<option value="f+h"> Floor and Hopper </option>
+					<option value="t+h"> Feeder and Hopper </option>
+					<option value="all"> All Three </option>
+					<option value="noHopp"> No Robot Hopper </option>
+				</select>
+			</div>
+			<div>
+				<br> Gear Acquisition:
+				<select class="select" id="gearPickUp">
+					<option value="default">- - Select - -</option>
+					<option value="floor"> Floor Pickup </option>
+					<option value="feeder"> Feeder Station </option>
+					<option value="both"> Both </option>
+				</select>
+			</div>
+			<div>
+				<br>Driver Camera? 
+				<select class="select" id="camera">
+					<option value="default">- - Select - -</option>
+					<option value="y1"> Yes, one </option>
+					<option value="y+"> Yes, >1 </option>
+					<option value="n"> No Camera </option>
+				</select>
+			</div>
+			<div>
+				<br>They Shoot:
+				<select class="select" id="shot">
+					<option value="default">- - Select - -</option>
+					<option value="high"> High Goals </option>
+					<option value="low"> Low Goals </option>
+					<option value="both"> Both Goals </option>
+					<option value="noShot"> Neither Goal </option>
+				</select>
+			</div>
+			<div>
+				<br>Vision System?
+				<select class="select" id="vision">
+					<option value="default"> - - Select - - </option>
+					<option value="true"> Yes </option>
+					<option value="false"> No </option>
+				</select>
+			</div>
+		</div>
+		<div id="submitBtn">
+				<br>
+				<button class="buttons" onclick="pitSubmit();">SUBMIT</button>
+		</div>
+		<BR><BR>
+	</div>
+
+</body>
+	<br>
+	<br>
+	<br>
+	<br>
+</html>

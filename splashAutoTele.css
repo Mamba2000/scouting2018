@@ -111,6 +111,15 @@ width: 140px;
 #autoScale{
 
 }
+#crossedLine{
+
+}
+#noShow{
+
+}
+#autoDeadBot{
+
+}
 
 /* Tele Page ids */
 #teleSwitch{
@@ -124,6 +133,15 @@ width: 140px;
 }
 #AssistOthersClimb{
 
+}
+#teleDeadBot{
+
+}
+#climb{
+
+}
+#helpedClimb{
+	
 }
 
 #teamNo {

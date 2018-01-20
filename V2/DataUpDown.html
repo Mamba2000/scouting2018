@@ -1,0 +1,452 @@
+
+<!Doctype html>
+<title> Data up / Down</title>
+<script language="javascript">
+// Global Constants ///
+BlueAllianceURL = "https://www.thebluealliance.com/api/v2/event/";
+xbtAPP_ID = "?X-TBA-App-Id=FRC1983:Scouting:v2";
+DatabaseURL = "http://ec2-52-42-95-150.us-west-2.compute.amazonaws.com:8080";
+// Global Variables //
+var matches;
+
+function upload()
+////////////////////
+//                //
+// Up Load //
+//                //
+////////////////////
+{
+	if (navigator.onLine)
+	{
+		upLoaded = new Array();
+		var elem = document.getElementById("errorMsg");
+		elem.innerHTML = "";
+		var i; var l; var once = false;
+		i = localStorage.length - 1;
+		while ((i >= 0) && !once)
+		{
+			l = localStorage.key(i).length;
+			if ((l > 7) && (localStorage.key(i).substring(l - 6, l) == "Object"))
+			{
+				var locStore = localStorage.key(i);
+				var jObj = localStorage.getItem(locStore);
+//				console.log(locStore);																	// Test
+				console.log(stringifyDataSQL(JSON.parse(jObj)));						// Test
+				issueHTTPForm(stringifyDataSQL(JSON.parse(jObj)), DatabaseURL, function(stats)
+				{
+					dataHasBeenUploaded(locStore);
+				});
+				once = true;
+//				document.write(stringifyDataSQL(jObj));										// Test
+			} else if ((l > 3) && (localStorage.key(i).substring(l - 3, l) == "Pit")) {
+				var locStore = localStorage.key(i);
+//				console.log(locStore);																	// Test
+				var jObj = localStorage.getItem(locStore);
+//				console.log(stringifyPitSQL(JSON.parse(jObj)));						// Test
+				issueHTTPForm(stringifyPitSQL(JSON.parse(jObj)), DatabaseURL, function(stats)
+				{
+					dataHasBeenUploaded(locStore);
+				});	
+				once = true;
+			}
+			i--;
+		}
+		if (!once)
+		{
+			var elem = document.getElementById("uploaded");
+			elem.innerHTML = elem.innerHTML.concat('No files to upload');
+			elem.style.color = 'RED'; 
+			elem.style.visibility = 'visible';
+		}
+	} else {
+		var elem = getElementById("errorMsg");
+		elem.innerHTML = "No internet available";
+	}
+}
+function dataHasBeenUploaded(fName)
+///////////////////////////////////////////////
+//                                           //
+// Data Has Been Uploaded //
+//                                           //
+///////////////////////////////////////////////
+{
+	var elem = document.getElementById("uploaded");
+	elem.innerHTML = elem.innerHTML.concat('<BR>' + fName + ' is uploaded'); 
+	elem.style.visibility = 'visible';
+	localStorage.removeItem(fName);
+}
+function download()
+//////////////////////
+//                  //
+// Download //
+//                  //
+//////////////////////
+{
+	eventName = document.getElementById("eventSelect").value;
+	isThere = false;
+	for (i=0; i<localStorage.length; i++)
+	{
+		var key = localStorage.key(i);
+//		console.log(key);															// Test
+    	if (eventName.concat("Matches") == key)
+    	{
+    		isThere = true;
+    		break;
+    	}
+	}
+	if (!isThere)
+	{
+		chrs = BlueAllianceURL.concat(eventName);
+		chrs = chrs.concat("/matches");
+//		console.log(chrs.concat(xbtAPP_ID));							// Test
+		issueRequestHTTP("GET", chrs.concat(xbtAPP_ID), function(result)
+		{
+			matchesHaveBeenDownloaded(result);
+		});
+	}
+	console.log("data downloaded");	
+}
+function matchesHaveBeenDownloaded(contents)
+//////////////////////////////////////////////////////////////
+//                                                          //
+// Matches Have Beeen Downloaded //
+//                                                         //
+/////////////////////////////////////////////////////////////
+{
+//	console.log("matches have been downloaded");		//test
+	var alliances;
+	var i, j;
+	var red, blue;
+	var sched;																// Our schedule (in JSON)
+	matches = new Array();											// Match schedule
+	var parsed = JSON.parse(contents);
+	j = 0;
+	for (i=0; i<parsed.length; i++)
+	{
+		if (parsed[i].comp_level == "qm")
+		{
+			red = parsed[i].alliances.red;
+			blue = parsed[i].alliances.blue;
+			matches[j] = [Number(parsed[i].match_number), Number(red.teams[0].substring(3,red.teams[0].length)), Number(red.teams[1].substring(3,red.teams[1].length)), Number(red.teams[2].substring(3,red.teams[2].length)),Number(blue.teams[0].substring(3,blue.teams[0].length)),  Number(blue.teams[1].substring(3,blue.teams[1].length)),  Number(blue.teams[2].substring(3,blue.teams[2].length))];
+			j++;
+		}
+	}
+	sortMatches(matches);
+	generateJSON(matches);
+}
+function sortMatches(sched)
+///////////////////////////
+//                       //
+// Sort Matches //
+//                       //
+///////////////////////////
+{
+//	console.log("sort matches");		//test
+	var i, j, k; var swapped;
+	var temp;
+	swapped = true;
+	j = 0;
+	while (swapped)
+	{
+		swapped = false;
+		j++;
+		for (i = 0; i < sched.length - j; i++)
+		{
+			k = i + 1;
+			if (sched[k][0] < sched[i][0])
+			{
+				swapped = true;
+				temp = [sched[k][0],sched[k][1],sched[k][2],sched[k][3],sched[k][4],sched[k][5],sched[k][6]];
+				sched[k] = sched[i];
+				sched[i] = temp;
+			}
+		}
+	}
+}
+function generateJSON(matrix)
+////////////////////////////////
+//                            //
+// Generate JSON //
+//                           //
+///////////////////////////////
+{
+//	console.log("generate JSON");		//test
+	var i;
+	var row = newMatch(matrix[0][0], matrix[0][1], matrix[0][2], matrix[0][3], matrix[0][4], matrix[0][5], matrix[0][6]);
+//	console.log(row);													// Test
+	var parsed = new Array(row);
+	for (i=1; i<matrix.length; i++)
+	{
+		parsed[i] = newMatch(matrix[i][0], matrix[i][1], matrix[i][2], matrix[i][3], matrix[i][4], matrix[i][5], matrix[i][6]);
+	}
+	var lsName = eventName.concat("Matches");
+	localStorage.setItem(lsName, JSON.stringify(parsed));
+}
+function stringifyPitSQL(J_Obj)
+/////////////////////////////////
+//                             //
+// Stringify Pit SQL ////
+//                             //
+/////////////////////////////////
+{
+	var sQL = "INSERT INTO public.Pit VALUES ('";
+	sQL = sQL.concat(J_Obj.PitScoutName) + "','";
+	sQL = sQL.concat(J_Obj.PitEvent) + "',";
+	sQL = sQL.concat(J_Obj.TeamNo) + ",'";
+	sQL = sQL.concat(J_Obj.LeadScout) + "',";
+	sQL = sQL.concat(J_Obj.ScoutNumber) + ",";
+	sQL = sQL.concat(J_Obj.CIMS) + ",";
+	sQL = sQL.concat(J_Obj.hopperSize) + ",'";
+	sQL = sQL.concat(J_Obj.frame) + "',";
+	sQL = sQL.concat(J_Obj.weight) + ",'";
+	sQL = sQL.concat(J_Obj.driveBase) + "',"
+	sQL = sQL.concat(J_Obj.climber) + ",'";
+	sQL = sQL.concat(J_Obj.CustomRope) + "','";
+	sQL = sQL.concat(J_Obj.ballPickUp) + "','";
+	sQL = sQL.concat(J_Obj.gearAcquire) + "','";
+	sQL = sQL.concat(J_Obj.camera) + "','";
+	sQL = sQL.concat(J_Obj.shooting) + "',";
+	return sQL.concat(J_Obj.Vision) + ");";
+}
+function stringifyDataSQL(J_Obj)
+///////////////////////////////////
+//                               //
+// Stringify Data SQL //                  OLD 
+//                               //
+///////////////////////////////////
+/*
+{
+	var sQL = "INSERT INTO public.simpleskunk VALUES ('";
+	sQL = sQL.concat(J_Obj.ScoutName) + "','";
+	sQL = sQL.concat(J_Obj.eventName) + "',";
+	sQL = sQL.concat(J_Obj.TeamNo) + ",";
+	sQL = sQL.concat(J_Obj.match) + ",";
+	sQL = sQL.concat(J_Obj.robot) + ",'";
+	sQL = sQL.concat(J_Obj.Alliance) + "',";
+//	sQL = sQL.concat(J_Obj.auto.PassLine) + ",";
+	sQL = sQL.concat(J_Obj.auto.HighScores) + ",";
+	sQL = sQL.concat(J_Obj.auto.HighMisses) + ",";
+	sQL = sQL.concat(J_Obj.auto.LowScores) + ",";
+	sQL = sQL.concat(J_Obj.auto.gearScores.TopScores) + ",";
+	sQL = sQL.concat(J_Obj.auto.gearScores.MidScores) + ",";
+	sQL = sQL.concat(J_Obj.auto.gearScores.BotScores) + ",";
+	sQL = sQL.concat(J_Obj.auto.gearScores.Dropped) + ",";	
+	sQL = sQL.concat(J_Obj.auto.hopper) + ",'";
+	sQL = sQL.concat(J_Obj.auto.startLocation) + "','";
+	if (J_Obj.auto.ShotLocation == "default")
+	{
+		sQL = sQL.concat("',")
+	} else sQL = sQL.concat(J_Obj.auto.ShotLocation) + "',";
+	sQL = sQL.concat(J_Obj.auto.noShow) + ",";
+	sQL = sQL.concat(J_Obj.auto.deadBot) + ",";
+	sQL = sQL.concat(J_Obj.tele.gears.gearScores.TopScores) + ",";
+	sQL = sQL.concat(J_Obj.tele.gears.gearScores.MidScores) + ",";
+	sQL = sQL.concat(J_Obj.tele.gears.gearScores.BotScores) + ",";
+	sQL = sQL.concat(J_Obj.tele.gears.gearScores.Dropped) + ",";
+	sQL = sQL.concat(J_Obj.tele.gears.paths.pathA) + ",";
+	sQL = sQL.concat(J_Obj.tele.gears.paths.pathB) + ",";
+	sQL = sQL.concat(J_Obj.tele.gears.paths.pathC) + ",";
+	sQL = sQL.concat(J_Obj.tele.HighScores) + ",";
+	sQL = sQL.concat(J_Obj.tele.HighMisses) + ",";
+	sQL = sQL.concat(J_Obj.tele.LowScores) + ",";
+	sQL = sQL.concat(J_Obj.tele.hopperDump) + ",'";
+	sQL = sQL.concat(J_Obj.tele.ShotLocation) + "',";
+	sQL = sQL.concat(J_Obj.tele.playedDefense) + ",";
+	sQL = sQL.concat(J_Obj.tele.deadBot) + ",";
+	sQL = sQL.concat(J_Obj.tele.yellowCard) + ",";
+	sQL = sQL.concat(J_Obj.tele.redCard) + ",'";
+	sQL = sQL.concat(J_Obj.ClimbLocation) + "',";
+	sQL = sQL.concat(J_Obj.ClimbSuccess) + ",";
+	sQL = sQL.concat(J_Obj.ClimbTime) + ",";
+	return sQL.concat(J_Obj.foulPoints) + ");";
+}
+*/ 
+///////////////////////////////////
+//                               //
+// Stringify Data SQL //                  OLD 
+//                               //
+///////////////////////////////////
+{
+	var sQL = "INSERT INTO public.simpleskunk Values ('";
+	sQL = sQL.concat(J_Obj.scoutName) + "','";
+	sQL = sQL.concat(J_Obj.eventName) + "',";
+	sQL = sQL.concat(J_Obj.teamNo) + ",";
+	sQL = sQL.concat(J_Obj.match) + ",";
+	sQL = sQL.concat(J_Obj.robot) + ",'";
+	sQL = sQL.concat(J_Obj.alliance) + "','";
+	sQL = sQL.concat(J_Obj.auto.gearScores) + "',";
+	sQL = sQL.concat(J_Obj.auto.passLine) + ",";
+	sQL = sQL.concat(J_Obj.auto.highScores) + ",";
+	sQL = sQL.concat(J_Obj.auto.lowScores) + ",";
+	sQL = sQL.concat(J_Obj.auto.noShow) + ",";
+	sQL = sQL.concat(J_Obj.auto.deadBot) + ",'";
+	sQL = sQL.concat(J_Obj.auto.startLocation) + "',";
+	sQL = sQL.concat(J_Obj.tele.gearScores) + ",";
+	sQL = sQL.concat(J_Obj.tele.gearDrops) + ",";
+	sQL = sQL.concat(J_Obj.tele.highScores) + ",";
+	sQL = sQL.concat(J_Obj.tele.lowScores) + ",";
+	sQL = sQL.concat(J_Obj.tele.playDefense) + ",";
+	sQL = sQL.concat(J_Obj.tele.deadBot) + ",";
+	sQL = sQL.concat(J_Obj.tele.yellowCard) + ",";
+	sQL = sQL.concat(J_Obj.tele.redCard) + ",";
+	sQL = sQL.concat(J_Obj.tele.climbSuccess) + ",";
+	sQL = sQL.concat(J_Obj.tele.climbFail) + ",";
+	sQL = sQL.concat(J_Obj.tele.climbNone) + ",";
+	sQL = sQL.concat(J_Obj.tele.climbTime) + ",";
+	return sQL.concat(J_Obj.tele.foulPoints) + ");";
+}
+
+function issueRequestHTTP(reqType, URL, callback) {
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function (e)
+	{
+		if (xhr.readyState == 4)
+		{
+			if (xhr.status == 200)
+			{
+				if (xhr.responseText == "Not found")
+				{
+					issueError(' Not found.', false);
+				} else {
+					callback(xhr.responseText);
+				}
+			} else {
+				issueError(' HTTP returns ' + xhr.status, false);
+			}
+		} else issueError(String(' ').concat(xhr.readyState), false);										// Test
+	};
+	xhr.open(reqType, URL, true);
+	xhr.send(null);
+	xhr.onerror = function (e)
+	{
+		issueError(xhr.statusText, false);
+		console.log(xhr.statusText);																						// Test
+	}
+}
+function issueHTTPForm(formObj, URL, callback) {
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function (e)
+	{
+		if (xhr.readyState == 4)
+		{
+			if (xhr.status == 200)
+			{
+				if (xhr.responseText == "Not found")
+				{
+					issueError(' Not found.', false);
+				} else {
+					callback(xhr.responseText);
+				}
+			} else {
+				issueError(' HTTP returns ' + xhr.status, false);
+			}
+		} else issueError(String(' ').concat(xhr.readyState), false);										// Test
+	};
+	xhr.open("POST", URL, true);
+	var fData = new FormData();
+	fData.set("query",formObj);
+	xhr.send(fData);
+	xhr.onerror = function (e)
+	{
+		issueError(xhr.statusText, false);
+		console.log(xhr.statusText);																						// Test
+	}
+}
+function newMatch(matchNo, red1, red2, red3, blue1, blue2, blue3) {
+//	console.log('{"matchNo":' + matchNo + ',"red":[', red1 + ',' + red2 + ',' + red3 + '], "blue":[' + blue1 + ',' + blue2 + ',' + blue3 + ']}');
+	return JSON.parse('{"matchNo":' + matchNo + ',"red":[' + red1 + ',' + red2 + ',' + red3 + '],"blue":[' + blue1 + ',' + blue2 + ',' + blue3 + ']}');
+}
+function issueError(msg, writeOver)
+////////////////////////
+//                    //
+// Issue Error //
+//                    //
+////////////////////////
+{
+	var elem = document.getElementById("errorMsg");
+	if (writeOver)
+	{
+		elem.innerHTML = msg;
+	} else elem.innerHTML = elem.innerHTML.concat(' ' + msg);
+}
+</script>
+<style type="text/css">
+	body{
+		background-image: url("images/TransparentSkunk.png");
+		background-size: 12%;
+		background-position: center;
+		font-size:300%;
+	}
+	#titleLogo{
+		position: absolute;
+		width: 70%;
+		left: 15%;
+		top: 2.5%;
+		background-color: #F8F8F8;
+		border-style: solid;
+		border-width: thick;
+		border-color: BLACK;
+		padding: 10px;
+	}
+	.button{
+		border:.1em #BE1E2D solid;
+		text-align:Center;
+		padding:.5em;
+		width:50%;
+		height:15%;
+		margin-left:auto;
+		margin-right:auto;
+		margin-top:5%;
+		margin-bottom:5%;
+		background-color: #F8F8F8;
+		border-radius:.3em;
+	}
+	.button:hover{
+		background-color:grey;
+		color:blue;
+	}
+	#eventSelect {
+		font-size: 100%;
+		text-align: center;
+		width: 350px;
+		position: absolute;
+		left: 15%;
+		top: 20%;
+	}
+	#buttonDiv {
+		position: absolute;
+		top: 175px;
+		width: 60%;
+	}
+	.redFont {
+		color: RED;
+		font-size: 12pt;
+	}
+	.blackFont {
+		color: BLACK;
+		font-size: 12pt;
+	}
+</style>
+<body>
+<img src="images/SkunkPunkPic.png" id="titleLogo"> 
+<select id="eventSelect">
+	<option value="default">- Select Event -</option>
+	<option value="2017waamv">Auburn Mtn View</option>
+	<option value="2017waell">Central WA</option>
+	<option value="2017wasno">Glacier Peak</option>
+	<option value="2017pncmp">Spokane</option>
+	<option value="2017tur">Houston</option>
+	<option value="2016wagg">Test</option>
+</select>
+	<div id="buttonDiv">
+		<div class = "button" onclick="download()" id ="down">
+			Download Matches
+		</div>
+		<div class = "button" onclick="upload()" id= "up">
+			Upload Data
+		</div>
+	</div>
+<div id="uploaded"; style="position:absolute; left: 60%; top: 20%; visibility=hidden"; class="blackFont"></div>
+<div id="errorMsg"; style="position: absolute; left: 2%; top: 95%"; class="redFont"></div>
+</body>
+</html>

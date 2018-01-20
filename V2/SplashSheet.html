@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Skunk Scout</title>
+<script language="javascript">
+// Global Constants //
+BlueAllianceURL = "https://www.thebluealliance.com/api/v2/event/";
+xbtAPP_ID = "?X-TBA-App-Id=FRC1983:Scouting:v2";
+// Global Variables //
+var alliance = "default";																// Red, Blue or Any
+var robot = "default";																// 0, 1, 2 or 3
+var matches;
+function initialize()
+///////////////////
+//               //
+// Initialize //
+//               //
+///////////////////
+//
+{
+	var str = window.location.search;
+ 	var tabletID = str.split("=");
+ 	//console.log(tabletID[1]);
+	matchTablet(tabletID[1]);
+	scout = localStorage.getItem("ScoutName");
+	if (scout != null) {
+		document.getElementById('scoutselect').value = scout;
+	}
+	evnt = localStorage.getItem("Event");
+	if (evnt != null) {
+		document.getElementById('eventselect').value = evnt;
+	}
+}
+
+function matchTablet(argument)
+//////////////////////////
+//                      //
+// Match Tablet //
+//                      //
+//////////////////////////
+{
+	switch(argument)
+	{
+		case "RED1":
+			alliance = "RED";
+			robot = 1;
+			break;
+		case "RED2":
+			alliance = "RED";
+			robot = 2;
+			break;
+		case "RED3":
+			alliance = "RED";
+			robot = 3;
+			break;
+		case "BLUE1":
+			alliance = "BLUE";
+			robot = 1;
+			break;
+		case "BLUE2":
+			alliance = "BLUE";
+			robot = 2;
+			break;
+		case "BLUE3":
+			alliance = "BLUE";
+			robot = 3;
+			break;
+		default:
+			alliance = "ANY";
+			robot = 0;
+			break;
+	}
+	//console.log(tabletID);		//test
+	//console.log(robot);			//test
+	//console.log(alliance);		//test
+	document.getElementById("tab").innerHTML = alliance + " " + robot;
+	if (alliance === "BLUE") {
+		document.getElementById("tab").style.color = "blue";
+		//console.log("BLUE")
+	}
+	else if (alliance === "RED") {
+		document.getElementById("tab").style.color = "red";
+		//console.log("RED")
+	}
+}
+
+function validateInp(elem) {
+	var validChars = /[0-9]/;
+	var strIn = elem.value;
+	var strOut = '';
+    for (var i=0; i < strIn.length; i++) strOut += (validChars.test(strIn.charAt(i)))? strIn.charAt(i) : '';
+    elem.value = strOut;
+}
+
+function submitSplash() {
+	localStorage.setItem("splash_scoutName", document.getElementById("scoutselect").value);
+	localStorage.setItem("splash_eventName", document.getElementById("eventselect").value);
+	localStorage.setItem("splash_match", document.getElementById("matchnumber").value);
+	localStorage.setItem("splash_robot", robot);
+	localStorage.setItem("splash_alliance", alliance);
+
+	//console.log(jSplash);
+
+	if (document.getElementById("matchnumber").value === "666") {
+		window.location.href = "http://www.reddit.com/r/CrappyDesign";
+	}
+	else {
+		window.location.href = "Tele.html";
+
+	}
+}
+
+</script>
+<style type="text/css">
+	body, html {
+		height: 95%;
+		width: 100%;
+		position: relative;
+		left: 0;
+		top: 0;
+	}
+
+	html {
+		background-image: url("images/TransparentSkunk.png");
+		background-size: 12%;
+		background-position: center;
+	}
+
+	body {
+		height: 100%;
+		width: 70%;
+		position: relative;
+		left: 15%;
+		top: 0;
+		border-style: solid;
+		border-width: regular;
+		background-color: #FFFFFF;
+	}
+
+	.mainpage {
+		text-align: center;
+		font-weight: lighter;
+		font-family: "Times New Roman", Times, serif;
+	}
+
+	.selections {
+		font-size: 2em;
+	}
+
+	select {
+		font-size: 1.5em;
+	}
+
+	#scoutselect, #eventselect {
+		font-size: 1em
+	}
+
+	#tablet {
+		text-align: center;
+		font-weight: lighter;
+		font-family: "Times New Roman", Times, serif;
+	}
+
+	#tablet, .selections {
+		position: relative;
+		bottom: 2em;
+	}
+
+	#tab {
+		font-size: 3em;
+		color: black;
+	}
+
+	#matchnumber {
+		font-size: 1em;
+		border: solid;
+		border-width: 1px;
+		width: 4em;
+	}
+
+	#submitbutton {
+		position: relative;
+		height: 7.5%;
+		width: 20%;
+		font-family: "Times New Roman", Times, Serif;
+		border: outset;
+		border-radius: 2px;
+		font-size: 1em;
+		color: red;
+		border-color: red;
+	}
+</style>
+</head>
+<body onload="initialize();">
+	<div class="mainpage">
+		<img src="images/SteampunkLogoFixed.png" alt="Skunkworks" style="width:100%;height:auto;">
+		<div id="tablet">
+			<p id="tab">ROBOT0</p>
+		</div>
+		<div class="selections">
+			Match Number:
+			<input type="text" id="matchnumber" value="" maxlength="3" onkeyup="validateInp(this);" autocomplete=off><br>
+			<br>SCOUT:
+			<select id="scoutselect">
+				<option value="Default">- - Choose Name - -</option>
+<!--			<option value="Henry">Henry M</option>
+				<option value="Patrick">Patrick E</option>
+				<option value="Eli">Eli B</option>
+				<option value="Quinn">Quinn S</option>
+				<option value="Weeks">David W</option>		-->
+				<option value="testScout">Test</option>
+			</select>
+			<br>
+			<br>EVENT:
+			<select id="eventselect">
+				<option value="Default">- - Choose Event - -</option>
+				<option value="2017waamv">Auburn Mtn View</option>
+				<option value="2017waell">Central WA</option>
+				<option value="2017wasno">Glacier Peak</option>
+				<option value="2017pncmp">Spokane</option>
+				<option value="2017tur">Houston</option>
+				<option value="test">Test</option>
+			</select><br>
+			<br><button id="submitbutton" onclick="submitSplash();">SUBMIT</button>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+html {
+	background-image: url("images/MoreTransparentSkunk.png");
+	background-size: 10%;
+	background-position: center;
+	background-attachment: fixed;
+}
+body {
+	text-align: center;
+}
+.bigger {
+	position: relative;;
+	height: 4.5em;
+	width: 7.5em;
+	top: 175px;
+}
+.smaller {
+	position: relative;
+	height: 3em;
+	width: 4.5em;
+	top: 240px;
+}
+.bigger {
+	border-style: solid;
+	border-width: thick;
+	background-color: #F8F8F8;
+	border-radius: 4px;
+	font-size: 24pt;
+}
+.smaller {
+	border-style: solid;
+	border-width: thick;
+	background-color: #F8F8F8;
+	border-radius: 4px;
+	font-size: 24pt;
+}
+#wasteButton {
+	border-color: yellow;
+	color: green;
+	font-weight: bold;
+}
+#RED1, #RED2, #RED3 {
+	border-color: #BE1E2D;
+}
+#BLUE1, #BLUE2, #BLUE3 {
+	border-color: #1E2BBE;
+}
+#pitButton {
+	border-color: #CD7F32;
+}
+#qaButton {
+	border-color: BLACK;
+}
+#titleLogo {
+	width: 90%;
+	position: absolute;
+	left: 4%;
+	top: 6%;
+	border-style: solid;
+	border-weight: thin;
+	border-color: BLACK;
+	padding: 5px;
+	background-color: #F8F8F8;
+}

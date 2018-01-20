@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Skunkworks Teleop Page</title>
+<!-- Connecting Javascript file -->
+<script type="text/javascript" src="TeleJS.js">
+</script>
+<!-- Connecting CSS file -->
+<link rel="stylesheet" href="TeleCSS.css">
+
+</head>
+<body onLoad="initialize()">
+
+<div id="autonomousHalf">
+	<img src="images/SkunkPunkPic.png" class="logo">
+	<p id="autoHeader">AUTONOMOUS</p>
+	<div id="startLocation">
+		<p class="headers" id="startHeader">Start Location:</p>
+		<input type="checkbox" value="false" class="checkBoxes" id="boilerStart" onClick="buttonCheck('startCheck', 0)">&nbsp;<label for="boiler" class="labels">: Boiler Side
+		<p class="spacing"> </p>
+		<input type="checkbox" value="false" class="checkBoxes" id="centerStart" onClick="buttonCheck('startCheck', 1)">&nbsp;<label for="center" class="labels">: Center
+		<p class="spacing"> </p>
+		<input type="checkbox" value="false" class="checkBoxes" id="feederStart" onClick="buttonCheck('startCheck', 2)">&nbsp;<label for="feeder" class="labels">: Feeder Side
+	</div>
+	<div id="autoGearScores">
+		<p class="headers" id="autoGearHeader">Gear Placement:&nbsp;</p>
+		<input type="checkbox" value="false" class="checkBoxes" id="autoGearSuccess" onClick="buttonCheck('gearCheck', 0)">&nbsp;<label for="success" class="labels">: Success
+		<p class="spacing"> </p>
+		<input type="checkbox" value="false" class="checkBoxes" id="autoGearMissed" onClick="buttonCheck('gearCheck', 1)">&nbsp;<label for="missed" class="labels">: Missed/Jammed
+		<p class="spacing"> </p>
+		<input type="checkbox" value="false" class="checkBoxes" id="autoGearDropped" onClick="buttonCheck('gearCheck', 2)">&nbsp;<label for="success" class="labels">: Dropped
+		<p class="spacing"> </p>
+		<input type="checkbox" value="false" class="checkBoxes" id="autoGearNone" onClick="buttonCheck('gearCheck', 3)">&nbsp;<label for="success" class="labels">: No Attempt
+	</div>
+	<div id="autoFuelScores">
+		<p id="autoFuelHeader">Fuel Balls Scored:</p>
+		<SPAN id="autoHighScoreButtons">High:&nbsp;
+			<BUTTON onClick="upTenths('autoHighScores')" class="fuelScoreButtons">+10</BUTTON>
+			<BUTTON onClick="upFifths('autoHighScores')" class="fuelScoreButtons">+5</BUTTON>
+			<BUTTON onClick="upUnits('autoHighScores')" class="fuelScoreButtons">+1</BUTTON>
+			<INPUT type="text" id="autoHighScores" value="0" class="fuelScoreboard" disabled>
+			<BUTTON onClick="downFifths('autoHighScores')" class="fuelScoreButtons">-5</BUTTON>
+			<BUTTON onClick="downUnits('autoHighScores')" class="fuelScoreButtons">-1</BUTTON>
+		</SPAN>
+		<BR>
+		<SPAN id="autoLowScoreButtons">Low:&nbsp;
+			<BUTTON onClick="upTenths('autoLowScores')" class="fuelScoreButtons">+10</BUTTON>
+			<BUTTON onClick="upFifths('autoLowScores')" class="fuelScoreButtons">+5</BUTTON>
+			<BUTTON onClick="upUnits('autoLowScores')" class="fuelScoreButtons">+1</BUTTON>
+			<INPUT type="text" id="autoLowScores" value="0" class="fuelScoreboard"  disabled>
+			<BUTTON onClick="downFifths('autoLowScores')"  class="fuelScoreButtons">-5</BUTTON>
+			<BUTTON onClick="downUnits('autoLowScores')"  class="fuelScoreButtons">-1</BUTTON>
+		</SPAN>
+	</div>
+	<div id="autoMisc">
+		<p class="headers"  id="autoCheckHeader">Miscellaneous:&nbsp;</p>
+		<input type="checkbox"  value="false"  class="checkBoxes" id="passLine">&nbsp;<label for="passLine" class="labels">: Crossed Line
+		<p class="spacing"> </p>
+		<input type="checkbox" value="false" class="checkBoxes" id="noShow">&nbsp;<label for="noShow" class="labels">: No Show
+		<p class="spacing"> </p>
+		<input type="checkbox" value="false" class="checkBoxes" id="autoDeadBot">&nbsp;<label for="deadBot" class="labels">: Dead Bot
+	</div>
+	<p id="teamNo">0000</p>
+	<div id="autoFouls">
+		<p id="autoFoulHeader">Foul Points Caused:</p>
+		<SPAN id="autoFoulSpan">
+			<BUTTON onClick="up25ths('autoFoul')" class="foulScoreButtons">+25</BUTTON>
+			<BUTTON onClick="upFifths('autoFoul')" class="foulScoreButtons">+5</BUTTON>
+			<INPUT type="text" id="autoFoul" value="0" class="foulScoreboard" disabled>
+			<BUTTON onClick="down25ths('autoFoul')" class="foulScoreButtons">-25</BUTTON>
+			<BUTTON onClick="downFifths('autoFoul')" class="foulScoreButtons">-5</BUTTON>
+		</SPAN>
+	</div>
+	<BUTTON onClick="back('auto')" class="backButtons">GO<BR>BACK</BUTTON>
+	<BUTTON onClick="submit('auto')" id="autoSubmit" class="submitButtons">GO TO<BR>TELEOP</BUTTON>
+</div>
+<div id="teleopHalf" hidden>
+	<img src="images/SkunkPunkPic.png" class="logo">
+	<p id="teleHeader">TELE OPERATED</p>
+	<p id="teamNoTele">0000</p>
+	<BUTTON onClick="back('tele')" class="backButtons">GO<BR>BACK</BUTTON>
+	<BUTTON onClick="submit('tele')" id="teleSubmit" class="submitButtons">SUBMIT</BUTTON>
+	<div id="teleFuel">
+		<p id="teleFuelHeader">Fuel Balls Scored:</p>
+		<SPAN id="autoHighScoreButtons">High:&nbsp;
+			<BUTTON onClick="upTenths('teleHighScores')" class="fuelScoreButtons">+10</BUTTON>
+			<BUTTON onClick="upFifths('teleHighScores')" class="fuelScoreButtons">+5</BUTTON>
+			<BUTTON onClick="upUnits('teleHighScores')" class="fuelScoreButtons">+1</BUTTON>
+			<INPUT type="text" id="teleHighScores" value="0" class="fuelScoreboard" disabled>
+			<BUTTON onClick="downFifths('teleHighScores')" class="fuelScoreButtons">-5</BUTTON>
+			<BUTTON onClick="downUnits('teleHighScores')" class="fuelScoreButtons">-1</BUTTON>
+		</SPAN>
+		<BR>
+		<SPAN id="autoLowScoreButtons">Low:&nbsp;
+			<BUTTON onClick="upTenths('teleLowScores')" class="fuelScoreButtons">+10</BUTTON>
+			<BUTTON onClick="upFifths('teleLowScores')" class="fuelScoreButtons">+5</BUTTON>
+			<BUTTON onClick="upUnits('teleLowScores')" class="fuelScoreButtons">+1</BUTTON>
+			<INPUT type="text" id="teleLowScores" value="0" class="fuelScoreboard" disabled>
+			<BUTTON onClick="downFifths('teleLowScores')" class="fuelScoreButtons">-5</BUTTON>
+			<BUTTON onClick="downUnits('teleLowScores')" class="fuelScoreButtons">-1</BUTTON>
+		</SPAN>
+		<BR>
+	</div>
+	<div id="teleGearScores">
+		<SPAN id="gearScoresButtons">Gears Placed:&nbsp;
+			<BUTTON onClick="upUnits('teleGears')" class="fuelScoreButtons">+1</BUTTON>
+			<INPUT type="text" id="teleGears" value="0" class="fuelScoreboard" disabled>
+			<BUTTON onClick="downUnits('teleGears')" class="fuelScoreButtons">-1</BUTTON>
+		</SPAN>
+	</div>
+	<div id="teleFouls">
+		<p id="teleFoulHeader" class="headers">Foul Points Caused:</p>
+		<SPAN id="teleFoulSpan">
+			<BUTTON onClick="up25ths('teleFoul')" class="foulScoreButtons">+25</BUTTON>
+			<BUTTON onClick="upFifths('teleFoul')" class="foulScoreButtons">+5</BUTTON>
+			<INPUT type="text" id="teleFoul" value="0" class="foulScoreboard" disabled>
+			<BUTTON onClick="down25ths('teleFoul')" class="foulScoreButtons">-25</BUTTON>
+			<BUTTON onClick="downFifths('teleFoul')" class="foulScoreButtons">-5</BUTTON>
+		</SPAN>
+	</div>
+	<div id="climb">
+		<p id="miscHeader" class="headers">Climb:</p>
+		<input type="checkbox" value="false" class="checkBoxes" id="climbSuccess" onChange="buttonCheck('climb', 0)">&nbsp;<label for="climbSuccess" class="labels">: Successful
+		<p class="spacing"> </p>
+		<input type="checkbox" value="false" class="checkBoxes" id="climbFailed" onChange="buttonCheck('climb', 1)">&nbsp;<label for="climbFailed" class="labels">: Failed/Fell
+		<p class="spacing"> </p>
+		<input type="checkbox" value="false" class="checkBoxes" id="climbNone" onChange="buttonCheck('climb', 2)">&nbsp;<label for="climbNone" class="labels">: Did Not Try
+	</div>
+	<div id="stopWatch">
+		<p id="watchTime">Time&nbsp;&nbsp;<span id="seconds">00</span>:<span id="tens">00</span></p>
+		<button id="button-start" class="watchButtons">Start</button>
+		<button id="button-stop" class="watchButtons">Stop</button>
+		<button id="button-reset" class="watchButtons">Reset</button>
+	</div>
+	<div id="teleMiscCheck">
+		<p id="miscHeader" class="headers">Miscellaneous:</p>
+		<input type="checkbox" class="checkBoxes" id="defense">&nbsp;<label for="defense" class="labels">: Played Defense
+		<p class="spacing"> </p>
+		<input type="checkbox" class="checkBoxes" id="teleDead">&nbsp;<label for="teleDead" class="labels">: Dead Bot
+	</div>
+	<div id="teleMiscCheck2">
+		<input type="checkbox" class="checkBoxes" id="yellowCard" onChange="buttonCheck(card, 0)">&nbsp;<label for="yellowCard" class="labels">: Yellow Card
+		<p class="spacing"> </p>
+		<input type="checkbox" class="checkBoxes" id="redCard" onChange="buttonCheck(card, 1)">&nbsp;<label for="redCard"; class="labels">: Red Card
+	</div>
+</div>
