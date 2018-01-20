@@ -3,7 +3,8 @@ RED = "#BE1E2D";
 BLUE = "#1E2BBE";
 
 //Global variables
-var robot = 0;
+var robot;
+var alliance;
 
 //initialize the splash sheet
 function initialize() {
@@ -168,4 +169,29 @@ function switchPage(currentPage, direction){
 		document.getElementById('splashPage').hidden = false;
 		document.getElementById("autoPage").hidden = true;
 	}
+}
+
+// array[a, b, c, d]
+// function(currentPage)
+// 	if (forward)
+// 		pos = posinarray.(currentPage)
+// 		document.getElementById([pos]).hidden
+// 		document.getElementById([pos+1]).hidden
+
+
+
+
+function submitTele() {
+    var jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","auto":{"StartPos":"default","CrossLine":false,"Scale":0,"Switch":0,"noShow":false},"tele":{"Scale":0,"Switch":0,"Exchange":0},"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false}';
+    var jObj = JSON.parse(jStr);
+    jObj.scoutName = document.getElementById("scoutSelect");
+	jObj.eventName = document.getElementById("eventSelect");
+	jObj.teamNumber = parseInt(document.getElementById(""));
+	jObj.match = parseInt(document.getElementById(""));
+	jObj.alliance = document.getElementById("");
+	jObj.auto.StartPos = document.getElementById("");
+	jObj.auto.CrossLine = document.getElementById("");
+	jObj.auto.Scale = parseInt(document.getElementById(""));
+	jObj.auto.Switch = parseInt(document.getElementById(""));
+	jObj.auto. = parseInt(document.getElementById(""));
 }
