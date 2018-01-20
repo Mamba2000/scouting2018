@@ -6,7 +6,7 @@
 <script type="text/javascript" src="jQuery.js"></script>
 <link rel="stylesheet" type="text/css" href="splashAutoTele.css">
 </head>
-<body onload="initialize()">
+<body onload="initialize()" id="skunkBackground">
 	<img src="images/AppTitleSkunkworks.png" class="skunkLogo">
 	<!-- Splash Sheet -->
 	<div class="splashSheet" id="splashPage">
@@ -14,7 +14,7 @@
 		<div>
       <!-- Select what match you are scouting for -->
       Match Number:
-      <input type="text" value="" maxlength="3" autocomplete=off><br>
+      <input id="matchNumber" type="text" value="" maxlength="3" autocomplete=off><br>
       <br>
 
       <!-- Select the scout that is scouting -->
@@ -35,7 +35,7 @@
       <br>
 
       <!-- Get ready to switch to the Auto and Tele Sheet -->
-      <button onclick="switchPage('splash', 'forward')">SUBMIT</button>
+      <button id="splashSubmit" onclick="switchPage('splash', 'forward')">SUBMIT</button>
 		</div>
 	</div>
 
@@ -43,41 +43,33 @@
 	<div class="teleAutoSheet" id="autoPage" hidden>
 		<p>AUTONOMOUS</p>
 		<div>
-			<form>
-			  <p>Start Position:</p>
-			  <div>
-			    <input type="radio" name = 'startPos' class='startPosition' id="outsideStart">
-			    <label for="outsideStart">Outside</label>
-
-			    <input type="radio" name = 'startPos' class='startPosition' id="centerStart">
-			    <label for="centerStart">Center</label>
-			  </div>
-			  <div>
-			    <button type="submit">Submit</button>
-			  </div>
-			</form>
+		  <p>Start Position:</p>
+		  <div>
+		    <input class='startPosition' id="outsideStart" name = 'startPos' type="radio">
+		    <label for="outsideStart">Outside</label>
+		    <input class='startPosition' id="centerStart" name = 'startPos' type="radio">
+		    <label for="centerStart">Center</label>
+		  </div>
 			<div>
-			<p>Boxes Placed:</p>
-			<SPAN>Scale:&nbsp;
-				<BUTTON onClick="changeCounter('autoScale', 1)">+1</BUTTON>
-				<INPUT id="autoScale" type="text" value = "0"  disabled>
-				<BUTTON onClick="changeCounter('autoScale', -1)">-1</BUTTON>
-			</SPAN>
-			<BR>
-			<SPAN>Switch:&nbsp;
-				<BUTTON onClick="changeCounter('autoSwitch', 1)">+1</BUTTON>
-				<INPUT type="text" id="autoSwitch" value="0"  disabled>
-				<BUTTON onClick="changeCounter('autoSwitch', -1)">-1</BUTTON>
-			</SPAN>
-			<BR>
+				<p>Boxes Placed:</p>
+				<SPAN>Scale:&nbsp;
+					<BUTTON class="incrementButton" onClick="changeCounter('autoScale', 1)">+1</BUTTON>
+					<INPUT id="autoScale" type="text" value = "0"  disabled>
+					<BUTTON class="incrementButton" onClick="changeCounter('autoScale', -1)">-1</BUTTON>
+				</SPAN>
+				<BR>
+				<SPAN>Switch:&nbsp;
+					<BUTTON class="incrementButton" Click="changeCounter('autoSwitch', 1)">+1</BUTTON>
+					<INPUT id="autoSwitch" type="text" value="0"  disabled>
+					<BUTTON class="incrementButton" Click="changeCounter('autoSwitch', -1)">-1</BUTTON>
+				</SPAN>
+				<BR>
 			</div>
 			<div>
 				<p>Miscellaneous:&nbsp;</p>
-				<input type="checkbox"  value="false">&nbsp;<label for="passLine" class="labels">: Crossed Line
-				<p class="spacing"> </p>
-				<input type="checkbox" value="false">&nbsp;<label for="noShow" class="labels">: No Show
-				<p class="spacing"> </p>
-				<input type="checkbox" value="false">&nbsp;<label for="deadBot" class="labels">: Dead Bot
+				<input class="checkbox" type="checkbox"  value="false">&nbsp;<label for="passLine" class="labels">: Crossed Line <br>
+				<input class="checkbox" type="checkbox" value="false">&nbsp;<label for="noShow" class="labels">: No Show <br>
+				<input class="checkbox" type="checkbox" value="false">&nbsp;<label for="deadBot" class="labels">: Dead Bot <br>
 			</div>
 			<p>0000</p>
 			<BUTTON onClick="switchPage('auto', 'backward')" class="backButtons">GO<BR>BACK</BUTTON>
@@ -89,8 +81,6 @@
 	<div class = "teleAutoSheet" id="telePage" hidden>
 		<p>TELE OPERATED</p>
 		<p>0000</p>
-		<BUTTON onClick="switchPage('tele', 'backward')" class="backButtons">GO<BR>BACK</BUTTON>
-		<BUTTON onClick="" id="teleSubmit" class="submitButtons">SUBMIT</BUTTON>
 		<div>
 			<p>Boxes Placed:</p>
 			<SPAN>Scale:&nbsp;
@@ -126,6 +116,8 @@
 				<BUTTON onClick="changeCounter('AssistOthersClimb', -1)">-1</BUTTON>
 			</SPAN>
 		</div>
+		<BUTTON class="backButtons" onClick="switchPage('tele', 'backward')">GO<BR>BACK</BUTTON>
+		<BUTTON class="submitButtons" id="teleSubmit" onClick="">SUBMIT</BUTTON>
 	</div>
 </body>
 </html>
