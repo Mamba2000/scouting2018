@@ -35,18 +35,16 @@ window.addEventListener('load', function() {
 
         match = row.insertCell(-1);
         team = row.insertCell(-1);
-        sent = row.insertCell(-1);
         submit = row.insertCell(-1);
 
         match.innerHTML = oneMatch.match;
         team.innerHTML = oneMatch.teamNo;
-        sent.innerHTML = "No";
-        submit.innerHTML = "<button id=\"" + name + "\" onclick=\"sendData(" + name + ");\">Submit Data</button>";
+        submit.innerHTML = "<button id=\"" + name + "\" class=\"submitButtons\" onclick=\"sendData(" + name + ");\">Submit Data</button>";
     });
 });
 
 function sendData(match) {
-    console.log("Data sending for " + match + "...");
+    console.log("Data sending for match" + match + "...");
 
     matches.forEach(function(oneMatch) {
         if(oneMatch.match == match) {
@@ -59,7 +57,7 @@ function sendData(match) {
     toDelete = document.getElementById("row-" + match.toString());
 
     //TODO: Don't assume that the server actually got it.
-    row.innerHTML = "<p>Data sent for match " + name.toString() + ".</p>";
+    row.innerHTML = "<p>Data sent for match " + match + ".</p>";
     toDelete.parentNode.removeChild(toDelete);
     /*for (var key in localStorage) {
         try {
