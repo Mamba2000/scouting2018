@@ -1,50 +1,37 @@
-/*mainPage.css*/
+/* mainPage.css*/
 html {
-  background-image: url("");
-  background-size: 10%;
-  background-position: center;
-  background-attachment: fixed;
-}
-body{
-  text-align: center;
-}
-.bigger {
-  position: relative;
-  height: 2.5em;
-  width: 10em;
-  top: 175px;
-}
-.smaller {
-  position: relative;
-  height: 1.5em;
-  width:5em;
-  top:240px;
-}
-#wasteButton {
-	border-color: yellow;
-	color: green;
-	font-weight: bold;
-}
-#RED1, #RED2, #RED3 {
-	border-color: #BE1E2D;
-}
-#BLUE1, #BLUE2, #BLUE3 {
-	border-color: #1E2BBE;
-}
-#pitButton {
-	border-color: #CD7F32;
-}
-#qaButton {
-	border-color: BLACK;
+  background-image: url("images/8-BitTransSkunk.png");
+  background-repeat: repeat;
+  background-size: 8%;
 }
 #titleLogo {
-	width: 90%;
-	position: absolute;
-	left: 4%;
-	top: 6%;
+	width: 580px;
 	border-style: solid;
-	border-weight: thin;
 	border-color: BLACK;
 	padding: 5px;
 	background-color: #F8F8F8;
+}
+.bigger {
+	width: 240px;
+	height: 160px;
+	font-size: 38pt; /* Actually its DONT size not FONT size */
+	font-family: "Georgia", serif;
+	background-color: #F8F8F8;
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 40px;
+	position: relative;
+}
+#dataButton {
+	border-color: #F7A500;
+}
+#piranhaButton {
+	border-color: #77CCF3;
+	position: relative;
+	left: 30px;
+}
+#topRow {
+	position: relative;
+	left: 45px;
+	top: 50px;
 }
