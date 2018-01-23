@@ -20,3 +20,31 @@ body{
   width:5em;
   top:240px;
 }
+#wasteButton {
+	border-color: yellow;
+	color: green;
+	font-weight: bold;
+}
+#RED1, #RED2, #RED3 {
+	border-color: #BE1E2D;
+}
+#BLUE1, #BLUE2, #BLUE3 {
+	border-color: #1E2BBE;
+}
+#pitButton {
+	border-color: #CD7F32;
+}
+#qaButton {
+	border-color: BLACK;
+}
+#titleLogo {
+	width: 90%;
+	position: absolute;
+	left: 4%;
+	top: 6%;
+	border-style: solid;
+	border-weight: thin;
+	border-color: BLACK;
+	padding: 5px;
+	background-color: #F8F8F8;
+}
