@@ -12,32 +12,25 @@ html {
   height: 99.6%;
   border-style: solid;
   border-width: regular;
-  font-family: "Titillium";
-  font-size: 2em;
-}
-
-#skunkBackground{
-  height: 100%;
   background-image: url("images/8-BitTransSkunk.png");
 }
 
 .splashSheet {
   text-align: center;
+  font-family:"Titillium";
+  font-size: 2em;
 }
 
 .teleAutoSheet{
-
+  font-family: "Titillium";
+  font-size: 2em;
 }
 
 
 
 
 /* Common data input types styling */
-.incrementButton{
-
-}
-
-.checkbox {
+.checkBoxes {
 height: 40px;
 width: 40px;
 border: 2px;
@@ -111,18 +104,6 @@ width: 140px;
 #autoScale{
 
 }
-#crossedLine{
-
-}
-#noShow{
-
-}
-#autoDeadBot{
-
-}
-#autoTeamNum{
-
-}
 
 /* Tele Page ids */
 #teleSwitch{
@@ -137,16 +118,14 @@ width: 140px;
 #AssistOthersClimb{
 
 }
-#teleDeadBot{
-
+.heading {
+  font-family: "Lobster";
+  font-size: 2em;
 }
-#climb{
 
+.dropDown {
+  font-size: 2em
 }
-#helpedClimb{
-
-}
-#teleTeamNum
 
 #teamNo {
 position: absolute;
