@@ -1,5 +1,11 @@
 var matches;
-var path = "http://ubuntu@ec2-52-35-34-216.us-west-2.compute.amazonaws.com:3000"; //TODO: Put in AWS info
+const DEBUG = false;
+
+if(DEBUG) {
+    var path = "http://localhost:3000";
+} else {
+    var path = "http://ubuntu@ec2-52-35-34-216.us-west-2.compute.amazonaws.com:3000"; //TODO: Put in AWS info
+}
 
 window.addEventListener('load', function() {
     table = document.getElementById("matchData");
@@ -46,19 +52,16 @@ window.addEventListener('load', function() {
 function sendData(match) {
     console.log("Data sending for match" + match + "...");
 
+    toDelete = document.getElementById("row-" + match.toString());
+
     matches.forEach(function(oneMatch) {
         if(oneMatch.match == match) {
-            post(oneMatch);
+            console.log("Ping pong");
+            post(oneMatch, match, toDelete);
         }
     });
 
-    table = document.getElementById("send_messages");
-    row = table.insertRow(-1);
-    toDelete = document.getElementById("row-" + match.toString());
-
-    //TODO: Don't assume that the server actually got it.
-    row.innerHTML = "<p>Data sent for match " + match + ".</p>";
-    toDelete.parentNode.removeChild(toDelete);
+    //TODO: put this code inside the success condition for post()
     /*for (var key in localStorage) {
         try {
             content = JSON.parse(localStorage.getItem(key));
@@ -75,7 +78,7 @@ function sendData(match) {
     }*/
 };
 
-function post(parameters) {
+function post(parameters, match, toDelete) {
     var form = $('<form id="upload"></form>');
 
     form.attr("method", "post");
@@ -94,5 +97,19 @@ function post(parameters) {
     // The form needs to be a part of the document in
     // order for us to be able to submit it.
     $(document.body).append(form);
-    $.post(path, $('#upload').serialize())
+
+    table = document.getElementById("send_messages");
+    row = table.insertRow(-1);
+
+    //TODO: Check if connection to server is a-ok
+    $.post(path, $('#upload').serialize(), function(data) {
+        if(data !== "success") {
+            row.innerHTML = "<p>Upload failed: " + data + "</p>";
+        } else {
+            row.innerHTML = "<p>Data sent for match " + match + ".</p>";
+            toDelete.parentNode.removeChild(toDelete);
+        }
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+        row.innerHTML = "<p>Upload failed: Server not found</p>";
+    });
 }
