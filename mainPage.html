@@ -8,19 +8,28 @@ function initialize() {
 	console.log("Hi");
 	//TODO add some goofy shit
 }
-
+function dataButton() {
+	window.location.href = "dataUpload.html"
+}
+function piranhaButton() {
+	window.location.href = "instructionsUnclearDickStuckInPiranhaPlant.html"
+}
 function toSplash(tabletID) {
 	//console.log(tabletID);
 	window.location.href = "splashAutoTele.html?" + tabletID
 }
+
 </script>
 	<link rel="stylesheet" type="text/css" href="mainPage.css">
 </head>
 <body onload="initialize();">
-	<img src="images/AppTitleSkunkworks.png"; id="titleLogo">
+	<div id="titleLogo">
+		<img src="images/GameLogo.jpg" class="titlePix">
+		<img src="images/AppTitleSkunkworks.png" class="titlePix">
+	</div>
 	<div id="topRow">
-		<button class="bigger" id="dataButton">DATA<BR>UPLOAD</button>
-    	<button class="bigger" id="piranhaButton">LOCAL<BR>CLEAR</button>
+		<button class="bigger" id="dataButton" onClick="dataButton()">Data<BR>Upload</button>
+    	<button class="bigger" id="piranhaButton" onClick="piranhaButton()">Local<BR>Clear</button>
 	</div>
 	<div id="redColumn">
     	<button class="smaller redButtons" id="RED1" onClick="toSplash('RED1')">RED 1</button><BR>

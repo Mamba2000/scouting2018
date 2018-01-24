@@ -5,33 +5,82 @@ html {
   background-size: 8%;
 }
 #titleLogo {
-	width: 580px;
+	width: 570px;
 	border-style: solid;
 	border-color: BLACK;
 	padding: 5px;
-	background-color: #F8F8F8;
+	background-color: white;
+}
+.titlePix {
+	width: 570px;
 }
 .bigger {
 	width: 240px;
-	height: 160px;
+	height: 170px;
 	font-size: 38pt; /* Actually its DONT size not FONT size */
+	font-family: "Georgia", serif;
+	background-color: #E0E0E0;
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 40px;
+	position: absolute;
+	border-color: #149B00;
+}
+#piranhaButton {
+	position: relative;
+	left: 265px;
+}
+#topRow {
+	position: absolute;
+	left: 45px;
+	top: 200px;
+}
+.smaller {
+	width: 240px;
+	height: 170px;
+	font-size: 42pt;
 	font-family: "Georgia", serif;
 	background-color: #F8F8F8;
 	border-style: solid;
 	border-width: 5px;
-	border-radius: 40px;
-	position: relative;
 }
-#dataButton {
-	border-color: #F7A500;
-}
-#piranhaButton {
-	border-color: #77CCF3;
-	position: relative;
-	left: 30px;
-}
-#topRow {
-	position: relative;
+#redColumn {
+	position: absolute;
+	top: 390px;
 	left: 45px;
-	top: 50px;
+}
+#blueColumn {
+	position: absolute;
+	top: 390px;
+	left: 310px;
+}
+.redButtons {
+	color: #BE1E2D;
+	border-style: solid;
+	border-width: 5px;
+	border-color: #BE1E2D;
+	border-radius: 40px;
+}
+.blueButtons {
+	color: #1E2BBE;
+	border-style: solid;
+	border-width: 5px;
+	border-color: #1E2BBE;
+	border-radius: 40px;
+}
+#RED2 {
+	position: absolute;
+	top: 190px;
+}
+#RED3 {
+	position: absolute;
+	top: 380px;
+}
+#BLUE2 {
+	position: absolute;
+	top: 190px;
+}
+#BLUE3 {
+	position: absolute;
+	top: 380px;
 }
