@@ -35,13 +35,14 @@
       <br>
 
       <!-- Get ready to switch to the Auto and Tele Sheet -->
-      <button id="splashSubmit" onclick="switchPage('splash', 'forward')">SUBMIT</button>
+      <button id="splashSubmit" onclick="switchPage('splashPage', 'forward')">SUBMIT</button>
 		</div>
 	</div>
 
 	<!-- Auto Page -->
 	<div class="teleAutoSheet" id="autoPage" hidden>
 		<p>AUTONOMOUS</p>
+		<p id="autoTeamNum">0000</p>
 		<div>
 		  <p>Start Position:</p>
 		  <div>
@@ -59,28 +60,27 @@
 				</SPAN>
 				<BR>
 				<SPAN>Switch:&nbsp;
-					<BUTTON class="incrementButton" Click="changeCounter('autoSwitch', 1)">+1</BUTTON>
+					<BUTTON class="incrementButton" onClick="changeCounter('autoSwitch', 1)">+1</BUTTON>
 					<INPUT id="autoSwitch" type="text" value="0"  disabled>
-					<BUTTON class="incrementButton" Click="changeCounter('autoSwitch', -1)">-1</BUTTON>
+					<BUTTON class="incrementButton" onClick="changeCounter('autoSwitch', -1)">-1</BUTTON>
 				</SPAN>
 				<BR>
 			</div>
 			<div>
 				<p>Miscellaneous:&nbsp;</p>
-				<input class="checkbox" type="checkbox"  value="false">&nbsp;<label for="passLine" class="labels">: Crossed Line <br>
-				<input class="checkbox" type="checkbox" value="false">&nbsp;<label for="noShow" class="labels">: No Show <br>
-				<input class="checkbox" type="checkbox" value="false">&nbsp;<label for="deadBot" class="labels">: Dead Bot <br>
+				<input class="checkbox" id="crossedLine"type="checkbox"  value="false">&nbsp;<label for="passLine" class="labels">: Crossed Line <br>
+				<input class="checkbox" id="noShow" type="checkbox" value="false">&nbsp;<label for="noShow" class="labels">: No Show <br>
+				<input class="checkbox" id="autoDeadBot" type="checkbox" value="false">&nbsp;<label for="deadBot" class="labels">: Dead Bot <br>
 			</div>
-			<p>0000</p>
-			<BUTTON onClick="switchPage('auto', 'backward')" class="backButtons">GO<BR>BACK</BUTTON>
-			<BUTTON onClick="switchPage('auto', 'forward')" id="autoSubmit" class="submitButtons">GO TO<BR>TELEOP</BUTTON>
+			<BUTTON onClick="switchPage('autoPage', 'backward')" class="backButtons">GO<BR>BACK</BUTTON>
+			<BUTTON onClick="switchPage('autoPage', 'forward')" id="autoSubmit" class="submitButtons">GO TO<BR>TELEOP</BUTTON>
 		</div>
 	</div>
 
 	<!-- Tele page -->
 	<div class = "teleAutoSheet" id="telePage" hidden>
 		<p>TELE OPERATED</p>
-		<p>0000</p>
+		<p id="teleTeamNum">0000</p>
 		<div>
 			<p>Boxes Placed:</p>
 			<SPAN>Scale:&nbsp;
@@ -103,21 +103,18 @@
 			<BR>
 		</div>
 		<div>
-			<input type="radio" name = 'endClimb' class='climb' id="outsideStart">
-			<label for="outsideStart">Outside</label>
-			<input type="radio" name = 'endClimb' class='climb' id="centerStart">
-			<label for="centerStart">Center</label>
-			<input type="radio" name = 'endClimb' class='climb' id="centerStart">
-			<label for="centerStart">Center</label>
-			<br>
 			<SPAN>Assisted Others:&nbsp;
 				<BUTTON onClick="changeCounter('AssistOthersClimb', 1)">+1</BUTTON>
 				<INPUT type="text" id="AssistOthersClimb" value="0"  disabled>
 				<BUTTON onClick="changeCounter('AssistOthersClimb', -1)">-1</BUTTON>
 			</SPAN>
+			<br>
+			<input class="checkbox" id="teleDeadBot" type="checkbox" value="false">&nbsp;<label for="teleDeadBot" class="labels">: Dead Bot <br>
+			<input class="checkbox" id="helpedClimb" type="checkbox" value="false">&nbsp;<label for="teleDeadBot" class="labels">: Helped Climb <br>
+			<input class="checkbox" id="climb" type="checkbox" value="false">&nbsp;<label for="teleDeadBot" class="labels">: Self Climb <br>
 		</div>
-		<BUTTON class="backButtons" onClick="switchPage('tele', 'backward')">GO<BR>BACK</BUTTON>
-		<BUTTON class="submitButtons" id="teleSubmit" onClick="">SUBMIT</BUTTON>
+		<BUTTON class="backButtons" onClick="switchPage('telePage', 'backward')">GO<BR>BACK</BUTTON>
+		<BUTTON class="submitButtons" id="teleSubmit" onClick="submitTele()">SUBMIT</BUTTON>
 	</div>
 </body>
 </html>
