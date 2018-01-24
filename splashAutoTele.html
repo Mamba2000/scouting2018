@@ -42,6 +42,7 @@
 	<!-- Auto Page -->
 	<div class="teleAutoSheet" id="autoPage" hidden>
 		<p>AUTONOMOUS</p>
+		<p id="autoTeamNum">0000</p>
 		<div>
 		  <p>Start Position:</p>
 		  <div>
@@ -71,7 +72,6 @@
 				<input class="checkbox" id="noShow" type="checkbox" value="false">&nbsp;<label for="noShow" class="labels">: No Show <br>
 				<input class="checkbox" id="autoDeadBot" type="checkbox" value="false">&nbsp;<label for="deadBot" class="labels">: Dead Bot <br>
 			</div>
-			<p id="teamNum">0000</p>
 			<BUTTON onClick="switchPage('autoPage', 'backward')" class="backButtons">GO<BR>BACK</BUTTON>
 			<BUTTON onClick="switchPage('autoPage', 'forward')" id="autoSubmit" class="submitButtons">GO TO<BR>TELEOP</BUTTON>
 		</div>
@@ -80,7 +80,7 @@
 	<!-- Tele page -->
 	<div class = "teleAutoSheet" id="telePage" hidden>
 		<p>TELE OPERATED</p>
-		<p>0000</p>
+		<p id="teleTeamNum">0000</p>
 		<div>
 			<p>Boxes Placed:</p>
 			<SPAN>Scale:&nbsp;

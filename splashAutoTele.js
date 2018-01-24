@@ -50,7 +50,7 @@ function matchTablet(argument){
 			break;
 		default:
 			alliance = "ANY";
-			robot = 0;
+			robot = 1;
 			break;
 	}
 }
@@ -77,14 +77,10 @@ function autoInitialize(){
 		} else {
 			teamNo = matches[match - 1].blue[robot - 1];
 		}
+		document.getElementById("autoTeamNum").innerHTML = teamNo;
+		document.getElementById("teleTeamNum").innerHTML = teamNo;
 	}
 	console.log(teamNo);
-}
-
-function fakeRadioButtons(set, choice){
-	var optionSet = $(set);
-	console.log(optionSet);
-
 }
 
 function changeCounter(field, condition){
@@ -140,7 +136,12 @@ function submitTele() {
 	jObj.AssistedClimb = parseInt(document.getElementById("AssistOthersClimb").value, 10);
 	jObj.ReceivedClimb = document.getElementById("helpedClimb").checked;
 
-	LSName = "name";
+	LSName = jObj.eventName.concat("_");
+	LSName = LSName.concat(jObj.teamNumber);
+	LSName = LSName.concat("_");
+	LSName = LSName.concat(jObj.match);
+	LSName = LSName.concat("_");
+	LSName = LSName.concat("Object");
 
 	localStorage.setItem(LSName, JSON.stringify(jObj));
 
