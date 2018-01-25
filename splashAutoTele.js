@@ -8,6 +8,7 @@ var robot = 0;
 //initialize the splash sheet
 function initialize() {
 	var str = window.location.search;
+<<<<<<< Updated upstream
  	var tabletID = str.split("=");
 	matchTablet(tabletID[1]);
 	scout = localStorage.getItem("ScoutName");
@@ -18,32 +19,36 @@ function initialize() {
 	if (evnt != null) {
 		document.getElementById('eventselect').value = evnt;
 	}
+=======
+ 	matchTablet(str);
+	document.getElementById("tabletNumber").innerHTML = (str.slice(1, 4) + " " + str.slice(4,5));
+>>>>>>> Stashed changes
 }
 
 //Determine which tablet is doing the scouting from splashPage input
 function matchTablet(argument){
 	switch(argument){
-		case "RED1":
+		case "?RED1":
 			alliance = "RED";
 			robot = 1;
 			break;
-		case "RED2":
+		case "?RED2":
 			alliance = "RED";
 			robot = 2;
 			break;
-		case "RED3":
+		case "?RED3":
 			alliance = "RED";
 			robot = 3;
 			break;
-		case "BLUE1":
+		case "?BLUE1":
 			alliance = "BLUE";
 			robot = 1;
 			break;
-		case "BLUE2":
+		case "?BLUE2":
 			alliance = "BLUE";
 			robot = 2;
 			break;
-		case "BLUE3":
+		case "?BLUE3":
 			alliance = "BLUE";
 			robot = 3;
 			break;

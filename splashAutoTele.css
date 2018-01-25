@@ -39,7 +39,7 @@ border-color: SOLID WHITE;
 
 .submitButtons {
 position: absolute;
-top: 80%;
+top: 90%;
 right: 1%;
 border-style: solid;
 border-color: BLACK;
@@ -47,22 +47,28 @@ border-width: thick;
 background-color: #EFEFEF;
 font-size: 22pt;
 font-weight: bold;
-height: 110px;
-width: 140px;
+height: 140px;
+width: 170px;
 }
 
 .backButtons {
 position: absolute;
-top: 80%;
-right: 18%;
+top: 90%;
+right: 21%;
 border-style: solid;
 border-color: black;
 border-width: thick;
 background-color: #EFEFEF;
-font-size: 26px;
+font-size: 22pt;
 font-weight: bold;
-height: 110px;
-width: 140px;
+height: 140px;
+width: 170px;
+}
+
+.teamNumber {
+	position: absolute;
+	top: 90%;
+	left: 0%;
 }
 
 
@@ -74,12 +80,16 @@ width: 140px;
 
 }
 
+#tabletNumber{
+
+}
+
 #matchNumber{
 
 }
 
 #scoutSelect{
-
+	
 }
 
 #eventSelect{
@@ -126,6 +136,7 @@ width: 140px;
 .dropDown {
   font-size: 2em
 }
+<<<<<<< Updated upstream
 
 #teamNo {
 position: absolute;
@@ -139,3 +150,6 @@ border-width: thick;
 background-color: #EFEFEF;
 padding: 5px;
 }
+=======
+#teleTeamNum
+>>>>>>> Stashed changes
