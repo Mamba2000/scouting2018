@@ -5,82 +5,87 @@ html {
   background-size: 8%;
 }
 #titleLogo {
-	width: 570px;
 	border-style: solid;
 	border-color: BLACK;
+	border-width: 10px;
 	padding: 5px;
 	background-color: white;
+	border-radius: 10px;
 }
 .titlePix {
-	width: 570px;
+	width: 930px;
 }
 .bigger {
-	width: 240px;
-	height: 170px;
-	font-size: 38pt; /* Actually its DONT size not FONT size */
+	width: 400px;
+	height: 260px;
+	font-size: 48pt; /* Actually its DONT size not FONT size */
 	font-family: "Georgia", serif;
 	background-color: #E0E0E0;
 	border-style: solid;
-	border-width: 5px;
-	border-radius: 40px;
-	position: absolute;
+	border-width: 10px;
+	border-radius: 65px;
 	border-color: #149B00;
 }
-#piranhaButton {
-	position: relative;
-	left: 265px;
-}
-#topRow {
+#dataButton {
 	position: absolute;
-	left: 45px;
-	top: 200px;
+	left: 60px;
+	top: 330px;
+}
+#piranhaButton {
+	position: absolute;
+	left: 520px;
+	top: 330px;
 }
 .smaller {
-	width: 240px;
-	height: 170px;
-	font-size: 42pt;
+	width: 400px;
+	height: 260px;
+	font-size: 50pt;
 	font-family: "Georgia", serif;
 	background-color: #F8F8F8;
 	border-style: solid;
-	border-width: 5px;
-}
-#redColumn {
-	position: absolute;
-	top: 390px;
-	left: 45px;
-}
-#blueColumn {
-	position: absolute;
-	top: 390px;
-	left: 310px;
+	border-width: 10px;
 }
 .redButtons {
 	color: #BE1E2D;
 	border-style: solid;
-	border-width: 5px;
+	border-width: 10px;
 	border-color: #BE1E2D;
-	border-radius: 40px;
+	border-radius: 65px;
 }
 .blueButtons {
 	color: #1E2BBE;
 	border-style: solid;
-	border-width: 5px;
+	border-width: 10px;
 	border-color: #1E2BBE;
-	border-radius: 40px;
+	border-radius: 65px;
 }
-#RED2 {
+#BLUE1 {
 	position: absolute;
-	top: 190px;
-}
-#RED3 {
-	position: absolute;
-	top: 380px;
+	top: 640px;
+	left: 520px;
 }
 #BLUE2 {
 	position: absolute;
-	top: 190px;
+	top: 950px;
+	left: 520px;
 }
 #BLUE3 {
 	position: absolute;
-	top: 380px;
+	top: 1260px;
+	left: 520px;
+}
+#RED1 {
+	position: absolute;
+	top: 640px;
+	left: 60px;
+}
+#RED2 {
+	position: absolute;
+	top: 950px;
+	left: 60px;
+}
+#RED3 {
+	position: absolute;
+	top: 1260px;
+	left: 60px;
 }
