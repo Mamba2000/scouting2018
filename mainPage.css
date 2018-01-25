@@ -1,0 +1,91 @@
+/* mainPage.css*/
+html {
+  background-image: url("images/8-BitTransSkunk.png");
+  background-repeat: repeat;
+  background-size: 8%;
+}
+#titleLogo {
+	border-style: solid;
+	border-color: BLACK;
+	border-width: 10px;
+	padding: 5px;
+	background-color: white;
+	border-radius: 10px;
+}
+.titlePix {
+	width: 930px;
+}
+.bigger {
+	width: 400px;
+	height: 260px;
+	font-size: 48pt; /* Actually its DONT size not FONT size */
+	font-family: "Georgia", serif;
+	background-color: #E0E0E0;
+	border-style: solid;
+	border-width: 10px;
+	border-radius: 65px;
+	border-color: #149B00;
+}
+#dataButton {
+	position: absolute;
+	left: 60px;
+	top: 330px;
+}
+#piranhaButton {
+	position: absolute;
+	left: 520px;
+	top: 330px;
+}
+.smaller {
+	width: 400px;
+	height: 260px;
+	font-size: 50pt;
+	font-family: "Georgia", serif;
+	background-color: #F8F8F8;
+	border-style: solid;
+	border-width: 10px;
+}
+.redButtons {
+	color: #BE1E2D;
+	border-style: solid;
+	border-width: 10px;
+	border-color: #BE1E2D;
+	border-radius: 65px;
+}
+.blueButtons {
+	color: #1E2BBE;
+	border-style: solid;
+	border-width: 10px;
+	border-color: #1E2BBE;
+	border-radius: 65px;
+}
+#BLUE1 {
+	position: absolute;
+	top: 640px;
+	left: 520px;
+}
+#BLUE2 {
+	position: absolute;
+	top: 950px;
+	left: 520px;
+}
+#BLUE3 {
+	position: absolute;
+	top: 1260px;
+	left: 520px;
+}
+#RED1 {
+	position: absolute;
+	top: 640px;
+	left: 60px;
+}
+#RED2 {
+	position: absolute;
+	top: 950px;
+	left: 60px;
+}
+#RED3 {
+	position: absolute;
+	top: 1260px;
+	left: 60px;
+}
