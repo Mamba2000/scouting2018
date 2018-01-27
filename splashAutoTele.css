@@ -12,25 +12,32 @@ html {
   height: 99.6%;
   border-style: solid;
   border-width: regular;
+  font-family: "Titillium";
+  font-size: 2em;
+}
+
+#skunkBackground{
+  height: 100%;
   background-image: url("images/8-BitTransSkunk.png");
 }
 
 .splashSheet {
   text-align: center;
-  font-family:"Titillium";
-  font-size: 2em;
 }
 
 .teleAutoSheet{
-  font-family: "Titillium";
-  font-size: 2em;
+
 }
 
 
 
 
 /* Common data input types styling */
-.checkBoxes {
+.incrementButton{
+
+}
+
+.checkbox {
 height: 40px;
 width: 40px;
 border: 2px;
@@ -39,7 +46,7 @@ border-color: SOLID WHITE;
 
 .submitButtons {
 position: absolute;
-top: 90%;
+top: 80%;
 right: 1%;
 border-style: solid;
 border-color: BLACK;
@@ -47,28 +54,22 @@ border-width: thick;
 background-color: #EFEFEF;
 font-size: 22pt;
 font-weight: bold;
-height: 140px;
-width: 170px;
+height: 110px;
+width: 140px;
 }
 
 .backButtons {
 position: absolute;
-top: 90%;
-right: 21%;
+top: 80%;
+right: 18%;
 border-style: solid;
 border-color: black;
 border-width: thick;
 background-color: #EFEFEF;
-font-size: 22pt;
+font-size: 26px;
 font-weight: bold;
-height: 140px;
-width: 170px;
-}
-
-.teamNumber {
-	position: absolute;
-	top: 90%;
-	left: 0%;
+height: 110px;
+width: 140px;
 }
 
 
@@ -80,16 +81,12 @@ width: 170px;
 
 }
 
-#tabletNumber{
-
-}
-
 #matchNumber{
 
 }
 
 #scoutSelect{
-	
+
 }
 
 #eventSelect{
@@ -114,6 +111,18 @@ width: 170px;
 #autoScale{
 
 }
+#crossedLine{
+
+}
+#noShow{
+
+}
+#autoDeadBot{
+
+}
+#autoTeamNum{
+
+}
 
 /* Tele Page ids */
 #teleSwitch{
@@ -128,15 +137,16 @@ width: 170px;
 #AssistOthersClimb{
 
 }
-.heading {
-  font-family: "Lobster";
-  font-size: 2em;
-}
+#teleDeadBot{
 
-.dropDown {
-  font-size: 2em
 }
-<<<<<<< Updated upstream
+#climb{
+
+}
+#helpedClimb{
+
+}
+#teleTeamNum
 
 #teamNo {
 position: absolute;
@@ -150,6 +160,3 @@ border-width: thick;
 background-color: #EFEFEF;
 padding: 5px;
 }
-=======
-#teleTeamNum
->>>>>>> Stashed changes
