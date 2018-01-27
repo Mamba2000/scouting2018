@@ -7,21 +7,19 @@ var matches;
 
 window.addEventListener('load', function() {
 
-  events = ["2016wagg","2018waahs","2018wasno","2018idbo","2018pncmp"];
-  for (var j=0; j<events.length; j++) {
-    eventName = events[j];
-    for (var i=0; i<localStorage.length; i++)    {
-          var key = localStorage.key(i);
-      //console.log(key);                                                            // Test
-          if (eventName.concat("Matches") == key)
-          {
-              isThere = true;
-          checkForMatches(true);
-              break;
-          }
-      }
-  }
-
+	events = ["2016wagg","2018waahs","2018wasno","2018idbo","2018pncmp"];
+	for (var j=0; j<events.length; j++) {
+    	eventName = events[j];
+    	for (var i=0; i<localStorage.length; i++)    {
+    		var key = localStorage.key(i);
+    		//console.log(key);                                                            // Test
+        	if (eventName.concat("Matches") == key) {
+        		isThere = true;
+          		checkForMatches(true);
+            	break;
+			}
+    	}
+	}
 });
 
 
