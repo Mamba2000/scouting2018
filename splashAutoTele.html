@@ -7,35 +7,39 @@
 <link rel="stylesheet" type="text/css" href="splashAutoTele.css">
 </head>
 <body onload="initialize()" id="skunkBackground">
-	<img src="images/AppTitleSkunkworks.png" class="skunkLogo">
+	<div id="titleLogo">
+		<img class="titleImages" src="images/GameLogo.jpg">
+		<img class="titleImages" src="images/AppTitleSkunkworks.png">
+	</div>
 	<!-- Splash Sheet -->
 	<div class="splashSheet" id="splashPage">
 		<p class = "heading" id="splashSheetHeader">thing</p>
 		<div>
-      <!-- Select what match you are scouting for -->
-      Match Number:
-      <input id="matchNumber" type="text" value="" maxlength="3" autocomplete=off><br>
-      <br>
+    	<!-- Select what match you are scouting for -->
+      	Match Number:
+      	<input id="matchNumber" type="text" value="" maxlength="3" autocomplete=off><br>
+      	<br>
 
-      <!-- Select the scout that is scouting -->
-      SCOUT:
-			<select id="scoutSelect">
-				<option value="Default">- - Choose Name - -</option>
-				<option value="testScout">Test</option>
-			</select>
-			<br>
-      <br>
+      	<!-- Select the scout that is scouting -->
+      	SCOUT:
+		<select id="scoutSelect">
+			<option value="Default">- - Choose Name - -</option>
+			<option value="testScout">Test</option>
+		</select>
+		<br>
+     	<br>
 
-      <!-- Select what event you are scouting for -->
-			EVENT:
-			<select id="eventSelect">
-				<option value="Default">- - Choose Event - -</option>
-				<option value='Test'>Test</option>
-			</select><br>
-      <br>
+      	<!-- Select what event you are scouting for -->
+		EVENT:
+		<select id="eventSelect">
+			<option value="Default">- - Choose Event - -</option>
+			<option value='Test'>Test</option>
+		</select>
+		<br>
+      	<br>
 
-      <!-- Get ready to switch to the Auto and Tele Sheet -->
-      <button id="splashSubmit" onclick="switchPage('splashPage', 'forward')">SUBMIT</button>
+      	<!-- Get ready to switch to the Auto and Tele Sheet -->
+      	<button id="splashSubmit" onclick="switchPage('splashPage', 'forward')">SUBMIT</button>
 		</div>
 	</div>
 
@@ -44,14 +48,14 @@
 		<p>AUTONOMOUS</p>
 		<p id="autoTeamNum">0000</p>
 		<div>
-		  <p>Start Position:</p>
-		  <div>
-		    <input class='startPosition' id="outsideStart" name = 'startPos' type="radio">
-		    <label for="outsideStart">Outside</label>
-		    <input class='startPosition' id="centerStart" name = 'startPos' type="radio">
-		    <label for="centerStart">Center</label>
-		  </div>
+			<p>Start Position:</p>
 			<div>
+		    	<input class='startPosition' id="outsideStart" name = 'startPos' type="radio">
+		    	<label for="outsideStart">Outside</label>
+		    	<input class='startPosition' id="centerStart" name = 'startPos' type="radio">
+		    	<label for="centerStart">Center</label>
+		  </div>
+		  <div>
 				<p>Boxes Placed:</p>
 				<SPAN>Scale:&nbsp;
 					<BUTTON class="incrementButton" onClick="changeCounter('autoScale', 1)">+1</BUTTON>

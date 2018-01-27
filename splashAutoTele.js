@@ -24,34 +24,41 @@ function initialize() {
 //Determine which tablet is doing the scouting from splashPage input
 function matchTablet(argument){
 	switch(argument){
-		case "RED1":
+		case "?RED1":
 			alliance = "RED";
 			robot = 1;
 			break;
-		case "RED2":
+		case "?RED2":
 			alliance = "RED";
 			robot = 2;
 			break;
-		case "RED3":
+		case "?RED3":
 			alliance = "RED";
 			robot = 3;
 			break;
-		case "BLUE1":
+		case "?BLUE1":
 			alliance = "BLUE";
 			robot = 1;
 			break;
-		case "BLUE2":
+		case "?BLUE2":
 			alliance = "BLUE";
 			robot = 2;
 			break;
-		case "BLUE3":
+		case "?BLUE3":
 			alliance = "BLUE";
 			robot = 3;
 			break;
 		default:
 			alliance = "ANY";
-			robot = 1;
+			robot = 0;
 			break;
+	}
+	document.getElementById("splashSheetHeader").innerHTML = (alliance + " " + robot);
+	console.log(alliance);
+	if(alliance === "RED"){
+		document.getElementById("splashSheetHeader").style.color = RED;
+	} else if (alliance === "BLUE") {
+		document.getElementById("splashSheetHeader").style.color = BLUE;
 	}
 }
 

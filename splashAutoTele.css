@@ -21,6 +21,19 @@ html {
   background-image: url("images/8-BitTransSkunk.png");
 }
 
+#titleLogo {
+	border-style: solid;
+	border-color: BLACK;
+	border-width: 10px;
+	padding: 5px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.titleImages {
+	width: 920px;
+}
+
 .splashSheet {
   text-align: center;
 }
@@ -146,17 +159,6 @@ width: 140px;
 #helpedClimb{
 
 }
-#teleTeamNum
+#teleTeamNum{
 
-#teamNo {
-position: absolute;
-left: -5px;
-top: -85px;
-font-size: 60pt;
-font-style: sans-serif;
-border-style: solid;
-border-color: BLACK;
-border-width: thick;
-background-color: #EFEFEF;
-padding: 5px;
 }
