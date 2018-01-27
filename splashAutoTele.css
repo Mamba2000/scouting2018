@@ -3,24 +3,20 @@
 font-family: "Lobster";
 src: url("fonts/Lobster-Regular.ttf");
 }
-@font-face{
+@font-face {
   font-family: "Titillium";
   src: url("fonts/Titillium-Regular.otf");
 }
 
 html {
-  height: 99.6%;
-  border-style: solid;
-  border-width: regular;
-  font-family: "Titillium";
-  font-size: 2em;
+	height: 99.6%;
+	font-family: "Titillium";
+	font-size: 2em;
 }
-
-#skunkBackground{
-  height: 100%;
-  background-image: url("images/8-BitTransSkunk.png");
+#skunkBackground {
+	background-size: 15%;
+	background-image: url("images/8-BitTransSkunk.png");
 }
-
 #titleLogo {
 	border-style: solid;
 	border-color: BLACK;
@@ -28,61 +24,62 @@ html {
 	padding: 5px;
 	background-color: white;
 	border-radius: 10px;
+	width: 800px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 60px;
+	height: 1420px;
 }
-
 .titleImages {
-	width: 920px;
+	width: 770px;
 }
-
 .splashSheet {
-  text-align: center;
+	text-align: center;
 }
-
-.teleAutoSheet{
+.teleAutoSheet {
 
 }
-
-
-
 
 /* Common data input types styling */
-.incrementButton{
+.incrementButton {
 
 }
-
 .checkbox {
-height: 40px;
-width: 40px;
-border: 2px;
-border-color: SOLID WHITE;
+	height: 40px;
+	width: 40px;
+	border: 2px;
+	border-color: SOLID WHITE;
 }
-
 .submitButtons {
-position: absolute;
-top: 80%;
-right: 1%;
-border-style: solid;
-border-color: BLACK;
-border-width: thick;
-background-color: #EFEFEF;
-font-size: 22pt;
-font-weight: bold;
-height: 110px;
-width: 140px;
+	position: absolute;
+	top: 80%;
+	right: 1%;
+	border-style: solid;
+	border-color: BLACK;
+	border-width: thick;
+	background-color: #EFEFEF;
+	font-size: 22pt;
+	font-weight: bold;
+	height: 110px;
+	width: 140px;
 }
-
 .backButtons {
-position: absolute;
-top: 80%;
-right: 18%;
-border-style: solid;
-border-color: black;
-border-width: thick;
-background-color: #EFEFEF;
-font-size: 26px;
-font-weight: bold;
-height: 110px;
-width: 140px;
+	position: absolute;
+	top: 80%;
+	right: 18%;
+	border-style: solid;
+	border-color: black;
+	border-width: thick;
+	background-color: #EFEFEF;
+	font-size: 26px;
+	font-weight: bold;
+	height: 110px;
+	width: 140px;
+}
+.dropdownMenus {
+	font-size: 0.9em;
 }
 
 
@@ -90,75 +87,104 @@ width: 140px;
 
 
 /* Splash Sheet individual ids */
-#splashSheetHeader{
-
+#splashSheetHeader {
+	font-size:3em;
+	padding: 0;
+	position: relative;
+	top: 15px;
+	font-weight: bold;
 }
-
-#matchNumber{
-
+#splashInputs {
+	position: relative;
+	top: 50px;
+	font-size: 1.5em;
 }
-
-#scoutSelect{
-
+#matchesDownloadText {
+	font-size: 1.6em;
 }
-
-#eventSelect{
-
+#matchNumber {
+	font-size: 0.9em;
+	width: 4em;
+	position: relative;
+	top: 2px;
+	border-style: solid;
+	border-width: medium;
 }
-
-#splashSubmit{
-
+#scoutSelect {
 }
-
-
-
-
+#eventSelect {
+}
+#splashButtons {
+	position: relative;
+	top: 100px;
+}
+#splashSubmit {
+	width: 220px;
+	height: 150px;
+	border-style: solid;
+	border-width: thick;
+	border-color: black;
+	font-size: 32pt;
+	position: absolute;
+	right: 170px;
+	font-weight: bold;
+}
+#splashBackButton {
+	width: 220px;
+	height: 150px;
+	border-style: solid;
+	border-width: thick;
+	border-color: black;
+	font-size: 32pt;
+	position: absolute;
+	left: 170px;
+	font-weight: bold;
+}
 /* Auto Page ids */
-.startPosition{
-  transform: scale(2);
+.startPosition {
+	transform: scale(2);
 }
-
-#autoSwitch{
-
-}
-#autoScale{
+#autoSwitch {
 
 }
-#crossedLine{
+#autoScale {
 
 }
-#noShow{
+#crossedLine {
 
 }
-#autoDeadBot{
+#noShow {
 
 }
-#autoTeamNum{
+#autoDeadBot {
+
+}
+#autoTeamNum {
 
 }
 
 /* Tele Page ids */
-#teleSwitch{
+#teleSwitch {
 
 }
-#teleScale{
+#teleScale {
 
 }
-#teleExchange{
+#teleExchange {
 
 }
-#AssistOthersClimb{
+#AssistOthersClimb {
 
 }
-#teleDeadBot{
+#teleDeadBot {
 
 }
-#climb{
+#climb {
 
 }
-#helpedClimb{
+#helpedClimb {
 
 }
-#teleTeamNum{
+#teleTeamNum {
 
 }

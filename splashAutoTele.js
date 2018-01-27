@@ -12,6 +12,7 @@ var LSName;											    	// List of teams
 var matches;
 var eventName;
 var teamNo;
+var localEvent;
 
 //initialize the splash sheet
 function initialize() {
@@ -19,6 +20,29 @@ function initialize() {
     jObj = JSON.parse(jStr);
 	var str = window.location.search;
  	matchTablet(str);
+	eventList = ["2016wagg","2018waahs","2018wasno","2018idbo","2018pncmp"];
+    for (var j=0; j<eventList.length; j++) {
+    	eventNombre = eventList[j];
+    	for (var i=0; i<localStorage.length; i++) {
+        	var key = localStorage.key(i);
+    		//console.log(key);                                                            // Test
+            if (eventNombre.concat("Matches") == key) {
+                isThere = true;
+				localEvent = eventNombre.toString();
+            	checkForMatches(true);
+                break;
+            }
+        }
+    }
+}
+
+function checkForMatches(statement){
+	elem = document.getElementById("matchesDownloadText");
+	if (statement === true) {
+		elem.innerHTML = elem.innerHTML + " " + localEvent;
+	} else {
+    	elem.innerHTML = "None";
+	}
 }
 
 //Determine which tablet is doing the scouting from splashPage input
@@ -54,11 +78,12 @@ function matchTablet(argument){
 			break;
 	}
 	document.getElementById("splashSheetHeader").innerHTML = (alliance + " " + robot);
-	console.log(alliance);
 	if(alliance === "RED"){
 		document.getElementById("splashSheetHeader").style.color = RED;
+		document.getElementById("splashSubmit").style.color = RED;
 	} else if (alliance === "BLUE") {
 		document.getElementById("splashSheetHeader").style.color = BLUE;
+		document.getElementById("splashSubmit").style.color = BLUE;
 	}
 }
 
@@ -102,15 +127,19 @@ function changeCounter(field, condition){
 function switchPage(currentPage, direction){
 	var pages = ['splashPage', 'autoPage', 'telePage'];
 	var currentPos = pages.indexOf(currentPage);
-	if(currentPos == 0){
-		autoInitialize();
-	}
 	if(direction === 'forward'){
+		if(currentPos == 0){
+			autoInitialize();
+		}
 		document.getElementById(pages[currentPos]).hidden = true;
 		document.getElementById(pages[currentPos+1]).hidden = false;
 	} else {
-		document.getElementById(pages[currentPos]).hidden = true;
-		document.getElementById(pages[currentPos-1]).hidden = false;
+		if(currentPos == 0){
+			window.location.href = "mainPage.html";
+		} else {
+			document.getElementById(pages[currentPos]).hidden = true;
+			document.getElementById(pages[currentPos-1]).hidden = false;
+		}
 	}
 }
 
