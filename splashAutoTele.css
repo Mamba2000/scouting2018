@@ -43,13 +43,29 @@ html {
 	text-align: center;
 }
 .teleAutoSheet {
-
+	font-size: 1.5em;
+}
+.pageTitles {
+	position: absolute;
+	color: black;
+	right: 50px;
+	top: 150px;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+.teamNumber{
+	position: absolute;
+	color: black;
+	left: -10px;
+	bottom: -77px;
+	font-size: 1.4em;
+	font-weight: bold;
+	padding: 25px;
+	border-style: solid;
+	border-width: 10px;
 }
 
 /* Common data input types styling */
-.incrementButton {
-
-}
 .checkbox {
 	height: 40px;
 	width: 40px;
@@ -58,29 +74,29 @@ html {
 }
 .submitButtons {
 	position: absolute;
-	top: 80%;
-	right: 1%;
+	bottom: -9px;
+	right: -10px;
 	border-style: solid;
 	border-color: BLACK;
-	border-width: thick;
+	border-width: 10px;
 	background-color: #EFEFEF;
-	font-size: 22pt;
+	font-size: 1em;
 	font-weight: bold;
-	height: 110px;
-	width: 140px;
+	height: 161px;
+	width: 310px;
 }
 .backButtons {
 	position: absolute;
-	top: 80%;
-	right: 18%;
+	bottom: -9px;
+	right: 290px;
 	border-style: solid;
 	border-color: black;
-	border-width: thick;
+	border-width: 10px;
 	background-color: #EFEFEF;
-	font-size: 26px;
+	font-size: 1em;
 	font-weight: bold;
-	height: 110px;
-	width: 140px;
+	height: 161px;
+	width: 310px;
 }
 .dropdownMenus {
 	font-size: 0.9em;
@@ -93,8 +109,13 @@ html {
     animation-direction: alternate;
     animation-play-state: running;
 }
-
-
+.incrementButton{
+	font-size: 1em;
+}
+.incrementScoreboard{
+	font-size: 1em;
+	width: 4em;
+}
 
 
 
@@ -112,7 +133,7 @@ html {
 	font-size: 1.5em;
 }
 #matchesDownloadText {
-	font-size: 1.6em;
+	font-size: 1.4em;
 }
 #matchNumber {
 	font-size: 0.9em;
@@ -134,7 +155,7 @@ html {
 	width: 220px;
 	height: 150px;
 	border-style: solid;
-	border-width: thick;
+	border-width: 7px;
 	border-color: black;
 	font-size: 32pt;
 	position: absolute;
@@ -145,7 +166,7 @@ html {
 	width: 220px;
 	height: 150px;
 	border-style: solid;
-	border-width: thick;
+	border-width: 7px;
 	border-color: black;
 	font-size: 32pt;
 	position: absolute;
@@ -165,6 +186,14 @@ html {
 /* Auto Page ids */
 .startPosition {
 	transform: scale(2);
+}
+#autoTitle{
+	position: absolute;
+	color: black;
+	right: 50px;
+	top: 150px;
+	font-size: 1.4em;
+	font-weight: bold;
 }
 #autoSwitch {
 
@@ -186,6 +215,9 @@ html {
 }
 
 /* Tele Page ids */
+#teleTitle{
+
+}
 #teleSwitch {
 
 }

@@ -14,42 +14,63 @@ var matches;
 var eventName;
 var teamNo;
 var eStop = false;
+var isThere = false;
 
 //initialize the splash sheet
 function initialize() {
+	document.getElementById("matchNumber").value = "1";   //TODO kill this shit
 	jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","autoStartPos":"default","autoCrossLine":false,"autoScale":0,"autoSwitch":0,"noShow":false,"teleScale":0,"teleSwitch":0,"teleExchange":0,"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false}';
     jObj = JSON.parse(jStr);
 	var str = window.location.search;
  	matchTablet(str);
 	eventList = ["2016wagg","2018waahs","2018wasno","2018idbo","2018pncmp"];
+	console.log("TEST");
     for (var j=0; j<eventList.length; j++) {
+		console.log("TEST1");
     	eventNombre = eventList[j];
     	for (var i=0; i<localStorage.length; i++) {
+			console.log("TEST2");
         	var key = localStorage.key(i);
     		//console.log(key);                                                            // Test
             if (eventNombre.concat("Matches") == key) {
                 isThere = true;
 				eventName = eventNombre.toString();
 				console.log(eventName);
-            	checkForMatches(true);
+            	checkForMatches();
                 break;
-            }
+			} else {
+				document.getElementById("matchesDownloadText").innerHTML = "Matches Downloaded: Error--None";
+			}
         }
     }
 
-	// var memeNum = Math.floor(Math.random() * 32);
-	// document.getElementById("theOneAndOnly").src = "images/memes/" + memeNum + ".png";
+	var memeNum = Math.floor(Math.random() * 32);
+	document.getElementById("theOneAndOnly").src = "images/memes/" + memeNum + ".png";
+	//switchPage("splashPage", "forward"); //TODO kill this shit
 
 }
 
-function checkForMatches(statement){
+function checkForMatches(){
+	console.log("test3");
 	elem = document.getElementById("matchesDownloadText");
-	if (statement === true) {
-		elem.innerHTML = elem.innerHTML + " " + eventName;
-	} else {
-    	elem.innerHTML = "None";
+	switch(eventName) {
+		case "2016wagg":
+			eventReadable = "Girls Gen '16";
+			break;
+		case "2018waahs":
+			eventReadable = "Auburn '18";
+			break;
+		case "2018wasno":
+			eventReadable = "Glacier Peak '18";
+			break;
+		case "2018idbo":
+			eventReadable = "Boise '18"
+			break;
+		case "2018pncmp":
+			eventReadable = "District Champs '18";
+			break;
 	}
-
+	elem.innerHTML = elem.innerHTML + " " + eventReadable;
 }
 
 //Determine which tablet is doing the scouting from splashPage input
@@ -88,9 +109,17 @@ function matchTablet(argument){
 	if(alliance === "RED"){
 		document.getElementById("splashSheetHeader").style.color = RED;
 		document.getElementById("splashSubmit").style.color = RED;
+		document.getElementById("autoTitle").style.color = RED;
+		document.getElementById("teleTitle").style.color = RED;
+		document.getElementById("autoTeamNum").style.color = RED;
+		document.getElementById("teleTeamNum").style.color = RED;
 	} else if (alliance === "BLUE") {
 		document.getElementById("splashSheetHeader").style.color = BLUE;
 		document.getElementById("splashSubmit").style.color = BLUE;
+		document.getElementById("autoTitle").style.color = BLUE;
+		document.getElementById("teleTitle").style.color = BLUE;
+		document.getElementById("autoTeamNum").style.color = BLUE;
+		document.getElementById("teleTeamNum").style.color = BLUE;
 	}
 }
 
@@ -110,7 +139,7 @@ function autoInitialize(){
 			//console.log(jList);
 			matches = new Array();
 			matches = JSON.parse(jList);
-	//		console.log("matches: " + matches.length);									// Test
+	//		console.log("matches: " + matches.length);
 			var match = parseInt(document.getElementById("matchNumber").value);
 			if (alliance === "RED") {
 				teamNo = matches[match - 1].red[robot - 1];
