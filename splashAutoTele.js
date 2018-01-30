@@ -1,6 +1,7 @@
 //Global constants
 RED = "#BE1E2D";
 BLUE = "#1E2BBE";
+ORANGE = "#ffaf00";
 BlueAllianceURL = "https://www.thebluealliance.com/api/v2/event/";
 xbtAPP_ID = "?X-TBA-App-Id=FRC1983:Scouting:v2";
 //Global variables
@@ -12,7 +13,7 @@ var LSName;											    	// List of teams
 var matches;
 var eventName;
 var teamNo;
-var localEvent;
+var eStop = false;
 
 //initialize the splash sheet
 function initialize() {
@@ -28,21 +29,27 @@ function initialize() {
     		//console.log(key);                                                            // Test
             if (eventNombre.concat("Matches") == key) {
                 isThere = true;
-				localEvent = eventNombre.toString();
+				eventName = eventNombre.toString();
+				console.log(eventName);
             	checkForMatches(true);
                 break;
             }
         }
     }
+
+	// var memeNum = Math.floor(Math.random() * 32);
+	// document.getElementById("theOneAndOnly").src = "images/memes/" + memeNum + ".png";
+
 }
 
 function checkForMatches(statement){
 	elem = document.getElementById("matchesDownloadText");
 	if (statement === true) {
-		elem.innerHTML = elem.innerHTML + " " + localEvent;
+		elem.innerHTML = elem.innerHTML + " " + eventName;
 	} else {
     	elem.innerHTML = "None";
 	}
+
 }
 
 //Determine which tablet is doing the scouting from splashPage input
@@ -89,30 +96,38 @@ function matchTablet(argument){
 
 //initialize the auto and tele part of the app
 function autoInitialize(){
-	eventName = "2016wagg";
-	for (i=0; i<localStorage.length; i++) {
-			var key = localStorage.key(i);
-			//console.log(key);															// Test
-  		if (eventName.concat("Matches") == key) {
-  			isThere = true;
+	if(document.getElementById("matchNumber").value !== ""){
+		eStop = false;
+		for (i=0; i<localStorage.length; i++) {
+				var key = localStorage.key(i);
+				//console.log(key);															// Test
+	  		if (eventName.concat("Matches") == key) {
+	  			isThere = true;
+			}
 		}
-	}
-	if (isThere) {
-		var jList = localStorage.getItem(eventName.concat("Matches"));
-		//console.log(jList);
-		matches = new Array();
-		matches = JSON.parse(jList);
-//		console.log("matches: " + matches.length);									// Test
-		var match = parseInt(document.getElementById("matchNumber").value);
-		if (alliance === "RED") {
-			teamNo = matches[match - 1].red[robot - 1];
-		} else {
-			teamNo = matches[match - 1].blue[robot - 1];
+		if (isThere) {
+			var jList = localStorage.getItem(eventName.concat("Matches"));
+			//console.log(jList);
+			matches = new Array();
+			matches = JSON.parse(jList);
+	//		console.log("matches: " + matches.length);									// Test
+			var match = parseInt(document.getElementById("matchNumber").value);
+			if (alliance === "RED") {
+				teamNo = matches[match - 1].red[robot - 1];
+			} else {
+				teamNo = matches[match - 1].blue[robot - 1];
+			}
+			document.getElementById("autoTeamNum").innerHTML = teamNo;
+			document.getElementById("teleTeamNum").innerHTML = teamNo;
 		}
-		document.getElementById("autoTeamNum").innerHTML = teamNo;
-		document.getElementById("teleTeamNum").innerHTML = teamNo;
+		console.log(teamNo);
+	} else {
+		eStop = true;
+		document.getElementById("matchNumber").style.borderWidth = "thick";
+		document.getElementById("matchNumber").style.borderColor = ORANGE;
+		document.getElementById("matchNumText").className = "flash";
+		document.getElementById("theOneAndOnly").src = "32.gif";
 	}
-	console.log(teamNo);
 }
 
 function changeCounter(field, condition){
@@ -124,6 +139,14 @@ function changeCounter(field, condition){
 	}
 }
 
+function validateInp(elem) {
+	var validChars = /[0-9]/;
+	var strIn = elem.value;
+	var strOut = '';
+    for (var i=0; i < strIn.length; i++) strOut += (validChars.test(strIn.charAt(i)))? strIn.charAt(i) : '';
+    elem.value = strOut;
+}
+
 function switchPage(currentPage, direction){
 	var pages = ['splashPage', 'autoPage', 'telePage'];
 	var currentPos = pages.indexOf(currentPage);
@@ -131,8 +154,10 @@ function switchPage(currentPage, direction){
 		if(currentPos == 0){
 			autoInitialize();
 		}
-		document.getElementById(pages[currentPos]).hidden = true;
-		document.getElementById(pages[currentPos+1]).hidden = false;
+		if(!eStop){
+			document.getElementById(pages[currentPos]).hidden = true;
+			document.getElementById(pages[currentPos+1]).hidden = false;
+		}
 	} else {
 		if(currentPos == 0){
 			window.location.href = "mainPage.html";
@@ -146,8 +171,9 @@ function switchPage(currentPage, direction){
 
 //takes all the data from the three pages and puts them into one jObj, then puts that in local storage
 function submitTele() {
+	console.log(eventName);
     jObj.scoutName = document.getElementById("scoutSelect").value;
-	jObj.eventName = document.getElementById("eventSelect").value;
+	jObj.eventName = eventName;
 	jObj.teamNumber = teamNo;
 	jObj.match = parseInt(document.getElementById("matchNumber")).value;
 	jObj.alliance = alliance;

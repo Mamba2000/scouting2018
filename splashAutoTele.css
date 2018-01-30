@@ -7,6 +7,10 @@ src: url("fonts/Lobster-Regular.ttf");
   font-family: "Titillium";
   src: url("fonts/Titillium-Regular.otf");
 }
+@keyframes flash {
+	from {color: ORANGE;}
+	to {color: black;}
+}
 
 html {
 	height: 99.6%;
@@ -81,6 +85,14 @@ html {
 .dropdownMenus {
 	font-size: 0.9em;
 }
+.flash {
+	animation-name: flash;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
 
 
 
@@ -139,6 +151,16 @@ html {
 	position: absolute;
 	left: 170px;
 	font-weight: bold;
+}
+#theOneAndOnly {
+	height: 350px;
+}
+#splashMemes {
+	position: absolute;
+	bottom: 30px;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 /* Auto Page ids */
 .startPosition {

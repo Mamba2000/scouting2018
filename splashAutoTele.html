@@ -17,8 +17,8 @@
 			<span id="splashSheetHeader">thing</span>
 			<div id="splashInputs">
 		    	<!-- Select what match you are scouting for -->
-		      	Match Number:
-		      	<input id="matchNumber" type="text" value="" maxlength="3" autocomplete=off><br>
+		      	<span id="matchNumText">Match Number:</span>
+		      	<input id="matchNumber" type="text" value="" maxlength="3" onkeyup="validateInp(this);" autocomplete=off><br>
 		      	<br>
 		      	<!-- Select the scout that is scouting -->
 		      	SCOUT:
@@ -28,17 +28,13 @@
 				</select>
 				<br>
 		     	<br>
-		      	<!-- Select what event you are scouting for -->
-				EVENT:
-				<select class="dropdownMenus" id="eventSelect">
-					<option value="Default">- - Choose Event - -</option>
-					<option value='Test'>Test</option>
-				</select>
-		      	<!-- Get ready to switch to the Auto and Tele Sheet -->
 			</div>
 			<div id="splashButtons">
 				<button id="splashBackButton" onclick="switchPage('splashPage', 'backward')">Back to<BR>Main</button>
 				<button id="splashSubmit" onclick="switchPage('splashPage', 'forward')">SUBMIT</button>
+			</div>
+			<div id="splashMemes">
+				<img id="theOneAndOnly" src="">
 			</div>
 		</div>
 
