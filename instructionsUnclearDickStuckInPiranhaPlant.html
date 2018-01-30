@@ -33,6 +33,10 @@ function trashCreation() {
     localStorage.setItem("2016wagg_2907_6_Object", JSON.stringify(jObj6));
     console.log("Trash Created, ya fock.");
 };
+
+function backToMain() {
+	window.location.href = "mainPage.html";
+};
 </script>
 <style type="text/css">
 #garbagePickup {
@@ -61,7 +65,20 @@ function trashCreation() {
     width: 500px;
     background-color: white;
 }
-	body {
+#backToMain {
+	width: 500px;
+	height: 150px;
+	background-color: white;
+	font-size: 84px;
+	position: absolute;
+	left: 240px;
+	top: 1320px;
+	border-color: black;
+	color: black;
+	border-width: 10px;
+	border-radius: 4px;
+}
+body {
 	background-image:url("images/marioLogo.png");
 	background-size:20%;
 	}
@@ -69,8 +86,9 @@ function trashCreation() {
 </head>
 <body>
 	<!-- <IMG src="images/Waste_management_logo.jpg"><br> -->
-	<button onClick="trashRemoval()"; id="garbagePickup">Erase All Local Data</button>
-	<IMG src="images/sleepyboye.gif" style="width: 80%; position: relative; left: 70px; top: 150px; z-index: -1;">
-    <button onClick="trashCreation()"; id="garbagePutdown">Create Fake Local Data</button>
+	<button onClick="trashRemoval();" id="garbagePickup">Erase All Local Data</button>
+	<img src="images/sleepyboye.gif" style="width: 80%; position: relative; left: 70px; top: 150px; z-index: -1;">
+    <button onClick="trashCreation();" id="garbagePutdown">Create Fake Local Data</button>
+	<button id="backToMain" onClick="backToMain();">Go Back</button>
 </body>
 </html>
