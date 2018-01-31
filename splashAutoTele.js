@@ -24,34 +24,32 @@ function initialize() {
 	var str = window.location.search;
  	matchTablet(str);
 	eventList = ["2016wagg","2018waahs","2018wasno","2018idbo","2018pncmp"];
-	console.log("TEST");
-    for (var j=0; j<eventList.length; j++) {
-		console.log("TEST1");
-    	eventNombre = eventList[j];
-    	for (var i=0; i<localStorage.length; i++) {
-			console.log("TEST2");
-        	var key = localStorage.key(i);
-    		//console.log(key);                                                            // Test
-            if (eventNombre.concat("Matches") == key) {
-                isThere = true;
-				eventName = eventNombre.toString();
-				console.log(eventName);
-            	checkForMatches();
-                break;
-			} else {
-				document.getElementById("matchesDownloadText").innerHTML = "Matches Downloaded: Error--None";
-			}
-        }
-    }
+	if (localStorage.length !== 0) {
+	    for (var j=0; j<eventList.length; j++) {
+	    	eventNombre = eventList[j];
+	    	for (var i=0; i<localStorage.length; i++) {
+	        	var key = localStorage.key(i);
+	    		//console.log(key);                                                            // Test
+	            if (eventNombre.concat("Matches") == key) {
+	                isThere = true;
+					eventName = eventNombre.toString();
+					console.log(eventName);
+	            	checkForMatches();
+					break;
+				}
+	        }
+	    }
+	} else {
+		document.getElementById("matchesDownloadText").innerHTML = "Matches Downloaded: Error--None";
+	}
 
 	var memeNum = Math.floor(Math.random() * 32);
 	document.getElementById("theOneAndOnly").src = "images/memes/" + memeNum + ".png";
-	//switchPage("splashPage", "forward"); //TODO kill this shit
+	switchPage("splashPage", "forward"); //TODO kill this shit
 
 }
 
 function checkForMatches(){
-	console.log("test3");
 	elem = document.getElementById("matchesDownloadText");
 	switch(eventName) {
 		case "2016wagg":
@@ -70,7 +68,7 @@ function checkForMatches(){
 			eventReadable = "District Champs '18";
 			break;
 	}
-	elem.innerHTML = elem.innerHTML + " " + eventReadable;
+	elem.innerHTML = "Matches Downloaded: " + eventReadable;
 }
 
 //Determine which tablet is doing the scouting from splashPage input
@@ -112,14 +110,18 @@ function matchTablet(argument){
 		document.getElementById("autoTitle").style.color = RED;
 		document.getElementById("teleTitle").style.color = RED;
 		document.getElementById("autoTeamNum").style.color = RED;
+		document.getElementById("autoTeamNum").style.borderColor = RED;
 		document.getElementById("teleTeamNum").style.color = RED;
+		document.getElementById("teleTeamNum").style.borderColor = RED;
 	} else if (alliance === "BLUE") {
 		document.getElementById("splashSheetHeader").style.color = BLUE;
 		document.getElementById("splashSubmit").style.color = BLUE;
 		document.getElementById("autoTitle").style.color = BLUE;
 		document.getElementById("teleTitle").style.color = BLUE;
 		document.getElementById("autoTeamNum").style.color = BLUE;
+		document.getElementById("autoTeamNum").style.borderColor = BLUE;
 		document.getElementById("teleTeamNum").style.color = BLUE;
+		document.getElementById("teleTeamNum").style.borderColor = BLUE;
 	}
 }
 
@@ -165,6 +167,22 @@ function changeCounter(field, condition){
 		counter.value =String(Number(counter.value) + condition);
 	} else {
 		counter.value = "0";
+	}
+}
+
+function fakeRadioButtons(radio) {
+	if (radio === "outsideStart") {
+		document.getElementById("centerStart").checked = false;
+	} else if ("centerStart") {
+		document.getElementById("outsideStart").checked = false;
+	}
+}
+
+function deadBotUniversal(whichBut){
+	if(whichBut === "auto"){
+		document.getElementById("teleDeadBot").checked = !document.getElementById("teleDeadBot").checked;
+	} else {
+		document.getElementById("autoDeadBot").checked = !document.getElementById("autoDeadBot").checked;
 	}
 }
 
@@ -218,7 +236,7 @@ function submitTele() {
 	jObj.teleScale = parseInt(document.getElementById("teleScale").value, 10);
 	jObj.teleSwitch = parseInt(document.getElementById("teleSwitch").value, 10);
 	jObj.teleExchange = parseInt(document.getElementById("teleExchange").value, 10);
-	if (document.getElementById("autoDeadBot").checked || document.getElementById("teleDeadBot").checked){
+	if (document.getElementById("teleDeadBot").checked){
 		jObj.deadBot = true;
 	} else {
 		jObj.deadBot = false;
