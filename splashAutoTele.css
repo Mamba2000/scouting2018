@@ -61,7 +61,7 @@ html {
 	color: black;
 	left: -10px;
 	bottom: -10px;
-	font-size: 1.6em;
+	font-size: 1.5em;
 	font-weight: bold;
 	width: 220px;
 	height: 162px;
@@ -260,7 +260,7 @@ html {
 
 }
 #teleBoxesLeft{
-	position: absolute;
+	position: relative;
 	left: 20px;
 	top: 230px;
 }
@@ -272,7 +272,7 @@ html {
 
 }
 #teleScaleSpan {
-	position: absolute;
+	position: relative;
 	left: 101px;
 }
 #teleExchange {
