@@ -3,138 +3,303 @@
 font-family: "Lobster";
 src: url("fonts/Lobster-Regular.ttf");
 }
-@font-face{
+@font-face {
   font-family: "Titillium";
   src: url("fonts/Titillium-Regular.otf");
 }
+@keyframes flash {
+	from {color: ORANGE;}
+	to {color: black;}
+}
 
 html {
-  height: 99.6%;
-  border-style: solid;
-  border-width: regular;
-  font-family: "Titillium";
-  font-size: 2em;
+	height: 99.6%;
+	font-family: "Titillium";
+	font-size: 2em;
 }
-
-#skunkBackground{
-  height: 100%;
-  background-image: url("images/8-BitTransSkunk.png");
+#skunkBackground {
+	background-size: 15%;
+	background-image: url("images/8-BitTransSkunk.png");
 }
-
+#titleLogo {
+	border-style: solid;
+	border-color: BLACK;
+	border-width: 10px;
+	padding: 5px;
+	background-color: white;
+	border-radius: 10px;
+	width: 800px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 60px;
+	height: 1420px;
+}
+.titleImages {
+	width: 770px;
+}
 .splashSheet {
-  text-align: center;
+	text-align: center;
+}
+.teleAutoSheet {
+	font-size: 1.75em;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+.pageTitles {
+	position: absolute;
+	color: black;
+	right: 50px;
+	top: 200px;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+.teamNumber{
+	position: absolute;
+	color: black;
+	left: -10px;
+	bottom: -10px;
+	font-size: 1.6em;
+	font-weight: bold;
+	width: 220px;
+	height: 162px;
+	border-style: solid;
+	border-width: 10px;
+	border-color: BLACK;
+	text-align: center;
+	color: black;
+	background-color: white;
+}
+.miscArea{
+	position: absolute;
+	bottom: 170px;
+	left: 20px;
 }
 
-.teleAutoSheet{
-
+.scoreboardText{
+	position: relative;
+	left: 0px;
 }
-
-
-
 
 /* Common data input types styling */
-.incrementButton{
-
-}
-
 .checkbox {
-height: 40px;
-width: 40px;
-border: 2px;
-border-color: SOLID WHITE;
+	position: relative;
+	top: 8px;
+	height: 55px;
+	width: 55px;
+	border: 2px;
+	border-color: SOLID WHITE;
 }
-
 .submitButtons {
-position: absolute;
-top: 80%;
-right: 1%;
-border-style: solid;
-border-color: BLACK;
-border-width: thick;
-background-color: #EFEFEF;
-font-size: 22pt;
-font-weight: bold;
-height: 110px;
-width: 140px;
+	position: absolute;
+	bottom: -9px;
+	right: -10px;
+	border-style: solid;
+	border-color: BLACK;
+	border-width: 10px;
+	background-color: #EFEFEF;
+	font-size: 1em;
+	font-weight: bold;
+	height: 161px;
+	width: 310px;
 }
-
 .backButtons {
-position: absolute;
-top: 80%;
-right: 18%;
-border-style: solid;
-border-color: black;
-border-width: thick;
-background-color: #EFEFEF;
-font-size: 26px;
-font-weight: bold;
-height: 110px;
-width: 140px;
+	position: absolute;
+	bottom: -9px;
+	right: 290px;
+	border-style: solid;
+	border-color: black;
+	border-width: 10px;
+	background-color: #EFEFEF;
+	font-size: 1em;
+	font-weight: bold;
+	height: 161px;
+	width: 310px;
 }
-
-
-
-
-
+.dropdownMenus {
+	font-size: 0.9em;
+}
+.flash {
+	animation-name: flash;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+.incrementButton{
+	text-align: right;
+	font-size: 1em;
+	border-style: solid;
+	border-width: 2px;
+	border-color: BLACK;
+	width: 80px;
+	background-color: #EEEEEE;
+}
+.incrementScoreboard{
+	text-align: right;
+	font-size: 1em;
+	width: 4em;
+}
+.plusButtons {
+	border-color: #F3CA32;
+}
+.minusButtons {
+	border-color: #009BD4;
+}
 /* Splash Sheet individual ids */
-#splashSheetHeader{
-
+#splashSheetHeader {
+	font-size:3em;
+	padding: 0;
+	position: relative;
+	top: 15px;
+	font-weight: bold;
 }
-
-#matchNumber{
-
+#splashInputs {
+	position: relative;
+	top: 50px;
+	font-size: 1.5em;
 }
-
-#scoutSelect{
-
+#matchesDownloadText {
+	font-size: 1.4em;
 }
-
-#eventSelect{
-
+#matchNumber {
+	font-size: 0.9em;
+	width: 4em;
+	position: relative;
+	top: 2px;
+	border-style: solid;
+	border-width: medium;
 }
-
-#splashSubmit{
-
+#scoutSelect {
 }
-
-
-
-
+#eventSelect {
+}
+#splashButtons {
+	position: relative;
+	top: 100px;
+}
+#splashSubmit {
+	width: 220px;
+	height: 150px;
+	border-style: solid;
+	border-width: 7px;
+	border-color: black;
+	font-size: 32pt;
+	position: absolute;
+	right: 170px;
+	font-weight: bold;
+}
+#splashBackButton {
+	width: 220px;
+	height: 150px;
+	border-style: solid;
+	border-width: 7px;
+	border-color: black;
+	font-size: 32pt;
+	position: absolute;
+	left: 170px;
+	font-weight: bold;
+}
+#theOneAndOnly {
+	height: 350px;
+}
+#splashMemes {
+	position: absolute;
+	bottom: 30px;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
 /* Auto Page ids */
-.startPosition{
-  transform: scale(2);
-}
-
-#autoSwitch{
+#autoTitle{
 
 }
-#autoScale{
+#autoSwitch {
+
+}
+#autoSwitchSpan {
+
+}
+#autoScale {
+
+}
+#autoScaleSpan {
+	position: relative;
+	left: 35px;
+}
+#crossedLine {
+
+}
+#noShow {
+
+}
+#autoDeadBot {
+
+}
+#autoTeamNum {
 
 }
 
 /* Tele Page ids */
-#teleSwitch{
+#autoStartLeft{
+	position: absolute;
+	left: 20px;
+}
+#teleTitle{
 
 }
-#teleScale{
+#autoBoxesLeft{
+	position: absolute;
+	left: 20px;
+	top: 620px;
+}
+#teleSwitch {
 
 }
-#teleExchange{
+#teleBoxesLeft{
+	position: absolute;
+	left: 20px;
+	top: 230px;
+}
+#teleSwitchSpan{
+	position: absolute;
+	left: 66px;
+}
+#teleScale {
 
 }
-#AssistOthersClimb{
+#teleScaleSpan {
+	position: absolute;
+	left: 101px;
+}
+#teleExchange {
 
 }
+#teleClimbLeft{
+	position: absolute;
+	left: 20px;
+	top: 560px;
+}
+#teleExchangeSpan{
 
-#teamNo {
-position: absolute;
-left: -5px;
-top: -85px;
-font-size: 60pt;
-font-style: sans-serif;
-border-style: solid;
-border-color: BLACK;
-border-width: thick;
-background-color: #EFEFEF;
-padding: 5px;
+}
+#AssistOthersClimb {
+	width: 3em;
+	font-size: 1em;
+	text-align: right;
+}
+#teleDeadBot {
+
+}
+#climb {
+
+}
+#helpedClimb {
+
+}
+#teleTeamNum {
+
 }

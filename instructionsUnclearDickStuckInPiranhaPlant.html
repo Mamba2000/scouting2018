@@ -8,21 +8,21 @@
 
 function trashRemoval() {
 	localStorage.clear();
-	console.log("Cronch Cronch Monch Monch");
+	console.log("Thank you for your patronage");
 };
 
 function trashCreation() {
-    var jStr1 = '{"isTele":true,"scoutName":"test1","eventName":"2016wagg","teamNo":1983,"match":1,"alliance":"RED","auto":{"StartPos":"outside","CrossLine":true,"Scale":1,"Switch":0,"noShow":false},"tele":{"Scale":6,"Switch":3,"Exchange":4},"deadBot":false,"Climb":false,"AssistedClimb":2,"ReceivedClimb":false,"Park":true}'
+    var jStr1 = '{"isTele":true,"scoutName":"test1","eventName":"2016wagg","teamNo":1983,"match":1,"alliance":"RED","autoStartPos":"outside","autoCrossLine":true,"autoScale":1,"autoSwitch":0,"noShow":false,"teleScale":6,"teleSwitch":3,"teleExchange":4,"deadBot":false,"Climb":false,"AssistedClimb":2,"ReceivedClimb":false,"Park":true}'
     jObj1 = JSON.parse(jStr1);
-    var jStr2 = '{"isTele":true,"scoutName":"test2","eventName":"2016wagg","teamNo":1318,"match":2,"alliance":"RED","auto":{"StartPos":"outside","CrossLine":true,"Scale":1,"Switch":0,"noShow":false},"tele":{"Scale":6,"Switch":3,"Exchange":4},"deadBot":false,"Climb":false,"AssistedClimb":2,"ReceivedClimb":false,"Park":true}'
+    var jStr2 = '{"isTele":true,"scoutName":"test2","eventName":"2016wagg","teamNo":1318,"match":2,"alliance":"RED","autoStartPos":"outside","autoCrossLine":true,"autoScale":1,"autoSwitch":0,"noShow":false,"teleScale":6,"teleSwitch":3,"teleExchange":4,"deadBot":false,"Climb":false,"AssistedClimb":2,"ReceivedClimb":false,"Park":true}'
     jObj2 = JSON.parse(jStr2);
-    var jStr3 = '{"isTele":true,"scoutName":"test3","eventName":"2016wagg","teamNo":360,"match":3,"alliance":"RED","auto":{"StartPos":"outside","CrossLine":true,"Scale":1,"Switch":0,"noShow":false},"tele":{"Scale":6,"Switch":3,"Exchange":4},"deadBot":false,"Climb":false,"AssistedClimb":2,"ReceivedClimb":false,"Park":true}'
+    var jStr3 = '{"isTele":true,"scoutName":"test3","eventName":"2016wagg","teamNo":360,"match":3,"alliance":"RED","autoStartPos":"outside","autoCrossLine":true,"autoScale":1,"autoSwitch":0,"noShow":false,"teleScale":6,"teleSwitch":3,"teleExchange":4,"deadBot":false,"Climb":false,"AssistedClimb":2,"ReceivedClimb":false,"Park":true}'
     jObj3 = JSON.parse(jStr3);
-    var jStr4 = '{"isTele":true,"scoutName":"test4","eventName":"2016wagg","teamNo":1425,"match":4,"alliance":"BLUE","auto":{"StartPos":"outside","CrossLine":true,"Scale":1,"Switch":0,"noShow":false},"tele":{"Scale":6,"Switch":3,"Exchange":4},"deadBot":false,"Climb":false,"AssistedClimb":2,"ReceivedClimb":false,"Park":true}'
+    var jStr4 = '{"isTele":true,"scoutName":"test4","eventName":"2016wagg","teamNo":1425,"match":4,"alliance":"BLUE","autoStartPos":"outside","autoCrossLine":true,"autoScale":1,"autoSwitch":0,"noShow":false,"teleScale":6,"teleSwitch":3,"teleExchange":4,"deadBot":false,"Climb":false,"AssistedClimb":2,"ReceivedClimb":false,"Park":true}'
     jObj4 = JSON.parse(jStr4);
-    var jStr5 = '{"isTele":true,"scoutName":"test5","eventName":"2016wagg","teamNo":5588,"match":5,"alliance":"BLUE","auto":{"StartPos":"outside","CrossLine":true,"Scale":1,"Switch":0,"noShow":false},"tele":{"Scale":6,"Switch":3,"Exchange":4},"deadBot":false,"Climb":false,"AssistedClimb":2,"ReceivedClimb":false,"Park":true}'
+    var jStr5 = '{"isTele":true,"scoutName":"test5","eventName":"2016wagg","teamNo":5588,"match":5,"alliance":"BLUE","autoStartPos":"outside","autoCrossLine":true,"autoScale":1,"autoSwitch":0,"noShow":false,"teleScale":6,"teleSwitch":3,"teleExchange":4,"deadBot":false,"Climb":false,"AssistedClimb":2,"ReceivedClimb":false,"Park":true}'
     jObj5 = JSON.parse(jStr5);
-    var jStr6 = '{"isTele":true,"scoutName":"test6","eventName":"2016wagg","teamNo":2907,"match":6,"alliance":"BLUE","auto":{"StartPos":"outside","CrossLine":true,"Scale":1,"Switch":0,"noShow":false},"tele":{"Scale":6,"Switch":3,"Exchange":4},"deadBot":false,"Climb":false,"AssistedClimb":2,"ReceivedClimb":false,"Park":true}'
+    var jStr6 = '{"isTele":true,"scoutName":"test6","eventName":"2016wagg","teamNo":2907,"match":6,"alliance":"BLUE","autoStartPos":"outside","autoCrossLine":true,"autoScale":1,"autoSwitch":0,"noShow":false,"teleScale":6,"teleSwitch":3,"teleExchange":4,"deadBot":false,"Climb":false,"AssistedClimb":2,"ReceivedClimb":false,"Park":true}'
     jObj6 = JSON.parse(jStr6);
 
     localStorage.setItem("2016wagg_1983_1_Object", JSON.stringify(jObj1));
@@ -32,6 +32,10 @@ function trashCreation() {
     localStorage.setItem("2016wagg_5588_5_Object", JSON.stringify(jObj5));
     localStorage.setItem("2016wagg_2907_6_Object", JSON.stringify(jObj6));
     console.log("Trash Created, ya fock.");
+};
+
+function backToMain() {
+	window.location.href = "mainPage.html";
 };
 </script>
 <style type="text/css">
@@ -61,7 +65,20 @@ function trashCreation() {
     width: 500px;
     background-color: white;
 }
-	body {
+#backToMain {
+	width: 500px;
+	height: 150px;
+	background-color: white;
+	font-size: 84px;
+	position: absolute;
+	left: 240px;
+	top: 1320px;
+	border-color: black;
+	color: black;
+	border-width: 10px;
+	border-radius: 4px;
+}
+body {
 	background-image:url("images/marioLogo.png");
 	background-size:20%;
 	}
@@ -69,8 +86,9 @@ function trashCreation() {
 </head>
 <body>
 	<!-- <IMG src="images/Waste_management_logo.jpg"><br> -->
-	<button onClick="trashRemoval()"; id="garbagePickup">Erase All Local Data</button>
-	<IMG src="images/sleepyboye.gif" style="width: 80%; position: relative; left: 70px; top: 150px; z-index: -1;">
-    <button onClick="trashCreation()"; id="garbagePutdown">Create Fake Local Data</button>
+	<button onClick="trashRemoval();" id="garbagePickup">Erase All Local Data</button>
+	<img src="images/sleepyboye.gif" style="width: 80%; position: relative; left: 70px; top: 150px; z-index: -1;">
+    <button onClick="trashCreation();" id="garbagePutdown">Create Fake Local Data</button>
+	<button id="backToMain" onClick="backToMain();">Go Back</button>
 </body>
 </html>
