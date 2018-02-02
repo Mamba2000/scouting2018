@@ -245,16 +245,16 @@ html {
 
 /* Tele Page ids */
 #autoStartLeft{
-	position: absolute;
+	position: relative;
 	left: 20px;
 }
 #teleTitle{
 
 }
 #autoBoxesLeft{
-	position: absolute;
+	position: relative;
 	left: 20px;
-	top: 620px;
+	top: 20px;
 }
 #teleSwitch {
 
@@ -262,10 +262,10 @@ html {
 #teleBoxesLeft{
 	position: relative;
 	left: 20px;
-	top: 230px;
+	top: 20px;
 }
 #teleSwitchSpan{
-	position: absolute;
+	position: relative;
 	left: 66px;
 }
 #teleScale {
@@ -279,9 +279,9 @@ html {
 
 }
 #teleClimbLeft{
-	position: absolute;
+	position: relative;
 	left: 20px;
-	top: 560px;
+	top: 0px;
 }
 #teleExchangeSpan{
 
