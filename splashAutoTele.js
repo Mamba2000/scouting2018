@@ -14,11 +14,11 @@ var matches;
 var eventName;
 var teamNo;
 var eStop = false;
+var eStop2 = false;
 var isThere = false;
 
 //initialize the splash sheet
 function initialize() {
-	document.getElementById("matchNumber").value = "1";   //TODO kill this shit
 	jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","autoStartPos":"default","autoCrossLine":false,"autoScale":0,"autoSwitch":0,"noShow":false,"teleScale":0,"teleSwitch":0,"teleExchange":0,"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false}';
     jObj = JSON.parse(jStr);
 	var str = window.location.search;
@@ -41,12 +41,12 @@ function initialize() {
 	    }
 	} else {
 		document.getElementById("matchesDownloadText").innerHTML = "Matches Downloaded: Error--None";
+		document.getElementById("matchesDownloadText").className = "flash";
+		eStop2 = true;
 	}
 
 	var memeNum = Math.floor(Math.random() * 32);
 	document.getElementById("theOneAndOnly").src = "images/memes/" + memeNum + ".png";
-	switchPage("splashPage", "forward"); //TODO kill this shit
-
 }
 
 function checkForMatches(){
@@ -198,10 +198,10 @@ function switchPage(currentPage, direction){
 	var pages = ['splashPage', 'autoPage', 'telePage'];
 	var currentPos = pages.indexOf(currentPage);
 	if(direction === 'forward'){
-		if(currentPos == 0){
+		if(currentPos == 0 && !eStop2){
 			autoInitialize();
 		}
-		if(!eStop){
+		if(!eStop && !eStop2){
 			document.getElementById(pages[currentPos]).hidden = true;
 			document.getElementById(pages[currentPos+1]).hidden = false;
 		}
@@ -221,8 +221,8 @@ function submitTele() {
 	console.log(eventName);
     jObj.scoutName = document.getElementById("scoutSelect").value;
 	jObj.eventName = eventName;
-	jObj.teamNumber = teamNo;
-	jObj.match = parseInt(document.getElementById("matchNumber")).value;
+	jObj.teamNo = teamNo;
+	jObj.match = parseInt(document.getElementById("matchNumber").value);
 	jObj.alliance = alliance;
 	if(document.getElementById("outsideStart").checked)	{
 		jObj.autoStartPos = "outside";

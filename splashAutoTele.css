@@ -61,7 +61,7 @@ html {
 	color: black;
 	left: -10px;
 	bottom: -10px;
-	font-size: 1.6em;
+	font-size: 1.5em;
 	font-weight: bold;
 	width: 220px;
 	height: 162px;
@@ -245,43 +245,43 @@ html {
 
 /* Tele Page ids */
 #autoStartLeft{
-	position: absolute;
+	position: relative;
 	left: 20px;
 }
 #teleTitle{
 
 }
 #autoBoxesLeft{
-	position: absolute;
+	position: relative;
 	left: 20px;
-	top: 620px;
+	top: 20px;
 }
 #teleSwitch {
 
 }
 #teleBoxesLeft{
-	position: absolute;
+	position: relative;
 	left: 20px;
-	top: 230px;
+	top: 20px;
 }
 #teleSwitchSpan{
-	position: absolute;
+	position: relative;
 	left: 66px;
 }
 #teleScale {
 
 }
 #teleScaleSpan {
-	position: absolute;
+	position: relative;
 	left: 101px;
 }
 #teleExchange {
 
 }
 #teleClimbLeft{
-	position: absolute;
+	position: relative;
 	left: 20px;
-	top: 560px;
+	top: 0px;
 }
 #teleExchangeSpan{
 
