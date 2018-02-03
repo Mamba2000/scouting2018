@@ -20,7 +20,6 @@ var isThere = false;
 
 //initialize the splash sheet
 function initialize() {
-	document.getElementById("matchNumber").value = "1";   //TODO kill this shit
 	jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","autoStartPos":"default","autoCrossLine":false,"autoScale":0,"autoSwitch":0,"NoShow":false,"teleScale":0,"teleSwitch":0,"teleExchange":0,"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false}';
     jObj = JSON.parse(jStr);
 	var str = window.location.search;
