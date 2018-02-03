@@ -20,7 +20,8 @@ var isThere = false;
 
 //initialize the splash sheet
 function initialize() {
-	jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","autoStartPos":"default","autoCrossLine":false,"autoScale":0,"autoSwitch":0,"noShow":false,"teleScale":0,"teleSwitch":0,"teleExchange":0,"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false}';
+	document.getElementById("matchNumber").value = "1";   //TODO kill this shit
+	jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","autoStartPos":"default","autoCrossLine":false,"autoScale":0,"autoSwitch":0,"NoShow":false,"teleScale":0,"teleSwitch":0,"teleExchange":0,"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false}';
     jObj = JSON.parse(jStr);
 	var str = window.location.search;
  	matchTablet(str);
@@ -231,7 +232,7 @@ function submitTele() {
 	jObj.autoCrossLine = document.getElementById("crossedLine").checked;
 	jObj.autoScale = parseInt(document.getElementById("autoScale").value, 10);
 	jObj.autoSwitch = parseInt(document.getElementById("autoSwitch").value, 10);
-	jObj.noShow = document.getElementById("noShow").checked;
+	jObj.NoShow = document.getElementById("noShow").checked;
 	jObj.teleScale = parseInt(document.getElementById("teleScale").value, 10);
 	jObj.teleSwitch = parseInt(document.getElementById("teleSwitch").value, 10);
 	jObj.teleExchange = parseInt(document.getElementById("teleExchange").value, 10);
