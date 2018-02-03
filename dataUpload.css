@@ -4,6 +4,14 @@
   border: 3px solid;
   border-collapse: collapse;
 }
+.checkbox {
+	position: relative;
+	top: 8px;
+	height: 55px;
+	width: 55px;
+	border: 2px;
+	border-color: SOLID WHITE;
+}
 #titleLogo {
 	border-style: solid;
 	border-color: black;

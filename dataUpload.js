@@ -33,13 +33,17 @@ window.addEventListener('load', function() {
         name = oneMatch.match;
         row.id = "row-" + name.toString();
 
-        match = row.insertCell(-1);
+		check = row.insertCell(-1);
+		match = row.insertCell(-1);
         team = row.insertCell(-1);
-        submit = row.insertCell(-1);
+        // submit = row.insertCell(-1);
 
+		console.log(name + "Box");
+
+		check.innerHTML = "<input id=\"" + name + "Box\" class=\"checkbox\" value=false>"
         match.innerHTML = oneMatch.match;
         team.innerHTML = oneMatch.teamNo;
-        submit.innerHTML = "<button id=\"" + name + "\" class=\"submitButtons\" onclick=\"sendData(" + name + ");\">Submit Data</button>";
+        // submit.innerHTML = "<button id=\"" + name + "\" class=\"submitButtons\" onclick=\"sendData(" + name + ");\">Submit Data</button>";
     });
 });
 
