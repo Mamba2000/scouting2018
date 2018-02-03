@@ -31,8 +31,8 @@
 		     	<br>
 			</div>
 			<div id="splashButtons">
-				<button id="splashBackButton" onclick="switchPage('splashPage', 'backward')">Back to<BR>Main</button>
-				<button id="splashSubmit" onclick="switchPage('splashPage', 'forward')">SUBMIT</button>
+				<button id="splashBackButton" onclick="switchPage(false, 'mainPage')">Back to<BR>Main</button>
+				<button id="splashSubmit" onclick="switchPage(true, 'autoPage')">SUBMIT</button>
 			</div>
 			<div id="splashMemes">
 				<img id="theOneAndOnly" src="">
@@ -76,8 +76,8 @@
 					<input class="checkbox" id="noShow" type="checkbox" value="false">&nbsp;<label for="noShow" class="labels">No Show <br>
 					<input class="checkbox" id="autoDeadBot" type="checkbox" onClick="deadBotUniversal('auto');" value="false">&nbsp;<label for="deadBot" class="labels">Dead Bot <br>
 				</div>
-				<BUTTON class="backButtons" onClick="switchPage('autoPage', 'backward')">GO<BR>BACK</BUTTON>
-				<BUTTON class="submitButtons" id="autoSubmit" onClick="switchPage('autoPage', 'forward')">GO TO<BR>TELEOP</BUTTON>
+				<BUTTON class="backButtons" onClick="switchPage(false, 'splashPage')">GO<BR>BACK</BUTTON>
+				<BUTTON class="submitButtons" id="autoSubmit" onClick="switchPage(false, 'telePage')">GO TO<BR>TELEOP</BUTTON>
 			</div>
 		</div>
 
@@ -123,8 +123,8 @@
 				<br>
 				<input class="checkbox" id="teleDeadBot" type="checkbox" onClick="deadBotUniversal('tele');" value="false">&nbsp;<label for="teleDeadBot" class="labels">Dead Bot <br>
 			</div>
-			<BUTTON class="backButtons" onClick="switchPage('telePage', 'backward')">GO<BR>BACK</BUTTON>
-			<BUTTON class="submitButtons" id="teleSubmit" onClick="submitTele()">SUBMIT</BUTTON>
+			<BUTTON class="backButtons" onClick="switchPage(false, 'autoPage')">GO<BR>BACK</BUTTON>
+			<BUTTON class="submitButtons" id="teleSubmit" onClick="submitTele(); location.reload()">SUBMIT</BUTTON>
 		</div>
 	</div>
 </body>

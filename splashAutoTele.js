@@ -13,6 +13,7 @@ var LSName;											    	// List of teams
 var matches;
 var eventName;
 var teamNo;
+var memeNum
 var eStop = false;
 var eStop2 = false;
 var isThere = false;
@@ -45,7 +46,7 @@ function initialize() {
 		eStop2 = true;
 	}
 
-	var memeNum = Math.floor(Math.random() * 32);
+	memeNum = Math.floor(Math.random() * 32);
 	document.getElementById("theOneAndOnly").src = "images/memes/" + memeNum + ".png";
 }
 
@@ -152,12 +153,14 @@ function autoInitialize(){
 			document.getElementById("teleTeamNum").innerHTML = teamNo;
 		}
 		console.log(teamNo);
+		document.getElementById("matchNumber").style.borderWidth = "medium";
+		document.getElementById("matchNumber").style.borderColor = "#000000";
+		document.getElementById("matchNumText").classList.remove("flash");
 	} else {
 		eStop = true;
 		document.getElementById("matchNumber").style.borderWidth = "thick";
 		document.getElementById("matchNumber").style.borderColor = ORANGE;
 		document.getElementById("matchNumText").className = "flash";
-		document.getElementById("theOneAndOnly").src = "32.gif";
 	}
 }
 
@@ -194,24 +197,20 @@ function validateInp(elem) {
     elem.value = strOut;
 }
 
-function switchPage(currentPage, direction){
+function switchPage(ifSplash, newPage){
 	var pages = ['splashPage', 'autoPage', 'telePage'];
-	var currentPos = pages.indexOf(currentPage);
-	if(direction === 'forward'){
-		if(currentPos == 0 && !eStop2){
-			autoInitialize();
+	if(ifSplash){
+		autoInitialize();
+	}
+	if(!eStop && newPage != "mainPage"){
+		for(var i = 0; i < pages.length; i++){
+			document.getElementById(pages[i]).hidden = true;
 		}
-		if(!eStop && !eStop2){
-			document.getElementById(pages[currentPos]).hidden = true;
-			document.getElementById(pages[currentPos+1]).hidden = false;
+		if(pages.indexOf(newPage) > -1){
+			document.getElementById(newPage).hidden = false;
 		}
-	} else {
-		if(currentPos == 0){
-			window.location.href = "mainPage.html";
-		} else {
-			document.getElementById(pages[currentPos]).hidden = true;
-			document.getElementById(pages[currentPos-1]).hidden = false;
-		}
+	} else if(newPage === "mainPage") {
+		window.location.href = newPage + ".html";
 	}
 }
 
