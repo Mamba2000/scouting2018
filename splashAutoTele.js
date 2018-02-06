@@ -133,7 +133,7 @@ function matchTablet(argument){
 function autoInitialize(){
 	console.log(localStorage.getItem("maxMatches"));
 	if(document.getElementById("matchNumber").value !== "666"){
-		if(document.getElementById("matchNumber").value !== "" && document.getElementById("matchNumber").value < localStorage.getItem("maxMatches") + 1){
+		if(document.getElementById("matchNumber").value !== "" && parseInt(document.getElementById("matchNumber").value) < localStorage.getItem("maxMatches") + 1){
 			eStop = false;
 			for (i=0; i<localStorage.length; i++) {
 					var key = localStorage.key(i);
