@@ -13,7 +13,7 @@ var LSName;											    	// List of teams
 var matches;
 var eventName;
 var teamNo;
-var memeNum
+var memeNum;
 var eStop = false;
 var eStop2 = false;
 var isThere = false;
@@ -164,12 +164,10 @@ function autoInitialize(){
 	}
 }
 
-function changeCounter(field, condition){
+function changeCounter(field, condition, max){
 	var counter = document.getElementById(field);
-	if(Number(counter.value) + condition > -1){
-		counter.value =String(Number(counter.value) + condition);
-	} else {
-		counter.value = "0";
+	if(Number(counter.value) + condition > -1 && Number(counter.value) < max){
+		counter.value = String(Number(counter.value) + condition);
 	}
 }
 
