@@ -132,8 +132,9 @@ function matchTablet(argument){
 //initialize the auto and tele part of the app
 function autoInitialize(){
 	console.log(localStorage.getItem("maxMatches"));
+	console.log(parseInt(document.getElementById("matchNumber").value))
 	if(document.getElementById("matchNumber").value !== "666"){
-		if(document.getElementById("matchNumber").value !== "" && parseInt(document.getElementById("matchNumber").value) < localStorage.getItem("maxMatches") + 1){
+		if(document.getElementById("matchNumber").value !== "" && parseInt(document.getElementById("matchNumber").value) < parseInt(localStorage.getItem("maxMatches")) + 1){
 			eStop = false;
 			for (i=0; i<localStorage.length; i++) {
 					var key = localStorage.key(i);
@@ -173,17 +174,13 @@ function autoInitialize(){
 }
 function changeCounter(field, condition, max){
 	var counter = document.getElementById(field);
-	if(Number(counter.value) + condition > -1 && Number(counter.value) < max){
+	if(Number(counter.value) + condition > -1 && (parseInt(counter.value) < max || condition < 0)){
 		counter.value = String(Number(counter.value) + condition);
 	}
 }
 
-function fakeRadioButtons(radio) {
-	if (radio === "outsideStart") {
-		document.getElementById("centerStart").checked = false;
-	} else if ("centerStart") {
-		document.getElementById("outsideStart").checked = false;
-	}
+function fakeRadioButtons(unclicked) {
+	document.getElementById(unclicked).checked = false;
 }
 
 function deadBotUniversal(whichBut){
@@ -208,11 +205,15 @@ function switchPage(ifSplash, newPage){
 		autoInitialize();
 	}
 	if(!eStop && newPage != "mainPage"){
-		for(var i = 0; i < pages.length; i++){
-			document.getElementById(pages[i]).hidden = true;
-		}
-		if(pages.indexOf(newPage) > -1){
-			document.getElementById(newPage).hidden = false;
+		if(newPage !== "splashPage"){
+			for(var i = 0; i < pages.length; i++){
+				document.getElementById(pages[i]).hidden = true;
+			}
+			if(pages.indexOf(newPage) > -1){
+				document.getElementById(newPage).hidden = false;
+			}
+		} else {
+			location.reload();
 		}
 	} else if(newPage === "mainPage") {
 		window.location.href = newPage + ".html";
