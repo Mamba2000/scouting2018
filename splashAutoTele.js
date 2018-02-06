@@ -26,17 +26,21 @@ function initialize() {
  	matchTablet(str);
 	eventList = ["2016wagg","2018waahs","2018wasno","2018idbo","2018pncmp"];
 	if (localStorage.length !== 0) {
+	loop1:
 	    for (var j=0; j<eventList.length; j++) {
 	    	eventNombre = eventList[j];
 	    	for (var i=0; i<localStorage.length; i++) {
 	        	var key = localStorage.key(i);
-	    		//console.log(key);                                                            // Test
+	    		console.log(key);                                                            // Test
 	            if (eventNombre.concat("Matches") == key) {
 	                isThere = true;
 					eventName = eventNombre.toString();
 					console.log(eventName);
 	            	checkForMatches();
-					break;
+					break loop1;
+				} else {
+					document.getElementById("matchesDownloadText").innerHTML = "Matches Downloaded: Error--None";
+					document.getElementById("matchesDownloadText").className = "flash";
 				}
 	        }
 	    }
@@ -45,7 +49,6 @@ function initialize() {
 		document.getElementById("matchesDownloadText").className = "flash";
 		eStop2 = true;
 	}
-
 	memeNum = Math.floor(Math.random() * 32);
 	document.getElementById("theOneAndOnly").src = "images/memes/" + memeNum + ".png";
 }
@@ -128,42 +131,46 @@ function matchTablet(argument){
 
 //initialize the auto and tele part of the app
 function autoInitialize(){
-	if(document.getElementById("matchNumber").value !== ""){
-		eStop = false;
-		for (i=0; i<localStorage.length; i++) {
-				var key = localStorage.key(i);
-				//console.log(key);															// Test
-	  		if (eventName.concat("Matches") == key) {
-	  			isThere = true;
+	console.log(localStorage.getItem("maxMatches"));
+	if(document.getElementById("matchNumber").value !== "666"){
+		if(document.getElementById("matchNumber").value !== "" && document.getElementById("matchNumber").value < localStorage.getItem("maxMatches") + 1){
+			eStop = false;
+			for (i=0; i<localStorage.length; i++) {
+					var key = localStorage.key(i);
+					//console.log(key);															// Test
+		  		if (eventName.concat("Matches") == key) {
+		  			isThere = true;
+				}
 			}
-		}
-		if (isThere) {
-			var jList = localStorage.getItem(eventName.concat("Matches"));
-			//console.log(jList);
-			matches = new Array();
-			matches = JSON.parse(jList);
-	//		console.log("matches: " + matches.length);
-			var match = parseInt(document.getElementById("matchNumber").value);
-			if (alliance === "RED") {
-				teamNo = matches[match - 1].red[robot - 1];
-			} else {
-				teamNo = matches[match - 1].blue[robot - 1];
+			if (isThere) {
+				var jList = localStorage.getItem(eventName.concat("Matches"));
+				//console.log(jList);
+				matches = new Array();
+				matches = JSON.parse(jList);
+		//		console.log("matches: " + matches.length);
+				var match = parseInt(document.getElementById("matchNumber").value);
+				if (alliance === "RED") {
+					teamNo = matches[match - 1].red[robot - 1];
+				} else {
+					teamNo = matches[match - 1].blue[robot - 1];
+				}
+				document.getElementById("autoTeamNum").innerHTML = teamNo;
+				document.getElementById("teleTeamNum").innerHTML = teamNo;
 			}
-			document.getElementById("autoTeamNum").innerHTML = teamNo;
-			document.getElementById("teleTeamNum").innerHTML = teamNo;
+			console.log(teamNo);
+			document.getElementById("matchNumber").style.borderWidth = "medium";
+			document.getElementById("matchNumber").style.borderColor = "#000000";
+			document.getElementById("matchNumText").classList.remove("flash");
+		} else {
+			eStop = true;
+			document.getElementById("matchNumber").style.borderWidth = "thick";
+			document.getElementById("matchNumber").style.borderColor = ORANGE;
+			document.getElementById("matchNumText").className = "flash";
 		}
-		console.log(teamNo);
-		document.getElementById("matchNumber").style.borderWidth = "medium";
-		document.getElementById("matchNumber").style.borderColor = "#000000";
-		document.getElementById("matchNumText").classList.remove("flash");
 	} else {
-		eStop = true;
-		document.getElementById("matchNumber").style.borderWidth = "thick";
-		document.getElementById("matchNumber").style.borderColor = ORANGE;
-		document.getElementById("matchNumText").className = "flash";
+		window.location.href = "https://www.reddit.com/r/CrappyDesign";
 	}
 }
-
 function changeCounter(field, condition, max){
 	var counter = document.getElementById(field);
 	if(Number(counter.value) + condition > -1 && Number(counter.value) < max){

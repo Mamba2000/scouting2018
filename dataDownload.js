@@ -3,7 +3,7 @@ xbtAPP_ID = "?X-TBA-App-Id=FRC1983:Scouting:v2";
 
 // Global Variables //
 var matches;
-
+var counter = 0;
 
 window.addEventListener('load', function() {
 
@@ -72,6 +72,7 @@ function matchesHaveBeenDownloaded(contents) {
     }
     sortMatches(matches);
     generateJSON(matches);
+
 }
 
 function sortMatches(sched) {
@@ -108,6 +109,8 @@ function generateJSON(matrix) {
   {
     parsed[i] = newMatch(matrix[i][0], matrix[i][1], matrix[i][2], matrix[i][3], matrix[i][4], matrix[i][5], matrix[i][6]);
   }
+  console.log(counter);
+  localStorage.setItem("maxMatches", counter);
   var lsName = eventName.concat("Matches");
   localStorage.setItem(lsName, JSON.stringify(parsed));
 }
@@ -171,7 +174,9 @@ function issueHTTPForm(formObj, URL, callback) {
     }
 }
 function newMatch(matchNo, red1, red2, red3, blue1, blue2, blue3) {
-  console.log("Hi");
+  console.log("Hi")
+  counter = counter + 1;
+  console.log(counter);
   checkForMatches(true);
 //    console.log('{"matchNo":' + matchNo + ',"red":[', red1 + ',' + red2 + ',' + red3 + '], "blue":[' + blue1 + ',' + blue2 + ',' + blue3 + ']}');
   return JSON.parse('{"matchNo":' + matchNo + ',"red":[' + red1 + ',' + red2 + ',' + red3 + '],"blue":[' + blue1 + ',' + blue2 + ',' + blue3 + ']}');
