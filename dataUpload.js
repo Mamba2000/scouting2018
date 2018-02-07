@@ -40,12 +40,19 @@ window.addEventListener('load', function() {
 
 		console.log(name + "Box");
 
-		check.innerHTML = "<input id=\"" + name + "Box\" class=\"checkbox\" value=false>"
+		check.innerHTML = "<input type=\"checkbox\" id=\"" + name + "Box\" class=\"checkbox\" value=false>"
         match.innerHTML = oneMatch.match;
         team.innerHTML = oneMatch.teamNo;
         // submit.innerHTML = "<button id=\"" + name + "\" class=\"submitButtons\" onclick=\"sendData(" + name + ");\">Submit Data</button>";
     });
 });
+
+function checkAll() {
+	if (document.getElementById("checkboxAll").checked) {
+		var elems = document.getElementsByClassName("checkbox");
+		for (i; i<elems.length)
+	}
+}
 
 function sendData(match) {
     console.log("Data sending for match" + match + "...");
