@@ -116,15 +116,21 @@
 					<INPUT id="AssistOthersClimb" type="text" value="0"  disabled>
 					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('AssistOthersClimb', 1, 2)">+1</BUTTON>
 				</SPAN>
-				<input class="checkbox" id="helpedClimb" type="checkbox" value="false" onClick="fakeRadioButtons('climb')">&nbsp;<label for="teleDeadBot" class="labels">Received Climb (drive on)<br>
-				<input class="checkbox" id="climb" type="checkbox" value="false" onClick="fakeRadioButtons('helpedClimb')">&nbsp;<label for="teleDeadBot" class="labels">Self Climb (any pulling)<br>
+				<input class="checkbox" id="helpedClimb" type="checkbox" value="false" onClick="fakeRadioButtons('climb')">&nbsp;<span>Received Climb (drive on)</span><br>
+				<input class="checkbox" id="climb" type="checkbox" value="false" onClick="fakeRadioButtons('helpedClimb')">&nbsp;<span>Self Climb (any pulling)</span><br>
 			</div>
 			<div class="miscArea">
 				<br>
-				<input class="checkbox" id="teleDeadBot" type="checkbox" onClick="deadBotUniversal('tele');" value="false">&nbsp;<label for="teleDeadBot" class="labels">Dead Bot <br>
+				<input class="checkbox" id="teleDeadBot" type="checkbox" onClick="deadBotUniversal('tele');" value="false">&nbsp;<span>Dead Bot</span> <br>
 			</div>
 			<BUTTON class="backButtons" onClick="switchPage(false, 'autoPage')">GO<BR>BACK</BUTTON>
 			<BUTTON class="submitButtons" id="teleSubmit" onClick="submitTele(); location.reload()">SUBMIT</BUTTON>
+		</div>
+		<div id="noShowPage" hidden>
+			<BUTTON class="teamNumber" id="deadBotTeamNum" disabled>0000</BUTTON>
+			<SPAN id="noShowText">ARE YOU SURE THEY DIDN'T SHOW UP</SPAN>
+			<BUTTON class="backButtons" onClick="document.getElementById('noShow').checked = false; switchPage(false, 'autoPage');">Wait JK They<BR>Showed Up</BUTTON>
+			<BUTTON class="submitButtons" onClick="submitTele(); location.reload()">Yes they don't<BR>like points</BUTTON>
 		</div>
 	</div>
 </body>

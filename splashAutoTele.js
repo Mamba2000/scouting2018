@@ -115,6 +115,8 @@ function matchTablet(argument){
 		document.getElementById("teleTitle").style.color = RED;
 		document.getElementById("autoTeamNum").style.color = RED;
 		document.getElementById("autoTeamNum").style.borderColor = RED;
+		document.getElementById("deadBotTeamNum").style.color = RED;
+		document.getElementById("deadBotTeamNum").style.borderColor = RED;
 		document.getElementById("teleTeamNum").style.color = RED;
 		document.getElementById("teleTeamNum").style.borderColor = RED;
 	} else if (alliance === "BLUE") {
@@ -124,6 +126,8 @@ function matchTablet(argument){
 		document.getElementById("teleTitle").style.color = BLUE;
 		document.getElementById("autoTeamNum").style.color = BLUE;
 		document.getElementById("autoTeamNum").style.borderColor = BLUE;
+		document.getElementById("deadBotTeamNum").style.color = BLUE;
+		document.getElementById("deadBotTeamNum").style.borderColor = BLUE;
 		document.getElementById("teleTeamNum").style.color = BLUE;
 		document.getElementById("teleTeamNum").style.borderColor = BLUE;
 	}
@@ -157,6 +161,7 @@ function autoInitialize(){
 				}
 				document.getElementById("autoTeamNum").innerHTML = teamNo;
 				document.getElementById("teleTeamNum").innerHTML = teamNo;
+				document.getElementById("deadBotTeamNum").innerHTML = teamNo;
 			}
 			console.log(teamNo);
 			document.getElementById("matchNumber").style.borderWidth = "medium";
@@ -200,9 +205,12 @@ function validateInp(elem) {
 }
 
 function switchPage(ifSplash, newPage){
-	var pages = ['splashPage', 'autoPage', 'telePage'];
+	var pages = ['splashPage', 'autoPage', 'telePage', 'noShowPage'];
 	if(ifSplash){
 		autoInitialize();
+	}
+	if(document.getElementById("noShow").checked){
+		newPage = "noShowPage";
 	}
 	if(!eStop && newPage != "mainPage"){
 		if(newPage !== "splashPage"){
@@ -229,27 +237,28 @@ function submitTele() {
 	jObj.teamNo = teamNo;
 	jObj.match = parseInt(document.getElementById("matchNumber").value);
 	jObj.alliance = alliance;
-	if(document.getElementById("outsideStart").checked)	{
-		jObj.autoStartPos = "outside";
-	} else {
-		jObj.autoStartPos = "center";
-	}
-	jObj.autoCrossLine = document.getElementById("crossedLine").checked;
-	jObj.autoScale = parseInt(document.getElementById("autoScale").value, 10);
-	jObj.autoSwitch = parseInt(document.getElementById("autoSwitch").value, 10);
 	jObj.NoShow = document.getElementById("noShow").checked;
-	jObj.teleScale = parseInt(document.getElementById("teleScale").value, 10);
-	jObj.teleSwitch = parseInt(document.getElementById("teleSwitch").value, 10);
-	jObj.teleExchange = parseInt(document.getElementById("teleExchange").value, 10);
-	if (document.getElementById("teleDeadBot").checked){
-		jObj.deadBot = true;
-	} else {
-		jObj.deadBot = false;
+	if(!document.getElementById("noShow").checked){
+		if(document.getElementById("outsideStart").checked)	{
+			jObj.autoStartPos = "outside";
+		} else {
+			jObj.autoStartPos = "center";
+		}
+		jObj.autoCrossLine = document.getElementById("crossedLine").checked;
+		jObj.autoScale = parseInt(document.getElementById("autoScale").value, 10);
+		jObj.autoSwitch = parseInt(document.getElementById("autoSwitch").value, 10);
+		jObj.teleScale = parseInt(document.getElementById("teleScale").value, 10);
+		jObj.teleSwitch = parseInt(document.getElementById("teleSwitch").value, 10);
+		jObj.teleExchange = parseInt(document.getElementById("teleExchange").value, 10);
+		if (document.getElementById("teleDeadBot").checked){
+			jObj.deadBot = true;
+		} else {
+			jObj.deadBot = false;
+		}
+		jObj.Climb = document.getElementById("climb").checked;
+		jObj.AssistedClimb = parseInt(document.getElementById("AssistOthersClimb").value, 10);
+		jObj.ReceivedClimb = document.getElementById("helpedClimb").checked;
 	}
-	jObj.Climb = document.getElementById("climb").checked;
-	jObj.AssistedClimb = parseInt(document.getElementById("AssistOthersClimb").value, 10);
-	jObj.ReceivedClimb = document.getElementById("helpedClimb").checked;
-
 	LSName = jObj.eventName.concat("_");
 	LSName = LSName.concat(jObj.teamNumber);
 	LSName = LSName.concat("_");
