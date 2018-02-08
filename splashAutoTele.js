@@ -188,14 +188,6 @@ function fakeRadioButtons(unclicked) {
 	document.getElementById(unclicked).checked = false;
 }
 
-function deadBotUniversal(whichBut){
-	if(whichBut === "auto"){
-		document.getElementById("teleDeadBot").checked = !document.getElementById("teleDeadBot").checked;
-	} else {
-		document.getElementById("autoDeadBot").checked = !document.getElementById("autoDeadBot").checked;
-	}
-}
-
 function validateInp(elem) {
 	var validChars = /[0-9]/;
 	var strIn = elem.value;
@@ -250,7 +242,7 @@ function submitTele() {
 		jObj.teleScale = parseInt(document.getElementById("teleScale").value, 10);
 		jObj.teleSwitch = parseInt(document.getElementById("teleSwitch").value, 10);
 		jObj.teleExchange = parseInt(document.getElementById("teleExchange").value, 10);
-		if (document.getElementById("teleDeadBot").checked){
+		if (document.getElementById("teleDeadBot").checked || document.getElementById("autoDeadBot")){
 			jObj.deadBot = true;
 		} else {
 			jObj.deadBot = false;
