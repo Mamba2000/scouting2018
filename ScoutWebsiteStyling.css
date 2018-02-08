@@ -1,0 +1,29 @@
+#title {
+	height: auto;
+	width: 50%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: dashed;
+	border-color: BLACK;
+	border-width: 10px;
+	padding: 5px;
+	background-color: white;
+	border-radius: 10px;
+}
+/*#meme {
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
+}*/
+#viz1517455897188 {
+	display: block;
+	margin-left: 5%;
+	margin-right: 5%;
+  height: auto;
+  width: 95%;
+}
+html {
+	background-image: url("https://www.nationalgeographic.com/content/dam/photography/PROOF/2017/December/heaven-earth-smith/armenia-aragats-smith-01.adapt.1900.1.jpg");
+
+}
