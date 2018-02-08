@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<link rel="stylesheet" href="skunkworksDataBase.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" href=""> -->
+	<title>SkunkWorks Scout Data</title>
+</head>
+<body>
+	<h1><img src="images/skunkworksScoutDataTitle.png" id="title"></h1>
+	<div1>
+
+	</div1>
+	<!-- <img src="https://what-if.xkcd.com/imgs/a/31/fedex_delivery.png" alt="A good meme that you did not get to see" id="meme">
+	<!--Put Tableau embed here -->
+
+	<!-- <div class='tableauPlaceholder' id='viz1517455897188' style='position: relative'><noscript><a href='#'><img alt='A look at the competition ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ho&#47;HoustonChamps2017FIRSTRobotics-AQuickLookatDivisions&#47;Alookatthecompetition&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='HoustonChamps2017FIRSTRobotics-AQuickLookatDivisions&#47;Alookatthecompetition' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ho&#47;HoustonChamps2017FIRSTRobotics-AQuickLookatDivisions&#47;Alookatthecompetition&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1517455897188');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='1024px';vizElement.style.maxWidth='1789px';vizElement.style.width='100%';vizElement.style.minHeight='795px';vizElement.style.maxHeight='977px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1427px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+</body>
+
+</html>
