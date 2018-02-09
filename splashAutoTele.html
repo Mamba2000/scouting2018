@@ -22,7 +22,7 @@
 		      	<input id="matchNumber" type="text" value="" maxlength="3" onkeyup="validateInp(this);" autocomplete=off><br>
 		      	<br>
 		      	<!-- Select the scout that is scouting -->
-		      	SCOUT:
+		      	<span id="scoutNameText">SCOUT</span>
 				<select class="dropdownMenus" id="scoutSelect">
 					<option value="Default">- - Choose Name - -</option>
 					<option value="testScout">Test</option>
@@ -32,7 +32,7 @@
 			</div>
 			<div id="splashButtons">
 				<button id="splashBackButton" onclick="switchPage(false, 'mainPage')">Back to<BR>Main</button>
-				<button id="splashSubmit" onclick="switchPage(true, 'autoPage')">SUBMIT</button>
+				<button id="splashSubmit" onclick="validateInputs()">SUBMIT</button>
 			</div>
 			<div id="splashMemes">
 				<img id="theOneAndOnly" src="">
