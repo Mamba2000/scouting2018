@@ -133,13 +133,37 @@ function matchTablet(argument){
 	}
 }
 
+function validateInputs(){
+	estop = false;
+	if(document.getElementById("matchNumber").value === "" || parseInt(document.getElementById("matchNumber").value) > parseInt(localStorage.getItem("maxMatches")) + 1){
+		estop = true;
+		document.getElementById("matchNumber").style.borderWidth = "thick";
+		document.getElementById("matchNumber").style.borderColor = ORANGE;
+		document.getElementById("matchNumText").className = "flash";
+	} else {
+		document.getElementById("matchNumber").style.borderWidth = "medium";
+		document.getElementById("matchNumber").style.borderColor = "black";
+		document.getElementById("matchNumText").classList.remove("flash");
+	}
+	if(document.getElementById("scoutSelect").value === "Default"){
+		estop = true;
+		document.getElementById("scoutNameText").style.borderWidth = "thick";
+		document.getElementById("scoutNameText").className = "flash";
+	} else {
+		document.getElementById("scoutNameText").style.borderWidth = "medium";
+		document.getElementById("scoutNameText").classList.remove = "flash";
+	}
+	console.log(estop);
+	setTimeout(autoInitialize(), 100);
+}
+
 //initialize the auto and tele part of the app
 function autoInitialize(){
 	console.log(localStorage.getItem("maxMatches"));
 	console.log(parseInt(document.getElementById("matchNumber").value))
+	console.log(document.getElementById("scoutSelect").value);
 	if(document.getElementById("matchNumber").value !== "666"){
-		if(document.getElementById("matchNumber").value !== "" && parseInt(document.getElementById("matchNumber").value) < parseInt(localStorage.getItem("maxMatches")) + 1){
-			eStop = false;
+		if(!estop){
 			for (i=0; i<localStorage.length; i++) {
 					var key = localStorage.key(i);
 					//console.log(key);															// Test
@@ -167,16 +191,13 @@ function autoInitialize(){
 			document.getElementById("matchNumber").style.borderWidth = "medium";
 			document.getElementById("matchNumber").style.borderColor = "#000000";
 			document.getElementById("matchNumText").classList.remove("flash");
-		} else {
-			eStop = true;
-			document.getElementById("matchNumber").style.borderWidth = "thick";
-			document.getElementById("matchNumber").style.borderColor = ORANGE;
-			document.getElementById("matchNumText").className = "flash";
+			switchPage(true, 'autoPage')
 		}
 	} else {
 		window.location.href = "https://www.reddit.com/r/CrappyDesign";
 	}
 }
+
 function changeCounter(field, condition, max){
 	var counter = document.getElementById(field);
 	if(Number(counter.value) + condition > -1 && (parseInt(counter.value) < max || condition < 0)){
@@ -198,9 +219,6 @@ function validateInp(elem) {
 
 function switchPage(ifSplash, newPage){
 	var pages = ['splashPage', 'autoPage', 'telePage', 'noShowPage'];
-	if(ifSplash){
-		autoInitialize();
-	}
 	if(document.getElementById("noShow").checked){
 		newPage = "noShowPage";
 	}
