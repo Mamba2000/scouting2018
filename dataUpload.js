@@ -32,15 +32,15 @@ window.addEventListener('load', function() {
         row = table.insertRow(-1);
         name = oneMatch.match;
         row.id = "row-" + name.toString();
-
+		console.log(document.getElementById(row.id));
 		check = row.insertCell(-1);
 		match = row.insertCell(-1);
         team = row.insertCell(-1);
         // submit = row.insertCell(-1);
-
+		console.log(row.id);
 		console.log(name + "Box");
 
-		check.innerHTML = "<input type=\"checkbox\" id=\"" + name + "Box\" class=\"checkbox\" value=false>"
+		check.innerHTML = "<input type=\"checkbox\" id=\"" + name + "Box\" class=\"checkbox\" value=false>";
         match.innerHTML = oneMatch.match;
         team.innerHTML = oneMatch.teamNo;
         // submit.innerHTML = "<button id=\"" + name + "\" class=\"submitButtons\" onclick=\"sendData(" + name + ");\">Submit Data</button>";
@@ -48,28 +48,54 @@ window.addEventListener('load', function() {
 });
 
 function checkAll() {
+	var elems = document.getElementsByClassName("checkbox");
 	if (document.getElementById("checkboxAll").checked) {
-		var elems = document.getElementsByClassName("checkbox");
-		for (i; i<elems.length)
+		for (var i=0; i<elems.length; i++) {
+			elems[i].checked = true;
+		}
+	} else {
+		for (var i=0; i<elems.length; i++) {
+			elems[i].checked = false;
+		}
 	}
 }
 
-function sendData(match) {
-    console.log("Data sending for match" + match + "...");
+function sendData() {
+	console.log(matches);
+	elems = document.getElementsByClassName("checkbox");
+	console.log(elems.length);
+	var elemArray = [];
+	for (var j = 1; j <= elems.length; j++) {
+		console.log(document.getElementById(j + "Box"));
+		if (document.getElementById(j + "Box") == null) {
+			console.log(j + "Doesn't exist!");
+		} else {
+			elemArray.push(j.toString() + "Box");
+		}
+	}
+	console.log(elemArray);
+    for (var i = 1; i <= matches.length; i++) {
+		console.log(document.getElementById(elemArray[i-1]).checked);
+		if (document.getElementById(elemArray[i-1]).checked) {
+			oneMatch = matches[i-1];
+			console.log(oneMatch)
+		    post(oneMatch);
 
-    matches.forEach(function(oneMatch) {
-        if(oneMatch.match == match) {
-            post(oneMatch);
-        }
-    });
-
-    table = document.getElementById("send_messages");
-    row = table.insertRow(-1);
-    toDelete = document.getElementById("row-" + match.toString());
+			table = document.getElementById("send_messages");
+		    row = table.insertRow(-1);
+			console.log("row-" + i.toString());
+		    toDelete = document.getElementById("row-" + i.toString());
+			console.log(toDelete);
+			row.innerHTML = "<p>Data sent for match " + i + ".</p>";
+		    toDelete.parentNode.removeChild(toDelete);
+		} else {
+			console.log("False for " + parseInt(i));
+		}
+	}
+};
 
     //TODO: Don't assume that the server actually got it.
-    row.innerHTML = "<p>Data sent for match " + match + ".</p>";
-    toDelete.parentNode.removeChild(toDelete);
+
     /*for (var key in localStorage) {
         try {
             content = JSON.parse(localStorage.getItem(key));
@@ -84,7 +110,7 @@ function sendData(match) {
             continue;
         }
     }*/
-};
+
 
 function post(parameters) {
     var form = $('<form id="upload"></form>');

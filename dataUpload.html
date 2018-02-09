@@ -12,7 +12,7 @@
 
     <body>
         <div id="showSchedule">
-            <p id="scheduleText">Downloaded:<img id="matchesImage" src="images/redX.png" /></p>
+            <p id="scheduleText">Downloaded:<img id="matchesImage" src="images/redX.png"></p>
         </div>
 
         <div id="download_inputs">
@@ -26,13 +26,12 @@
             </select>
             <button id="download_matches" onClick="download();">Download Matches</button>
         </div>
-		<span id="matchUpload"><input id="checkboxAll" class="checkbox" type="checkbox" value="true" onClick="checkAll()">&nbsp;<label for="checkboxAll">Check All</label>&nbsp;<button id="massUpload" onclick="sendData()"></button></span>
+		<span id="matchUpload"><input id="checkboxAll" class="checkboxAll" type="checkbox" value="true" onClick="checkAll()">&nbsp;<label for="checkboxAll">Check All</label>&nbsp;<button id="massUpload" onclick="sendData()"></button></span>
         <table id="matchData" class="tables">
             <tr>
 				<th>Submit</th>
                 <th>Match Number</th>
                 <th>Team Number</th>
-                <!-- <th>Submit</th> -->
             </tr>
         </table>
 

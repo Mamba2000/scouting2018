@@ -4,7 +4,7 @@
   border: 3px solid;
   border-collapse: collapse;
 }
-.checkbox {
+.checkbox, .checkboxAll {
 	position: relative;
 	top: 8px;
 	height: 55px;
@@ -70,6 +70,11 @@ tr, th, td {
 #showSchedule {
   position: absolute;
   right: 70px;
+}
+#matchUpload {
+	position: relative;
+	top: 10px;
+	font-size: 42pt;
 }
 .submitButtons {
     position: relative;
