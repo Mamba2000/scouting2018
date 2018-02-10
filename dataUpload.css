@@ -51,7 +51,7 @@ tr, th, td {
   border:5px #BE1E2D solid;
   text-align:Center;
   background-color: #F8F8F8;
-  font-size: 250%;
+  font-size: 30pt;
   position: relative;
   top: 7px;
   height: 56px;
@@ -75,6 +75,16 @@ tr, th, td {
 	position: relative;
 	top: 10px;
 	font-size: 42pt;
+}
+#massUpload {
+	position: relative;
+	bottom: 7px;
+	width: 644px;
+	height: 56px;
+	font-size: 30pt;
+	border: 5px #1E2BBE solid;
+	background-color: #F8F8F8;
+	text-align: center;
 }
 .submitButtons {
     position: relative;
