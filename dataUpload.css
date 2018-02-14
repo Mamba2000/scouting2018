@@ -4,6 +4,14 @@
   border: 3px solid;
   border-collapse: collapse;
 }
+.checkbox, .checkboxAll {
+	position: relative;
+	top: 8px;
+	height: 55px;
+	width: 55px;
+	border: 2px;
+	border-color: SOLID WHITE;
+}
 #titleLogo {
 	border-style: solid;
 	border-color: black;
@@ -43,7 +51,7 @@ tr, th, td {
   border:5px #BE1E2D solid;
   text-align:Center;
   background-color: #F8F8F8;
-  font-size: 250%;
+  font-size: 30pt;
   position: relative;
   top: 7px;
   height: 56px;
@@ -62,6 +70,21 @@ tr, th, td {
 #showSchedule {
   position: absolute;
   right: 70px;
+}
+#matchUpload {
+	position: relative;
+	top: 10px;
+	font-size: 42pt;
+}
+#massUpload {
+	position: relative;
+	bottom: 7px;
+	width: 644px;
+	height: 56px;
+	font-size: 30pt;
+	border: 5px #1E2BBE solid;
+	background-color: #F8F8F8;
+	text-align: center;
 }
 .submitButtons {
     position: relative;

@@ -1,64 +1,95 @@
-var matches;
+var matchData;
 var path = "http://ubuntu@ec2-52-35-34-216.us-west-2.compute.amazonaws.com:3000"; //TODO: Put in AWS info
 
 window.addEventListener('load', function() {
     table = document.getElementById("matchData");
 
-    matches = [];
+    matchData = [];
     for (var key in localStorage) {
         try {
             key = JSON.parse(localStorage.getItem(key));
             isTele = key.isTele;
             if(!key.isTele) {
-                console.log("Not a Match");
+                //console.log("Not a Match");
                 continue;
             }
-            console.log("Pushing match");
-            matches.push(key);
+            //console.log("Pushing match");
+            matchData.push(key);
         } catch(err) {
-            console.log("Not a Match");
+            //console.log("Not a Match");
             continue;
         }
     }
 
-    console.log(matches);
+    //console.log(matchData);
 
-    matches.sort(function(a, b) {
+    matchData.sort(function(a, b) {
         return parseInt(a.match) - parseInt(b.match);
     });
 
-    matches.forEach(function(oneMatch) {
-        console.log("Good Match");
+    matchData.forEach(function(oneMatch) {
+        //console.log("Good Match");
         row = table.insertRow(-1);
         name = oneMatch.match;
         row.id = "row-" + name.toString();
-
-        match = row.insertCell(-1);
+		//console.log(document.getElementById(row.id));
+		check = row.insertCell(-1);
+		match = row.insertCell(-1);
         team = row.insertCell(-1);
-        submit = row.insertCell(-1);
+        // submit = row.insertCell(-1);
+		//console.log(row.id);
+		//console.log(name + "Box");
 
+		check.innerHTML = "<input type=\"checkbox\" id=\"" + name + "Box\" class=\"checkbox\" value=false>";
         match.innerHTML = oneMatch.match;
         team.innerHTML = oneMatch.teamNo;
-        submit.innerHTML = "<button id=\"" + name + "\" class=\"submitButtons\" onclick=\"sendData(" + name + ");\">Submit Data</button>";
+        // submit.innerHTML = "<button id=\"" + name + "\" class=\"submitButtons\" onclick=\"sendData(" + name + ");\">Submit Data</button>";
     });
 });
 
-function sendData(match) {
-    console.log("Data sending for match" + match + "...");
+function checkAll() {
+	var elems = document.getElementsByClassName("checkbox");
+	if (document.getElementById("checkboxAll").checked) {
+		for (var i=0; i<elems.length; i++) {
+			elems[i].checked = true;
+		}
+	} else {
+		for (var i=0; i<elems.length; i++) {
+			elems[i].checked = false;
+		}
+	}
+}
 
-    matches.forEach(function(oneMatch) {
-        if(oneMatch.match == match) {
-            post(oneMatch);
+function sendAll() {
+    checkboxes = document.getElementsByClassName("checkbox");
+    console.log(checkboxes);
+    Array.from(checkboxes).forEach(function(checkbox, i) {
+        if(checkbox.checked) {
+            console.log(checkbox.id[0]);
+            sendData(parseInt(checkbox.id[0]));
         }
     });
+}
 
-    table = document.getElementById("send_messages");
-    row = table.insertRow(-1);
-    toDelete = document.getElementById("row-" + match.toString());
+function sendData(match) {
+    for (var i = 0; i < matchData.length; i++) {
+        if(matchData[i].match === match) {
+			console.log(matchData[i]);
+            post(matchData[i]);
+
+        	table = document.getElementById("send_messages");
+            row = table.insertRow(-1);
+        	//console.log("row-" + match.toString());
+            toDelete = document.getElementById("row-" + match.toString());
+        	//console.log(toDelete);
+        	row.innerHTML = "<p>Data sent for match " + match + ".</p>";
+            toDelete.parentNode.removeChild(toDelete);
+        }
+	}
+};
 
     //TODO: Don't assume that the server actually got it.
-    row.innerHTML = "<p>Data sent for match " + match + ".</p>";
-    toDelete.parentNode.removeChild(toDelete);
+
     /*for (var key in localStorage) {
         try {
             content = JSON.parse(localStorage.getItem(key));
@@ -73,9 +104,10 @@ function sendData(match) {
             continue;
         }
     }*/
-};
+
 
 function post(parameters) {
+	console.log(parameters);
     var form = $('<form id="upload"></form>');
 
     form.attr("method", "post");
@@ -83,7 +115,6 @@ function post(parameters) {
 
     $.each(parameters, function(key, value) {
         var field = $('<input></input>');
-
         field.attr("type", "hidden");
         field.attr("name", key);
         field.attr("value", value);
@@ -94,5 +125,8 @@ function post(parameters) {
     // The form needs to be a part of the document in
     // order for us to be able to submit it.
     $(document.body).append(form);
-    $.post(path, $('#upload').serialize())
+    $.post(path, form.serialize(), function(res) {
+        console.log(res);
+    });
+	console.log("END");
 }
