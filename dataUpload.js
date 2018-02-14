@@ -125,7 +125,8 @@ function post(parameters) {
     // The form needs to be a part of the document in
     // order for us to be able to submit it.
     $(document.body).append(form);
-    $.post(path, $('#upload').serialize(), function(res) {
+    $.post(path, form.serialize(), function(res) {
         console.log(res);
     });
+	console.log("END");
 }
