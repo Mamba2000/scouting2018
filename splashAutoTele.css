@@ -279,9 +279,9 @@ html {
 
 }
 #teleClimbLeft{
-	position: relative;
+	position: absolute;
 	left: 20px;
-	top: 0px;
+	top: 550px;
 }
 #teleExchangeSpan{
 
