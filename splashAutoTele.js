@@ -206,7 +206,9 @@ function changeCounter(field, condition, max){
 }
 
 function fakeRadioButtons(unclicked) {
-	document.getElementById(unclicked).checked = false;
+	for (var i = 0; i <= unclicked.length - 1; i++) {
+		document.getElementById(unclicked[i]).checked = false;
+	}
 }
 
 function validateInp(elem) {
@@ -242,7 +244,7 @@ function switchPage(ifSplash, newPage){
 //takes all the data from the three pages and puts them into one jObj, then puts that in local storage
 function submitTele() {
 	console.log(eventName);
-    jObj.scoutName = document.getElementById("scoutSelect").value;
+  	jObj.scoutName = document.getElementById("scoutSelect").value;
 	jObj.eventName = eventName;
 	jObj.teamNo = teamNo;
 	jObj.match = parseInt(document.getElementById("matchNumber").value);
@@ -266,7 +268,7 @@ function submitTele() {
 			jObj.deadBot = false;
 		}
 		jObj.Climb = document.getElementById("climb").checked;
-		jObj.AssistedClimb = parseInt(document.getElementById("AssistOthersClimb").value, 10);
+		jObj.AssistedClimb = parseInt(document.getElementById("AssistOthersClimb").value);
 		jObj.ReceivedClimb = document.getElementById("helpedClimb").checked;
 	}
 	LSName = jObj.eventName.concat("_");
@@ -279,4 +281,5 @@ function submitTele() {
 	localStorage.setItem(LSName, JSON.stringify(jObj));
 
 	console.log(JSON.stringify(jObj));
+	location.reload();
 }

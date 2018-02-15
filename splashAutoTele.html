@@ -112,14 +112,14 @@
 				<span>Climb:&nbsp;</span>
 				<br>
 				<SPAN>Assisted Others:&nbsp;
-					<BUTTON class="incrementButton minusButtons" onClick="changeCounter('AssistOthersClimb', -1, 2); fakeRadioButtons('helpedClimb')); fakeRadioButtons('park')">-1</BUTTON>
+					<BUTTON class="incrementButton minusButtons" onClick="changeCounter('AssistOthersClimb', -1, 2); fakeRadioButtons(['helpedClimb']);">-1</BUTTON>
 					<INPUT id="AssistOthersClimb" type="text" value="0"  disabled>
-					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('AssistOthersClimb', 1, 2); fakeRadioButtons('helpedClimb')); fakeRadioButtons('park')">+1</BUTTON>
+					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('AssistOthersClimb', 1, 2); fakeRadioButtons(['helpedClimb']);">+1</BUTTON>
 				</SPAN>
-				<input class="checkbox" id="helpedClimb" type="checkbox" value="false" onClick="fakeRadioButtons('climb'); document.getElementById('AssistOthersClimb').value = '0'); fakeRadioButtons('park')">&nbsp;<span>Received Climb (drive on)</span><br>
-				<input class="checkbox" id="climb" type="checkbox" value="false" onClick="fakeRadioButtons('helpedClimb'); fakeRadioButtons('park')">&nbsp;<span>Self Climb (any pulling)</span><br>
-				<input class="checkbox" id="park" type="checkbox" value="false" onClick="fakeRadioButtons('helpedClimb'); fakeRadioButtons('climb')">&nbsp;<span>Park</span><br>
-			</div>
+				<input class="checkbox" id="helpedClimb" type="checkbox" value="false" onClick="fakeRadioButtons(['climb','park']); document.getElementById('AssistOthersClimb').value = '0';">&nbsp;<span>Received Climb (drive on)</span><br>
+				<input class="checkbox" id="climb" type="checkbox" value="false" onClick="fakeRadioButtons(['helpedClimb','park']);">&nbsp;<span>Self Climb (any pulling)</span><br>
+				<input class="checkbox" id="park" type="checkbox" value="false" onClick="fakeRadioButtons(['helpedClimb','climb']);">&nbsp;<span>Parked (on the platform)</span>
+ 			</div>
 			<div class="miscArea">
 				<br>
 				<input class="checkbox" id="teleDeadBot" type="checkbox" value="false">&nbsp;<span>Dead Bot</span> <br>
@@ -131,7 +131,7 @@
 			<BUTTON class="teamNumber" id="deadBotTeamNum" disabled>0000</BUTTON>
 			<SPAN id="noShowText">ARE YOU SURE THEY DIDN'T SHOW UP</SPAN>
 			<BUTTON class="backButtons" onClick="document.getElementById('noShow').checked = false; switchPage(false, 'autoPage');">Wait JK They<BR>Showed Up</BUTTON>
-			<BUTTON class="submitButtons" onClick="submitTele(); location.reload()">Yes they don't<BR>like points</BUTTON>
+			<BUTTON class="submitButtons" onClick="submitTele();">Yes they don't<BR>like points</BUTTON>
 		</div>
 	</div>
 </body>
