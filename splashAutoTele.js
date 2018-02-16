@@ -270,6 +270,7 @@ function submitTele() {
 		jObj.Climb = document.getElementById("climb").checked;
 		jObj.AssistedClimb = parseInt(document.getElementById("AssistOthersClimb").value);
 		jObj.ReceivedClimb = document.getElementById("helpedClimb").checked;
+		jObj.Park = document.getElementById("park").checked;
 	}
 	LSName = jObj.eventName.concat("_");
 	LSName = LSName.concat(jObj.teamNumber);
