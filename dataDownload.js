@@ -1,5 +1,7 @@
 BlueAllianceURL = "https://www.thebluealliance.com/api/v2/event/";
 xbtAPP_ID = "?X-TBA-App-Id=FRC1983:Scouting:v2";
+//xbtAPP_ID = "?X-TBA-Auth-Key=d4V33bAbuXiKfuLW1pc4BaLbr56BgiORtyM5hwmRLU5qNf6Rxh83noDdI0mPJJ3R"
+//TODO UNCOMMENT THE NEW API KEY ON LINE 3
 
 // Global Variables //
 var matches;
