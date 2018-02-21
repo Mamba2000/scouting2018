@@ -273,11 +273,12 @@ function submitTele() {
 		jObj.Park = document.getElementById("park").checked;
 	}
 	LSName = jObj.eventName.concat("_");
-	LSName = LSName.concat(jObj.teamNumber);
+	LSName = LSName.concat(jObj.teamNo);
 	LSName = LSName.concat("_");
 	LSName = LSName.concat(jObj.match);
 	LSName = LSName.concat("_");
 	LSName = LSName.concat("Object");
+	LSName = LSName.toString();
 
 	localStorage.setItem(LSName, JSON.stringify(jObj));
 

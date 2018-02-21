@@ -18,9 +18,6 @@ window.addEventListener('load', function() {
 					matchesEvent = eventNombre.toString();
 					console.log(matchesEvent);
 					break loop1;
-				} else {
-					document.getElementById("matchesDownloadText").innerHTML = "Matches Downloaded: Error--None";
-					document.getElementById("matchesDownloadText").className = "flash";
 				}
 	        }
 	    }
@@ -113,7 +110,10 @@ function deleteMatch(name) {
             	if(team === key.teamNo && match === key.match) {
 					console.log("HEYOOOO");
 					console.log(key);
-					localStorage.removeItem(key);
+					finnaDelete = matchesEvent.toString() + "_" + team.toString() + "_" + match.toString() + "_Object";
+					finnaDelete = finnaDelete.toString();
+					console.log(finnaDelete);
+					localStorage.removeItem(finnaDelete);
 				}
             }
 		} catch(err) {

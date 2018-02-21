@@ -26,6 +26,9 @@ tr, th, td {
     border-collapse: collapse;
     text-align: center;
 }
+tr {
+	font-size: 37pt;
+}
 #matchData {
   position: relative;
   top: 20px;
@@ -86,12 +89,11 @@ tr, th, td {
 	background-color: #F8F8F8;
 	text-align: center;
 }
-.submitButtons {
-    position: relative;
-    top: -5px;
-    border-width: 1px;
-    border-color: black;
-    border: solid;
-    font-size: 28pt;
-    background-color: #F7F7F7;
+.deleters {
+	border-style: solid;
+	border-width: thin;
+	border-color: white;
+	font-size: 32pt;
+	background-color: #E5E5E5;
+	height: 70px;
 }
