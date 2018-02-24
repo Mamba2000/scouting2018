@@ -66,7 +66,7 @@ window.addEventListener('load', function() {
 		//console.log(check.innerHTML);
 		match.innerHTML = oneMatch.match;
         team.innerHTML = oneMatch.teamNo;
-		deleter.innerHTML = "<button id=\"" + name + "_deleter\" class=\"deleters\" onClick=\"deleteMatch(" + name + ");\">Delete</button>";
+		deleter.innerHTML = "<button id=\"" + name + "_deleter\" class=\"deleters\" onClick=\"deleteMatch(\'" + name + "\');\">Delete</button>";
 		//console.log(deleter.innerHTML);
         // submit.innerHTML = "<button id=\"" + name + "\" class=\"submitButtons\" onclick=\"sendData(" + name + ");\">Submit Data</button>";
 	});
