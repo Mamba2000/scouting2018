@@ -31,11 +31,11 @@ function initialize() {
 	    	eventNombre = eventList[j];
 	    	for (var i=0; i<localStorage.length; i++) {
 	        	var key = localStorage.key(i);
-	    		console.log(key);                                                            // Test
+	    		//console.log(key);                                                            // Test
 	            if (eventNombre.concat("Matches") == key) {
 	                isThere = true;
 					eventName = eventNombre.toString();
-					console.log(eventName);
+					//console.log(eventName);
 	            	checkForMatches();
 					break loop1;
 				} else {
@@ -153,30 +153,30 @@ function validateInputs(){
 		document.getElementById("scoutNameText").style.borderWidth = "medium";
 		document.getElementById("scoutNameText").classList.remove = "flash";
 	}
-	console.log(estop);
+	//console.log(estop);
 	setTimeout(autoInitialize(), 100);
 }
 
 //initialize the auto and tele part of the app
 function autoInitialize(){
-	console.log(localStorage.getItem("maxMatches"));
-	console.log(parseInt(document.getElementById("matchNumber").value))
-	console.log(document.getElementById("scoutSelect").value);
+	//console.log(localStorage.getItem("maxMatches"));
+	//console.log(parseInt(document.getElementById("matchNumber").value))
+	//console.log(document.getElementById("scoutSelect").value);
 	if(document.getElementById("matchNumber").value !== "666"){
 		if(!estop){
 			for (i=0; i<localStorage.length; i++) {
 					var key = localStorage.key(i);
-					//console.log(key);															// Test
+					////console.log(key);															// Test
 		  		if (eventName.concat("Matches") == key) {
 		  			isThere = true;
 				}
 			}
 			if (isThere) {
 				var jList = localStorage.getItem(eventName.concat("Matches"));
-				//console.log(jList);
+				////console.log(jList);
 				matches = new Array();
 				matches = JSON.parse(jList);
-		//		console.log("matches: " + matches.length);
+		//		//console.log("matches: " + matches.length);
 				var match = parseInt(document.getElementById("matchNumber").value);
 				if (alliance === "RED") {
 					teamNo = matches[match - 1].red[robot - 1];
@@ -187,7 +187,7 @@ function autoInitialize(){
 				document.getElementById("teleTeamNum").innerHTML = teamNo;
 				document.getElementById("deadBotTeamNum").innerHTML = teamNo;
 			}
-			console.log(teamNo);
+			//console.log(teamNo);
 			document.getElementById("matchNumber").style.borderWidth = "medium";
 			document.getElementById("matchNumber").style.borderColor = "#000000";
 			document.getElementById("matchNumText").classList.remove("flash");
@@ -243,7 +243,7 @@ function switchPage(ifSplash, newPage){
 
 //takes all the data from the three pages and puts them into one jObj, then puts that in local storage
 function submitTele() {
-	console.log(eventName);
+	//console.log(eventName);
   	jObj.scoutName = document.getElementById("scoutSelect").value;
 	jObj.eventName = eventName;
 	jObj.teamNo = teamNo;
@@ -282,6 +282,6 @@ function submitTele() {
 
 	localStorage.setItem(LSName, JSON.stringify(jObj));
 
-	console.log(JSON.stringify(jObj));
+	//console.log(JSON.stringify(jObj));
 	location.reload();
 }

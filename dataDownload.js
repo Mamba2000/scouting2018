@@ -14,7 +14,7 @@ window.addEventListener('load', function() {
     	eventName = events[j];
     	for (var i=0; i<localStorage.length; i++)    {
     		var key = localStorage.key(i);
-    		//console.log(key);                                                            // Test
+    		////console.log(key);                                                            // Test
         	if (eventName.concat("Matches") == key) {
         		isThere = true;
           		checkForMatches(true);
@@ -32,7 +32,7 @@ function download() {
     for (i=0; i<localStorage.length; i++)
     {
         var key = localStorage.key(i);
-    //console.log(key);                                                            // Test
+    ////console.log(key);                                                            // Test
         if (eventName.concat("Matches") == key)
         {
             isThere = true;
@@ -44,17 +44,17 @@ function download() {
     {
         chrs = BlueAllianceURL.concat(eventName);
         chrs = chrs.concat("/matches");
-    //console.log(chrs.concat(xbtAPP_ID));                            // Test
+    ////console.log(chrs.concat(xbtAPP_ID));                            // Test
         issueRequestHTTP("GET", chrs.concat(xbtAPP_ID), function(result)
         {
             matchesHaveBeenDownloaded(result);
         });
     }
-    console.log("data downloaded");
+    //console.log("data downloaded");
 }
 
 function matchesHaveBeenDownloaded(contents) {
-  console.log("Hi");
+  //console.log("Hi");
   var alliances;
     var i, j;
     var red, blue;
@@ -78,7 +78,7 @@ function matchesHaveBeenDownloaded(contents) {
 }
 
 function sortMatches(sched) {
-  console.log("hi");
+  //console.log("hi");
   var i, j, k; var swapped;
     var temp;
     swapped = true;
@@ -102,22 +102,22 @@ function sortMatches(sched) {
 }
 
 function generateJSON(matrix) {
-  console.log("Hi");
+  //console.log("Hi");
   var i;
   var row = newMatch(matrix[0][0], matrix[0][1], matrix[0][2], matrix[0][3], matrix[0][4], matrix[0][5], matrix[0][6]);
-  //console.log(row);                                                    // Test
+  ////console.log(row);                                                    // Test
   var parsed = new Array(row);
   for (i=1; i<matrix.length; i++)
   {
     parsed[i] = newMatch(matrix[i][0], matrix[i][1], matrix[i][2], matrix[i][3], matrix[i][4], matrix[i][5], matrix[i][6]);
   }
-  console.log(counter);
+  //console.log(counter);
   localStorage.setItem("maxMatches", counter);
   var lsName = eventName.concat("Matches");
   localStorage.setItem(lsName, JSON.stringify(parsed));
 }
 function issueRequestHTTP(reqType, URL, callback) {
-  console.log("Hi");
+  //console.log("Hi");
     var xhr = new XMLHttpRequest();
     xhr.onload = function (e)
     {
@@ -141,12 +141,12 @@ function issueRequestHTTP(reqType, URL, callback) {
     xhr.onerror = function (e)
     {
         issueError(xhr.statusText, false);
-        console.log(xhr.statusText);                                                                                        // Test
+        //console.log(xhr.statusText);                                                                                        // Test
     }
-  console.log("hi");
+  //console.log("hi");
 }
 function issueHTTPForm(formObj, URL, callback) {
-  console.log("Hi");
+  //console.log("Hi");
     var xhr = new XMLHttpRequest();
     xhr.onload = function (e)
     {
@@ -172,20 +172,20 @@ function issueHTTPForm(formObj, URL, callback) {
     xhr.onerror = function (e)
     {
         issueError(xhr.statusText, false);
-        console.log(xhr.statusText);                                                                                        // Test
+        //console.log(xhr.statusText);                                                                                        // Test
     }
 }
 function newMatch(matchNo, red1, red2, red3, blue1, blue2, blue3) {
-  console.log("Hi")
+  //console.log("Hi")
   counter = counter + 1;
-  console.log(counter);
+  //console.log(counter);
   checkForMatches(true);
-//    console.log('{"matchNo":' + matchNo + ',"red":[', red1 + ',' + red2 + ',' + red3 + '], "blue":[' + blue1 + ',' + blue2 + ',' + blue3 + ']}');
+//    //console.log('{"matchNo":' + matchNo + ',"red":[', red1 + ',' + red2 + ',' + red3 + '], "blue":[' + blue1 + ',' + blue2 + ',' + blue3 + ']}');
   return JSON.parse('{"matchNo":' + matchNo + ',"red":[' + red1 + ',' + red2 + ',' + red3 + '],"blue":[' + blue1 + ',' + blue2 + ',' + blue3 + ']}');
 }
 
 function issueError(msg, writeOver) {
-    console.log(msg);
+    //console.log(msg);
 }
 
 function checkForMatches(statement){
