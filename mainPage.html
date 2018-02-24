@@ -1,1 +1,45 @@
-//Mainpage.HTML
+<!-- Mainpage.HTML -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Skunkworks Main Page</title>
+<script language="javascript">
+function initialize() {
+	console.log("Hi");
+	//TODO add some goofy shit
+}
+function dataButton() {
+	window.location.href = "dataUpload.html"
+}
+function piranhaButton() {
+	window.location.href = "instructionsUnclearDickStuckInPiranhaPlant.html"
+}
+function toSplash(tabletID) {
+	//console.log(tabletID);
+	window.location.href = "splashAutoTele.html?" + tabletID
+}
+
+</script>
+	<link rel="stylesheet" type="text/css" href="mainPage.css">
+</head>
+<body onload="initialize();">
+	<div id="titleLogo">
+		<img src="images/GameLogo.jpg" class="titlePix">
+		<img src="images/AppTitleSkunkworks.png" class="titlePix">
+	</div>
+	<div id="topRow">
+		<button class="bigger" id="dataButton" onClick="dataButton()">Data<BR>Upload</button>
+    	<button class="bigger" id="piranhaButton" onClick="piranhaButton()">Local<BR>Clear</button>
+	</div>
+	<div id="redColumn">
+    	<button class="smaller redButtons" id="RED1" onClick="toSplash('RED1')">RED 1</button><BR>
+    	<button class="smaller redButtons" id="RED2" onClick="toSplash('RED2')">RED 2</button><BR>
+    	<button class="smaller redButtons" id="RED3" onClick="toSplash('RED3')">RED 3</button>
+	</div>
+	<div id="blueColumn">
+    	<button class="smaller blueButtons" id="BLUE1" onClick="toSplash('BLUE1')">BLUE 1</button><BR>
+    	<button class="smaller blueButtons" id="BLUE2" onClick="toSplash('BLUE2')">BLUE 2</button><BR>
+    	<button class="smaller blueButtons" id="BLUE3" onClick="toSplash('BLUE3')">BLUE 3</button>
+	</div>
+</body>
+</html>

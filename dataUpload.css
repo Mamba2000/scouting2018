@@ -1,1 +1,99 @@
 /*dataUpload.css*/
+.tables {
+  width: 100%;
+  border: 3px solid;
+  border-collapse: collapse;
+}
+.checkbox, .checkboxAll {
+	position: relative;
+	top: 8px;
+	height: 55px;
+	width: 55px;
+	border: 2px;
+	border-color: SOLID WHITE;
+}
+#titleLogo {
+	border-style: solid;
+	border-color: black;
+	border-width: thick;
+	position: relative;
+	left: 7px;
+	top: 3px;
+}
+tr, th, td {
+    border-width: 3px;
+    border: solid;
+    border-collapse: collapse;
+    text-align: center;
+}
+tr {
+	font-size: 37pt;
+}
+#matchData {
+  position: relative;
+  top: 20px;
+  text-align: center;
+  font-size: 42pt;
+}
+#send_messages {
+  position: relative;
+  top: 25px;
+  font-size: 22pt;
+}
+#send_messages {
+    border: 3px solid;
+}
+#eventSelect {
+  font-size: 300%;
+  text-align: center;
+  width: 350px;
+  position: relative;
+  top: 10px;
+}
+#download_matches {
+  border:5px #BE1E2D solid;
+  text-align:Center;
+  background-color: #F8F8F8;
+  font-size: 30pt;
+  position: relative;
+  top: 7px;
+  height: 56px;
+}
+#scheduleText {
+  font-size: 200%;
+  position: relative;
+  bottom: 10px;
+}
+#matchesImage {
+  position: absolute;
+  bottom: -10px;
+  height: 55px;
+  width: 55px;
+}
+#showSchedule {
+  position: absolute;
+  right: 70px;
+}
+#matchUpload {
+	position: relative;
+	top: 10px;
+	font-size: 42pt;
+}
+#massUpload {
+	position: relative;
+	bottom: 7px;
+	width: 644px;
+	height: 56px;
+	font-size: 30pt;
+	border: 5px #1E2BBE solid;
+	background-color: #F8F8F8;
+	text-align: center;
+}
+.deleters {
+	border-style: solid;
+	border-width: thin;
+	border-color: white;
+	font-size: 32pt;
+	background-color: #E5E5E5;
+	height: 70px;
+}
