@@ -86,6 +86,23 @@ function checkAll() {
 }
 
 function deleteMatch(name) {
+	eventList = ["2016wagg","2018waahs","2018wasno","2018idbo","2018pncmp"];
+	if (localStorage.length !== 0) {
+	loop1:
+	    for (var j=0; j<eventList.length; j++) {
+	    	eventNombre = eventList[j];
+	    	for (var i=0; i<localStorage.length; i++) {
+	        	var key = localStorage.key(i);
+	    		//console.log(key);                                                            // Test
+	            if (eventNombre.concat("Matches") == key) {
+	                isThere = true;
+					matchesEvent = eventNombre.toString();
+					//console.log(matchesEvent);
+					break loop1;
+				}
+	        }
+	    }
+	}
 	//console.log("yes");
 	//console.log(name);
 	toDelete = document.getElementById("row-" + name);
@@ -98,7 +115,7 @@ function deleteMatch(name) {
 	team = lsToDelete[1];
 	team = parseInt(team);
 	//console.log(lsToDelete);
-	//console.log(matchesEvent);
+	console.log(matchesEvent);
 	for (var key in localStorage) {
 		try {
 			key = JSON.parse(localStorage.getItem(key));
@@ -112,7 +129,7 @@ function deleteMatch(name) {
 					//console.log(key);
 					finnaDelete = matchesEvent.toString() + "_" + team.toString() + "_" + match.toString() + "_Object";
 					finnaDelete = finnaDelete.toString();
-					//console.log(finnaDelete);
+					console.log(finnaDelete);
 					localStorage.removeItem(finnaDelete);
 				}
             }
