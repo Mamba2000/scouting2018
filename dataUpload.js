@@ -146,15 +146,15 @@ function sendData(matchThing) {
     for (var i = 0; i < matchData.length; i++) {
         if(matchData[i].match === match && matchData[i].teamNo === team) {
 			console.log(matchData[i]);
-            post(matchData[i]);
+            post(matchData[i], matchTeam);
 
         	table = document.getElementById("send_messages");
             row = table.insertRow(-1);
         	//console.log("row-" + match.toString());
-            toDelete = document.getElementById("row-" + match.toString() + "." + team.toString());
+            //toDelete = document.getElementById("row-" + match.toString() + "." + team.toString());
         	//console.log(toDelete);
         	row.innerHTML = "<p>Data sent for match " + match + ".</p>";
-            toDelete.parentNode.removeChild(toDelete);
+            //stoDelete.parentNode.removeChild(toDelete);
         }
 	}
 };
@@ -177,7 +177,7 @@ function sendData(matchThing) {
     }*/
 
 
-function post(parameters) {
+function post(parameters, matchTeam) {
 	console.log(parameters);
     var form = $('<form id="upload"></form>');
 
@@ -198,6 +198,12 @@ function post(parameters) {
     $(document.body).append(form);
     $.post(path, form.serialize(), function(res) {
         console.log(res);
+		if (res === "success") {
+			console.log("It worked");
+			deleteMatch(matchTeam);
+		} else {
+			console.log("Error");
+		}
     });
 	console.log("END");
 }
