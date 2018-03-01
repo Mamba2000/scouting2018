@@ -36,6 +36,7 @@ function initialize() {
 	                isThere = true;
 					eventName = eventNombre.toString();
 					//console.log(eventName);
+					document.getElementById("matchesDownloadText").classList.remove("flash");
 	            	checkForMatches();
 					break loop1;
 				} else {
