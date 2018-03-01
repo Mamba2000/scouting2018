@@ -24,7 +24,7 @@ function initialize() {
     jObj = JSON.parse(jStr);
 	var str = window.location.search;
  	matchTablet(str);
-	eventList = ["2016wagg","2018waahs","2018wasno","2018idbo","2018pncmp"];
+	eventList = ["2016wagg","2018week0","2018waahs","2018wasno","2018idbo","2018pncmp"];
 	if (localStorage.length !== 0) {
 	loop1:
 	    for (var j=0; j<eventList.length; j++) {
@@ -67,6 +67,9 @@ function checkForMatches(){
 			break;
 		case "2018idbo":
 			eventReadable = "Boise '18"
+			break;
+		case "2018week0":
+			eventReadable = "Week 0 Bedford";
 			break;
 		case "2018pncmp":
 			eventReadable = "District Champs '18";
@@ -191,7 +194,7 @@ function autoInitialize(){
 			document.getElementById("matchNumber").style.borderWidth = "medium";
 			document.getElementById("matchNumber").style.borderColor = "#000000";
 			document.getElementById("matchNumText").classList.remove("flash");
-			switchPage(true, 'autoPage')
+			switchPage(true, 'autoPage');
 		}
 	} else {
 		window.location.href = "https://www.reddit.com/r/CrappyDesign";
