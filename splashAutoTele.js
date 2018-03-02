@@ -2,8 +2,6 @@
 RED = "#BE1E2D";
 BLUE = "#1E2BBE";
 ORANGE = "#ffaf00";
-BlueAllianceURL = "https://www.thebluealliance.com/api/v2/event/";
-xbtAPP_ID = "?X-TBA-App-Id=FRC1983:Scouting:v2";
 //Global variables
 var robot;
 var alliance;
