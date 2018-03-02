@@ -68,7 +68,7 @@ function matchesHaveBeenDownloaded(contents) {
         {
             red = parsed[i].alliances.red;
             blue = parsed[i].alliances.blue;
-            matches[j] = [Number(parsed[i].match_number), Number(red.teams[0].substring(3,red.teams[0].length)), Number(red.teams[1].substring(3,red.teams[1].length)), Number(red.teams[2].substring(3,red.teams[2].length)),Number(blue.teams[0].substring(3,blue.teams[0].length)),  Number(blue.teams[1].substring(3,blue.teams[1].length)),  Number(blue.teams[2].substring(3,blue.teams[2].length))];
+            matches[j] = [Number(parsed[i].match_number), Number(red.team_keys[0].substring(3,red.team_keys[0].length)), Number(red.team_keys[1].substring(3,red.team_keys[1].length)), Number(red.team_keys[2].substring(3,red.team_keys[2].length)),Number(blue.team_keys[0].substring(3,blue.team_keys[0].length)),  Number(blue.team_keys[1].substring(3,blue.team_keys[1].length)),  Number(blue.team_keys[2].substring(3,blue.team_keys[2].length))];
             j++;
         }
     }
