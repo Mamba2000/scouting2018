@@ -24,7 +24,7 @@ function initialize() {
     jObj = JSON.parse(jStr);
 	var str = window.location.search;
  	matchTablet(str);
-	eventList = ["2016wagg","2018week0","2018waahs","2018wasno","2018idbo","2018pncmp"];
+	eventList = ["2016wagg","2018week0","2018waahs","2018wasno","2018idbo","2018pncmp", "2018wamou"];
 	if (localStorage.length !== 0) {
 	loop1:
 	    for (var j=0; j<eventList.length; j++) {
@@ -74,6 +74,9 @@ function checkForMatches(){
 			break;
 		case "2018pncmp":
 			eventReadable = "District Champs '18";
+			break;
+		case "2018wamou":
+			eventReadable = "Mount Vernon '18";
 			break;
 	}
 	elem.innerHTML = "Matches Downloaded: " + eventReadable;
