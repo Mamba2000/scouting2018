@@ -54,8 +54,8 @@
 			  	</div>
 			  	<br>
 			  	<div id="autoBoxesLeft">
-					<span>Boxes Placed:</span><BR>
-					<SPAN class="scoreboardText">Switch:&nbsp;</SPAN>
+					<span>Power Cubes Placed:</span><BR>
+					<SPAN class="scoreboardText">Low Goal (Switch):&nbsp;</SPAN>
 					<SPAN id="autoSwitchSpan">
 						<BUTTON class="incrementButton minusButtons" onClick="changeCounter('autoSwitch', -1, 69)">-1</BUTTON>
 						<INPUT class="incrementScoreboard" id="autoSwitch" type="text" value="0"  disabled>
@@ -63,7 +63,7 @@
 					</SPAN>
 					<BR>
 					<SPAN id="autoScaleSpan">
-						<SPAN class= "scoreboardText">Scale:&nbsp;</SPAN>
+						<SPAN class= "scoreboardText">High Goal (Scale):&nbsp;</SPAN>
 						<BUTTON class="incrementButton minusButtons" onClick="changeCounter('autoScale', -1, 69)">-1</BUTTON>
 						<INPUT class="incrementScoreboard" id="autoScale" type="text" value = "0"  disabled>
 						<BUTTON class="incrementButton plusButtons" onClick="changeCounter('autoScale', 1, 69)">+1</BUTTON>
@@ -74,7 +74,7 @@
 					<span>Miscellaneous:&nbsp;</span><BR>
 					<input class="checkbox" id="crossedLine" type="checkbox"  value="false" onClick="fakeRadioButtons(['noShow'])">&nbsp;<label for="passLine" class="labels">Crossed Line <br>
 					<input class="checkbox" id="noShow" type="checkbox" value="false" onClick="fakeRadioButtons(['crossedLine', 'autoDeadBot', 'teleDeadBot'])">&nbsp;<label for="noShow" class="labels">No Show <br>
-					<input class="checkbox" id="autoDeadBot" type="checkbox" onClick="fakeRadioButtons(['noShow'])" value="false">&nbsp;<label for="deadBot" class="labels">Dead Bot<br>
+					<input class="checkbox" id="autoDeadBot" type="checkbox" onClick="fakeRadioButtons(['noShow'])" value="false">&nbsp;<label for="deadBot" class="labels">Dead/Broken Bot<br>
 				</div>
 				<BUTTON class="backButtons" onClick="switchPage(false, 'splashPage')">GO<BR>BACK</BUTTON>
 				<BUTTON class="submitButtons" id="autoSubmit" onClick="switchPage(false, 'telePage')">GO TO<BR>TELEOP</BUTTON>
@@ -87,20 +87,20 @@
 			<BUTTON class="teamNumber" id="teleTeamNum" disabled>0000</BUTTON>
 			<div id="teleBoxesLeft">
 				<br>
-				<span>Boxes Placed:</span><BR>
-				<SPAN id="teleExchangeSpan">Exchange:&nbsp;
+				<span>Power Cubes Placed:</span><BR>
+				<SPAN id="teleExchangeSpan">Exchange (Vault):&nbsp;&nbsp;&nbsp;
 					<BUTTON class="incrementButton minusButtons" onClick="changeCounter('teleExchange', -1, 69)">-1</BUTTON>
 					<INPUT class="incrementScoreboard" id="teleExchange" type="text" value="0"  disabled>
 					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('teleExchange', 1, 69)">+1</BUTTON>
 				</SPAN>
 				<BR>
-				<SPAN id="teleSwitchSpan">Switch:&nbsp;
+				<SPAN id="teleSwitchSpan">Low Goal (Switch):&nbsp;
 					<BUTTON class="incrementButton minusButtons" onClick="changeCounter('teleSwitch', -1, 69)">-1</BUTTON>
 					<INPUT class="incrementScoreboard" id="teleSwitch" type="text" value="0"  disabled>
 					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('teleSwitch', 1, 69)">+1</BUTTON>
 				</SPAN>
 				<BR>
-				<SPAN id="teleScaleSpan">Scale:&nbsp;
+				<SPAN id="teleScaleSpan">High Goal (Scale):&nbsp;&nbsp;&nbsp;
 					<BUTTON class="incrementButton minusButtons" onClick="changeCounter('teleScale', -1, 69)">-1</BUTTON>
 					<INPUT class="incrementScoreboard" id="teleScale" type="text" value="0"  disabled>
 					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('teleScale', 1, 69)">+1</BUTTON>
@@ -115,13 +115,13 @@
 					<INPUT id="AssistOthersClimb" type="text" value="0"  disabled>
 					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('AssistOthersClimb', 1, 2); fakeRadioButtons(['helpedClimb']);">+1</BUTTON>
 				</SPAN>
-				<input class="checkbox" id="helpedClimb" type="checkbox" value="false" onClick="fakeRadioButtons(['climb','park']); document.getElementById('AssistOthersClimb').value = '0';">&nbsp;<span>Received Climb (drive on)</span><br>
-				<input class="checkbox" id="climb" type="checkbox" value="false" onClick="fakeRadioButtons(['helpedClimb','park']);">&nbsp;<span>Self Climb (any pulling)</span><br>
-				<input class="checkbox" id="park" type="checkbox" value="false" onClick="fakeRadioButtons(['helpedClimb','climb']);">&nbsp;<span>Parked (on the platform)</span>
+				<input class="checkbox" id="helpedClimb" type="checkbox" value="false" onClick="fakeRadioButtons(['climb','park']); document.getElementById('AssistOthersClimb').value = '0';">&nbsp;<span>Received Climb (Drive on)</span><br>
+				<input class="checkbox" id="climb" type="checkbox" value="false" onClick="fakeRadioButtons(['helpedClimb','park']);">&nbsp;<span>Self Climb (Pull Themselves)</span><br>
+				<input class="checkbox" id="park" type="checkbox" value="false" onClick="fakeRadioButtons(['helpedClimb','climb']);">&nbsp;<span>Parked (on the Platform)</span>
  			</div>
 			<div class="miscArea">
 				<br>
-				<input class="checkbox" id="teleDeadBot" type="checkbox" value="false">&nbsp;<span>Dead Bot</span> <br>
+				<input class="checkbox" id="teleDeadBot" type="checkbox" value="false">&nbsp;<span>Dead/Broken Bot</span> <br>
 			</div>
 			<BUTTON class="backButtons" onClick="switchPage(false, 'autoPage')">GO<BR>BACK</BUTTON>
 			<BUTTON class="submitButtons" id="teleSubmit" onClick="submitTele(); location.reload()">SUBMIT</BUTTON>

@@ -141,7 +141,7 @@ html {
 .incrementScoreboard{
 	text-align: right;
 	font-size: 1em;
-	width: 4em;
+	width: 2em;
 }
 .plusButtons {
 	border-color: #F3CA32;
@@ -204,7 +204,7 @@ html {
 	font-weight: bold;
 }
 #theOneAndOnly {
-	height: 350px;
+	height: 400px;
 }
 #splashMemes {
 	position: absolute;
@@ -228,7 +228,7 @@ html {
 }
 #autoScaleSpan {
 	position: relative;
-	left: 35px;
+	left: 25px;
 }
 #crossedLine {
 
@@ -265,15 +265,15 @@ html {
 	top: 20px;
 }
 #teleSwitchSpan{
-	position: relative;
-	left: 66px;
+	/* position: relative;
+	left: 66px; */
 }
 #teleScale {
 
 }
 #teleScaleSpan {
-	position: relative;
-	left: 101px;
+	/* position: relative;
+	left: 101px; */
 }
 #teleExchange {
 
@@ -284,7 +284,8 @@ html {
 	top: 650px;
 }
 #teleExchangeSpan{
-
+	position: relative;
+	left: 3px;
 }
 #AssistOthersClimb {
 	width: 3em;

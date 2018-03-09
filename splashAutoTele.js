@@ -20,6 +20,18 @@ var isThere = false;
 
 //initialize the splash sheet
 function initialize() {
+	loadMatch = localStorage.getItem("previousMatch");
+	//console.log(loadMatch);
+	//console.log(isNaN(loadMatch));
+	//console.log(isNaN(1));
+	if (loadMatch === null) {
+	} else {
+		loadMatch = parseInt(loadMatch) + 1;
+		loadScout = localStorage.getItem("previousScout");
+		//console.log(loadMatch + ", " + loadScout);
+		document.getElementById("matchNumber").value = loadMatch.toString();
+		document.getElementById("scoutSelect").value = loadScout.toString();
+	}
 	jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","autoStartPos":"default","autoCrossLine":false,"autoScale":0,"autoSwitch":0,"NoShow":false,"teleScale":0,"teleSwitch":0,"teleExchange":0,"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false}';
     jObj = JSON.parse(jStr);
 	var str = window.location.search;
@@ -288,7 +300,8 @@ function submitTele() {
 	LSName = LSName.toString();
 
 	localStorage.setItem(LSName, JSON.stringify(jObj));
-
+	localStorage.setItem("previousMatch", jObj.match);
+	localStorage.setItem("previousScout", jObj.scoutName);
 	//console.log(JSON.stringify(jObj));
 	location.reload();
 }
