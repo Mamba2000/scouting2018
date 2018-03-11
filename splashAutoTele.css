@@ -254,7 +254,11 @@ html {
 #autoBoxesLeft{
 	position: relative;
 	left: 20px;
-	top: 20px;
+	top: -20px;
+}
+#autoDrops {
+	position: relative;
+	top: 70px;
 }
 #teleSwitch {
 
@@ -262,7 +266,11 @@ html {
 #teleBoxesLeft{
 	position: relative;
 	left: 20px;
-	top: 20px;
+	top: 0px;
+}
+#teleDrops {
+	position: relative;
+	top: 60px;
 }
 #teleSwitchSpan{
 	/* position: relative;
@@ -281,7 +289,7 @@ html {
 #teleClimbLeft{
 	position: absolute;
 	left: 20px;
-	top: 650px;
+	top: 770px;
 }
 #teleExchangeSpan{
 	position: relative;

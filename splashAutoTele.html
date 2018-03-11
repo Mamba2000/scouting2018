@@ -69,6 +69,12 @@
 						<BUTTON class="incrementButton plusButtons" onClick="changeCounter('autoScale', 1, 69)">+1</BUTTON>
 					</SPAN>
 					<BR>
+					<span id="autoDrops">
+						<span class="scoreboardText">Cubes Dropped:&nbsp;</span>
+						<button class="incrementButton minusButtons" onClick="changeCounter('autoDroppedCubes', -1, 69)">-1</button>
+						<input class="incrementScoreboard" id="autoDroppedCubes" type="text" value="0" disabled>
+						<button class="incrementButton plusButtons" onClick="changeCounter('autoDroppedCubes', 1, 69)">+1</button>
+					</span>
 				</div>
 				<div class="miscArea">
 					<span>Miscellaneous:&nbsp;</span><BR>
@@ -106,6 +112,12 @@
 					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('teleScale', 1, 69)">+1</BUTTON>
 				</SPAN>
 				<BR>
+				<span id="teleDrops">
+					<span class="scoreboardText">Cubes Dropped:&nbsp;</span>
+					<button class="incrementButton minusButtons" onClick="changeCounter('teleDroppedCubes', -1, 69)">-1</button>
+					<input class="incrementScoreboard" id="teleDroppedCubes" type="text" value="0" disabled>
+					<button class="incrementButton plusButtons" onClick="changeCounter('teleDroppedCubes', 1, 69)">+1</button>
+				</span>
 			</div>
 			<div id="teleClimbLeft">
 				<span>Climb:&nbsp;</span>

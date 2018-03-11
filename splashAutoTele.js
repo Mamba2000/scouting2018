@@ -32,7 +32,7 @@ function initialize() {
 		document.getElementById("matchNumber").value = loadMatch.toString();
 		document.getElementById("scoutSelect").value = loadScout.toString();
 	}
-	jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","autoStartPos":"default","autoCrossLine":false,"autoScale":0,"autoSwitch":0,"NoShow":false,"teleScale":0,"teleSwitch":0,"teleExchange":0,"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false}';
+	jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","autoStartPos":"default","autoCrossLine":false,"autoScale":0,"autoSwitch":0,"autoDroppedCubes":0,"NoShow":false,"teleScale":0,"teleSwitch":0,"teleExchange":0,"teleDroppedCubes":0,"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false}';
     jObj = JSON.parse(jStr);
 	var str = window.location.search;
  	matchTablet(str);
@@ -278,9 +278,11 @@ function submitTele() {
 		jObj.autoCrossLine = document.getElementById("crossedLine").checked;
 		jObj.autoScale = parseInt(document.getElementById("autoScale").value, 10);
 		jObj.autoSwitch = parseInt(document.getElementById("autoSwitch").value, 10);
+		jObj.autoSwitch = parseInt(document.getElementById("autoDroppedCubes").value, 10);
 		jObj.teleScale = parseInt(document.getElementById("teleScale").value, 10);
 		jObj.teleSwitch = parseInt(document.getElementById("teleSwitch").value, 10);
 		jObj.teleExchange = parseInt(document.getElementById("teleExchange").value, 10);
+		jObj.teleDroppedCubes = parseInt(document.getElementById("teleDroppedCubes").value, 10);
 		if (document.getElementById("teleDeadBot").checked || document.getElementById("autoDeadBot")){
 			jObj.deadBot = true;
 		} else {
