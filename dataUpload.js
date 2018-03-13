@@ -5,7 +5,7 @@ var path = "http://ubuntu@ec2-52-35-34-216.us-west-2.compute.amazonaws.com:3000"
 window.addEventListener('load', function() {
     table = document.getElementById("matchData");
 
-	eventList = ["2016wagg","2018waahs","2018wasno","2018idbo","2018pncmp", "2018wamou"];
+	eventList = ["2016wagg","2018waahs","2018wasno","2018idbo","2018pncmp", "2018wamou", "2018week0"];
 	if (localStorage.length !== 0) {
 	loop1:
 	    for (var j=0; j<eventList.length; j++) {
@@ -86,7 +86,7 @@ function checkAll() {
 }
 
 function deleteMatch(name) {
-	eventList = ["2016wagg","2018waahs","2018wasno","2018idbo","2018pncmp"];
+	eventList = ["2016wagg","2018waahs","2018wasno","2018idbo","2018pncmp", "2018wamou", "2018week0"];
 	if (localStorage.length !== 0) {
 	loop1:
 	    for (var j=0; j<eventList.length; j++) {
