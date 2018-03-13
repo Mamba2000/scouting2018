@@ -308,6 +308,5 @@ function submitTele() {
 	localStorage.setItem(LSName, JSON.stringify(jObj));
 	localStorage.setItem("previousMatch", jObj.match);
 	localStorage.setItem("previousScout", jObj.scoutName);
-	console.log(JSON.stringify(jObj));
-	// location.reload();
+	location.reload();
 }
