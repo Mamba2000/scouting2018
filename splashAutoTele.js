@@ -275,7 +275,11 @@ function submitTele() {
 		} else {
 			jObj.autoStartPos = "center";
 		}
-		jObj.autoCrossLine = document.getElementById("crossedLine").checked;
+		if(parseInt(document.getElementById("autoScale").value) > 0 || parseInt(document.getElementById("autoSwitch").value) > 0){
+			jObj.autoCrossLine = true;
+		} else {
+			jObj.autoCrossLine = document.getElementById("crossedLine").checked;
+		}
 		jObj.autoScale = parseInt(document.getElementById("autoScale").value, 10);
 		jObj.autoSwitch = parseInt(document.getElementById("autoSwitch").value, 10);
 		jObj.autoSwitch = parseInt(document.getElementById("autoDroppedCubes").value, 10);
@@ -304,6 +308,6 @@ function submitTele() {
 	localStorage.setItem(LSName, JSON.stringify(jObj));
 	localStorage.setItem("previousMatch", jObj.match);
 	localStorage.setItem("previousScout", jObj.scoutName);
-	//console.log(JSON.stringify(jObj));
-	location.reload();
+	console.log(JSON.stringify(jObj));
+	// location.reload();
 }
