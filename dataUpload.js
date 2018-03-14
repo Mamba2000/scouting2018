@@ -162,7 +162,7 @@ function sendData(matchThing) {
 	team = parseInt(team);
     for (var i = 0; i < matchData.length; i++) {
         if(matchData[i].match === match && matchData[i].teamNo === team) {
-			//console.log(matchData[i]);
+			console.log(matchData[i]);
             post(matchData[i], matchTeam);
 
         	table = document.getElementById("send_messages");
