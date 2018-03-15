@@ -220,7 +220,13 @@ function post(parameters, matchTeam) {
 			deleteMatch(matchTeam);
 		} else {
 			//console.log("Error");
+			console.log(matchTeam);
+
 		}
     });
 	//console.log("END");
+}
+
+function errorMatch() {
+	
 }
