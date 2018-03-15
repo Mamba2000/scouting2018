@@ -32,7 +32,7 @@ function initialize() {
 		document.getElementById("matchNumber").value = loadMatch.toString();
 		document.getElementById("scoutSelect").value = loadScout.toString();
 	}
-	jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","autoStartPos":"default","autoCrossLine":false,"autoScale":0,"autoSwitch":0,"autoDroppedCubes":0,"NoShow":false,"teleScale":0,"teleSwitch":0,"teleExchange":0,"teleDroppedCubes":0,"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false}';
+	jStr = '{"isTele":true,"scoutName":"default","eventName":"default","teamNo":0,"match":0,"alliance":"OOOO","autoStartPos":"default","autoCrossLine":false,"autoScale":0,"autoSwitch":0,"NoShow":false,"teleScale":0,"teleSwitch":0,"teleExchange":0,"deadBot":false,"Climb":false,"AssistedClimb":0,"ReceivedClimb":false,"Park":false,"autoDroppedCubes":0,"teleDroppedCubes":0}';
     jObj = JSON.parse(jStr);
 	var str = window.location.search;
  	matchTablet(str);
