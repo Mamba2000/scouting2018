@@ -287,7 +287,7 @@ function submitTele() {
 		jObj.teleSwitch = parseInt(document.getElementById("teleSwitch").value, 10);
 		jObj.teleExchange = parseInt(document.getElementById("teleExchange").value, 10);
 		jObj.teleDroppedCubes = parseInt(document.getElementById("teleDroppedCubes").value, 10);
-		if (document.getElementById("teleDeadBot").checked || document.getElementById("autoDeadBot")){
+		if (document.getElementById("teleDeadBot").checked || document.getElementById("autoDeadBot").checked){
 			jObj.deadBot = true;
 		} else {
 			jObj.deadBot = false;
