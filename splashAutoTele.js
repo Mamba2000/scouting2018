@@ -205,6 +205,8 @@ function autoInitialize(){
 				document.getElementById("autoTeamNum").innerHTML = teamNo;
 				document.getElementById("teleTeamNum").innerHTML = teamNo;
 				document.getElementById("deadBotTeamNum").innerHTML = teamNo;
+				document.getElementById("autoTitle").innerHTML = "MATCH " + match + " AUTO";
+				document.getElementById("teleTitle").innerHTML = "MATCH " + match + " TELE";
 			}
 			//console.log(teamNo);
 			document.getElementById("matchNumber").style.borderWidth = "medium";
@@ -239,6 +241,10 @@ function validateInp(elem) {
 }
 
 function switchPage(ifSplash, newPage){
+	if (newPage === "telePage") {
+		document.getElementById("teleSubmit").disabled = true;
+		console.log("Disabling");
+	}
 	var pages = ['splashPage', 'autoPage', 'telePage', 'noShowPage'];
 	if(document.getElementById("noShow").checked){
 		newPage = "noShowPage";
@@ -256,6 +262,10 @@ function switchPage(ifSplash, newPage){
 		}
 	} else if(newPage === "mainPage") {
 		window.location.href = newPage + ".html";
+	}
+	if (newPage === "telePage") {
+		document.getElementById("teleSubmit").disabled = false;
+		console.log("eNaBLinG");
 	}
 }
 
