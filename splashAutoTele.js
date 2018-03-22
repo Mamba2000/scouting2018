@@ -290,13 +290,13 @@ function submitTele() {
 		} else {
 			jObj.autoCrossLine = document.getElementById("crossedLine").checked;
 		}
-		jObj.autoScale = parseInt(document.getElementById("autoScale").value, 10);
-		jObj.autoSwitch = parseInt(document.getElementById("autoSwitch").value, 10);
-		jObj.autoSwitch = parseInt(document.getElementById("autoDroppedCubes").value, 10);
-		jObj.teleScale = parseInt(document.getElementById("teleScale").value, 10);
-		jObj.teleSwitch = parseInt(document.getElementById("teleSwitch").value, 10);
-		jObj.teleExchange = parseInt(document.getElementById("teleExchange").value, 10);
-		jObj.teleDroppedCubes = parseInt(document.getElementById("teleDroppedCubes").value, 10);
+		jObj.autoScale = parseInt(document.getElementById("autoScale").value);
+		jObj.autoSwitch = parseInt(document.getElementById("autoSwitch").value);
+		jObj.autoDroppedCubes = parseInt(document.getElementById("autoDroppedCubes").value);
+		jObj.teleScale = parseInt(document.getElementById("teleScale").value);
+		jObj.teleSwitch = parseInt(document.getElementById("teleSwitch").value);
+		jObj.teleExchange = parseInt(document.getElementById("teleExchange").value);
+		jObj.teleDroppedCubes = parseInt(document.getElementById("teleDroppedCubes").value);
 		if (document.getElementById("teleDeadBot").checked || document.getElementById("autoDeadBot").checked){
 			jObj.deadBot = true;
 		} else {
@@ -318,5 +318,6 @@ function submitTele() {
 	localStorage.setItem(LSName, JSON.stringify(jObj));
 	localStorage.setItem("previousMatch", jObj.match);
 	localStorage.setItem("previousScout", jObj.scoutName);
-	location.reload();
+	console.log(JSON.stringify(jObj));
+	//location.reload();
 }
