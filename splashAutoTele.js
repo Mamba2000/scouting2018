@@ -205,6 +205,8 @@ function autoInitialize(){
 				document.getElementById("autoTeamNum").innerHTML = teamNo;
 				document.getElementById("teleTeamNum").innerHTML = teamNo;
 				document.getElementById("deadBotTeamNum").innerHTML = teamNo;
+				document.getElementById("autoTitle").innerHTML = "MATCH " + match + " AUTO";
+				document.getElementById("teleTitle").innerHTML = "MATCH " + match + " TELE";
 			}
 			//console.log(teamNo);
 			document.getElementById("matchNumber").style.borderWidth = "medium";
@@ -239,6 +241,10 @@ function validateInp(elem) {
 }
 
 function switchPage(ifSplash, newPage){
+	if (newPage === "telePage") {
+		document.getElementById("teleSubmit").disabled = true;
+		console.log("Disabling");
+	}
 	var pages = ['splashPage', 'autoPage', 'telePage', 'noShowPage'];
 	if(document.getElementById("noShow").checked){
 		newPage = "noShowPage";
@@ -256,6 +262,10 @@ function switchPage(ifSplash, newPage){
 		}
 	} else if(newPage === "mainPage") {
 		window.location.href = newPage + ".html";
+	}
+	if (newPage === "telePage") {
+		document.getElementById("teleSubmit").disabled = false;
+		console.log("eNaBLinG");
 	}
 }
 
@@ -280,13 +290,13 @@ function submitTele() {
 		} else {
 			jObj.autoCrossLine = document.getElementById("crossedLine").checked;
 		}
-		jObj.autoScale = parseInt(document.getElementById("autoScale").value, 10);
-		jObj.autoSwitch = parseInt(document.getElementById("autoSwitch").value, 10);
-		jObj.autoSwitch = parseInt(document.getElementById("autoDroppedCubes").value, 10);
-		jObj.teleScale = parseInt(document.getElementById("teleScale").value, 10);
-		jObj.teleSwitch = parseInt(document.getElementById("teleSwitch").value, 10);
-		jObj.teleExchange = parseInt(document.getElementById("teleExchange").value, 10);
-		jObj.teleDroppedCubes = parseInt(document.getElementById("teleDroppedCubes").value, 10);
+		jObj.autoScale = parseInt(document.getElementById("autoScale").value);
+		jObj.autoSwitch = parseInt(document.getElementById("autoSwitch").value);
+		jObj.autoDroppedCubes = parseInt(document.getElementById("autoDroppedCubes").value);
+		jObj.teleScale = parseInt(document.getElementById("teleScale").value);
+		jObj.teleSwitch = parseInt(document.getElementById("teleSwitch").value);
+		jObj.teleExchange = parseInt(document.getElementById("teleExchange").value);
+		jObj.teleDroppedCubes = parseInt(document.getElementById("teleDroppedCubes").value);
 		if (document.getElementById("teleDeadBot").checked || document.getElementById("autoDeadBot").checked){
 			jObj.deadBot = true;
 		} else {
@@ -308,5 +318,6 @@ function submitTele() {
 	localStorage.setItem(LSName, JSON.stringify(jObj));
 	localStorage.setItem("previousMatch", jObj.match);
 	localStorage.setItem("previousScout", jObj.scoutName);
+	//console.log(JSON.stringify(jObj));
 	location.reload();
 }

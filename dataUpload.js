@@ -165,12 +165,9 @@ function sendData(matchThing) {
 			console.log(matchData[i]);
             post(matchData[i], matchTeam);
 
-        	table = document.getElementById("send_messages");
-            row = table.insertRow(-1);
         	////console.log("row-" + match.toString());
             //toDelete = document.getElementById("row-" + match.toString() + "." + team.toString());
         	////console.log(toDelete);
-        	row.innerHTML = "<p>Data sent for match " + match + ".</p>";
             //stoDelete.parentNode.removeChild(toDelete);
         }
 	}
@@ -218,7 +215,15 @@ function post(parameters, matchTeam) {
 		if (res === "success") {
 			//console.log("It worked");
 			deleteMatch(matchTeam);
+			match = parameters.match;
+			table = document.getElementById("send_messages");
+	        row = table.insertRow(-1);
+			row.innerHTML = "<p>Data sent for match " + match + ".</p>";
 		} else {
+			match = parameters.match;
+			table = document.getElementById("send_messages");
+			row = table.insertRow(-1);
+			row.innerHTML = "<p>Data send failure for match " + match + ".</p>";
 			//console.log("Error");
 			console.log(matchTeam);
 
@@ -228,5 +233,5 @@ function post(parameters, matchTeam) {
 }
 
 function errorMatch() {
-	
+
 }
