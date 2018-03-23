@@ -73,7 +73,7 @@
 			  	<br>
 			  	<div id="autoBoxesLeft">
 					<span>Power Cubes Placed:</span><BR>
-					<SPAN class="scoreboardText">Low Goal (Switch):&nbsp;</SPAN>
+					<SPAN class="scoreboardText">&nbsp;Low Goal:&nbsp;</SPAN>
 					<SPAN id="autoSwitchSpan">
 						<BUTTON class="incrementButton minusButtons" onClick="changeCounter('autoSwitch', -1, 69)">-1</BUTTON>
 						<INPUT class="incrementScoreboard" id="autoSwitch" type="text" value="0"  disabled>
@@ -81,7 +81,7 @@
 					</SPAN>
 					<BR>
 					<SPAN id="autoScaleSpan">
-						<SPAN class= "scoreboardText">High Goal (Scale):&nbsp;</SPAN>
+						<SPAN class= "scoreboardText">High Goal:&nbsp;</SPAN>
 						<BUTTON class="incrementButton minusButtons" onClick="changeCounter('autoScale', -1, 69)">-1</BUTTON>
 						<INPUT class="incrementScoreboard" id="autoScale" type="text" value = "0"  disabled>
 						<BUTTON class="incrementButton plusButtons" onClick="changeCounter('autoScale', 1, 69)">+1</BUTTON>
@@ -112,19 +112,19 @@
 			<div id="teleBoxesLeft">
 				<br>
 				<span>Power Cubes Placed:</span><BR>
-				<SPAN id="teleExchangeSpan">Exchange (Vault):&nbsp;&nbsp;&nbsp;
+				<SPAN id="teleExchangeSpan">Exchange:&nbsp;
 					<BUTTON class="incrementButton minusButtons" onClick="changeCounter('teleExchange', -1, 69)">-1</BUTTON>
 					<INPUT class="incrementScoreboard" id="teleExchange" type="text" value="0"  disabled>
 					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('teleExchange', 1, 69)">+1</BUTTON>
 				</SPAN>
 				<BR>
-				<SPAN id="teleSwitchSpan">Low Goal (Switch):&nbsp;
+				<SPAN id="teleSwitchSpan">Low Goal:&nbsp;
 					<BUTTON class="incrementButton minusButtons" onClick="changeCounter('teleSwitch', -1, 69)">-1</BUTTON>
 					<INPUT class="incrementScoreboard" id="teleSwitch" type="text" value="0"  disabled>
 					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('teleSwitch', 1, 69)">+1</BUTTON>
 				</SPAN>
 				<BR>
-				<SPAN id="teleScaleSpan">High Goal (Scale):&nbsp;&nbsp;&nbsp;
+				<SPAN id="teleScaleSpan">High Goal:&nbsp;
 					<BUTTON class="incrementButton minusButtons" onClick="changeCounter('teleScale', -1, 69)">-1</BUTTON>
 					<INPUT class="incrementScoreboard" id="teleScale" type="text" value="0"  disabled>
 					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('teleScale', 1, 69)">+1</BUTTON>
@@ -138,7 +138,7 @@
 				</span>
 			</div>
 			<div id="teleClimbLeft">
-				<span>Climb:&nbsp;</span>
+				<span id="stupidClimbTitle">Climb:&nbsp;</span>
 				<br>
 				<SPAN>Assisted Others:&nbsp;
 					<BUTTON class="incrementButton minusButtons" onClick="changeCounter('AssistOthersClimb', -1, 2); fakeRadioButtons(['helpedClimb']);">-1</BUTTON>

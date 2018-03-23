@@ -131,16 +131,16 @@ html {
 }
 .incrementButton{
 	text-align: right;
-	font-size: 1em;
+	font-size: 1.2em;
 	border-style: solid;
 	border-width: 2px;
 	border-color: BLACK;
-	width: 80px;
+	width: 100px;
 	background-color: #EEEEEE;
 }
 .incrementScoreboard{
 	text-align: right;
-	font-size: 1em;
+	font-size: 1.2em;
 	width: 2em;
 }
 .plusButtons {
@@ -228,7 +228,7 @@ html {
 }
 #autoScaleSpan {
 	position: relative;
-	left: 25px;
+	top: 10px;
 }
 #crossedLine {
 
@@ -270,18 +270,19 @@ html {
 }
 #teleDrops {
 	position: relative;
-	top: 60px;
+	top: 35px;
 }
 #teleSwitchSpan{
-	/* position: relative;
-	left: 66px; */
+	position: relative;
+	left: 10px;
+	top: 10px;
 }
 #teleScale {
 
 }
 #teleScaleSpan {
-	/* position: relative;
-	left: 101px; */
+	position: relative;
+	top: 20px;
 }
 #teleExchange {
 
@@ -293,11 +294,11 @@ html {
 }
 #teleExchangeSpan{
 	position: relative;
-	left: 3px;
+	top: 10;
 }
 #AssistOthersClimb {
-	width: 3em;
-	font-size: 1em;
+	width: 1.5em;
+	font-size: 1.2em;
 	text-align: right;
 }
 #teleDeadBot {
@@ -305,6 +306,10 @@ html {
 }
 #climb {
 
+}
+#stupidClimbTitle {
+	position: relative;
+	top: 20px;
 }
 #helpedClimb {
 
