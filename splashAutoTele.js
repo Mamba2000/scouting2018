@@ -62,7 +62,7 @@ function initialize() {
 		document.getElementById("matchesDownloadText").className = "flash";
 		eStop2 = true;
 	}
-	memeNum = Math.floor(Math.random() * 32);
+	memeNum = Math.floor(Math.random() * 40);
 	document.getElementById("theOneAndOnly").src = "images/memes/" + memeNum + ".png";
 }
 
