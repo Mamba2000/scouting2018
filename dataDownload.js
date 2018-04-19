@@ -9,7 +9,7 @@ var counter = 0;
 
 window.addEventListener('load', function() {
 
-	events = ["2016wagg","2018week0","2018waahs","2018wasno","2018idbo","2018pncmp", "2018wamou"];
+	events = ["2016wagg","2018week0","2018waahs","2018wasno","2018idbo","2018pncmp", "2018wamou", "2018roe"];
 	for (var j=0; j<events.length; j++) {
     	eventName = events[j];
     	for (var i=0; i<localStorage.length; i++)    {
