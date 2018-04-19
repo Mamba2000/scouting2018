@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- ORDER OF TAGS IS: class > id > type/rel > src > onClick/onLoad > href > value > maxlength > onkeyup > autocomplete -->
+<html>
+<head>
+<title>Skunk Scout</title>
+<script type="text/javascript" src="splashAutoTele.js"></script>
+<script type="text/javascript" src="jQuery.js"></script>
+<link rel="stylesheet" type="text/css" href="splashAutoTele.css">
+</head>
+<body id="skunkBackground" onload="initialize()">
+	<div id="titleLogo">
+		<img class="titleImages" src="images/GameLogo.jpg">
+		<img class="titleImages" src="images/AppTitleSkunkworks.png">
+		<!-- Splash Sheet -->
+		<div class="splashSheet" id="splashPage">
+			<span id="matchesDownloadText">Matches Downloaded:</span>
+			<BR>
+			<span id="splashSheetHeader">thing</span>
+			<div id="splashInputs">
+		    	<!-- Select what match you are scouting for -->
+		      	<span id="matchNumText">Match Number:</span>
+		      	<input id="matchNumber" type="text" value="" maxlength="3" onkeyup="validateInp(this);" autocomplete=off><br>
+		      	<br>
+		      	<!-- Select the scout that is scouting -->
+		      	<span id="scoutNameText">SCOUT</span>
+				<select class="dropdownMenus" id="scoutSelect">
+					<option value="Default">- - Choose Name - -</option>
+					<option value="Alma">Alma</option>
+					<option value="Angelina">Angelina</option>
+					<option value="AlexK">Alex K</option>
+					<option value="AlexL">Alex L</option>
+					<option value="Ben">Ben</option>
+					<option value="Brandon">Brandon</option>
+					<option value="Calvin">Calvin</option>
+					<option value="Chase">Chase</option>
+					<option value="Chelsea">Chelsea</option>
+					<option value="Demian">Demian</option>
+					<option value="Erik">Erik</option>
+					<option value="Harrison">Harrison</option>
+					<option value="Kristina">Kristina</option>
+					<option value="Kenny">Kenny</option>
+					<option value="Mike">Mike</option>
+					<option value="Naba">Naba</option>
+					<option value="Nick">Nick</option>
+					<option value="Victor">Victor</option>
+					<option value="Zuzanna">Zuzanna</option>
+					<option value="testScout">Test</option>
+				</select>
+				<br>
+		     	<br>
+			</div>
+			<div id="splashButtons">
+				<button id="splashBackButton" onclick="switchPage(false, 'mainPage')">Back to<BR>Main</button>
+				<button id="splashSubmit" onclick="validateInputs()">SUBMIT</button>
+			</div>
+			<div id="splashMemes">
+				<img id="theOneAndOnly" src="">
+			</div>
+		</div>
+
+
+		<!-- Auto Page -->
+		<div class="teleAutoSheet" id="autoPage" hidden>
+			<span class="pageTitles" id="autoTitle">AUTONOMOUS</span>
+			<BUTTON class="teamNumber" id="autoTeamNum" disabled>0000</BUTTON>
+			<div>
+				<br>
+				<div id="autoStartLeft">
+					<span>Start Position:</span><br>
+			    	<input class="checkbox" id="outsideStart" name='startPos' type="checkbox" onClick="fakeRadioButtons(['centerStart'])">&nbsp;<for="outsideStart">Outside</
+					<br>
+			    	<input class="checkbox" id="centerStart" name='startPos' type="checkbox" onClick="fakeRadioButtons(['outsideStart'])">&nbsp;<label for="centerStart">Center</label>
+			  	</div>
+			  	<br>
+			  	<div id="autoBoxesLeft">
+					<span>Power Cubes Placed:</span><BR>
+					<SPAN class="scoreboardText">&nbsp;Low Goal:&nbsp;</SPAN>
+					<SPAN id="autoSwitchSpan">
+						<BUTTON class="incrementButton minusButtons" onClick="changeCounter('autoSwitch', -1, 69)">-1</BUTTON>
+						<INPUT class="incrementScoreboard" id="autoSwitch" type="text" value="0"  disabled>
+						<BUTTON class="incrementButton plusButtons" onClick="changeCounter('autoSwitch', 1, 69)">+1</BUTTON>
+					</SPAN>
+					<BR>
+					<SPAN id="autoScaleSpan">
+						<SPAN class= "scoreboardText">High Goal:&nbsp;</SPAN>
+						<BUTTON class="incrementButton minusButtons" onClick="changeCounter('autoScale', -1, 69)">-1</BUTTON>
+						<INPUT class="incrementScoreboard" id="autoScale" type="text" value = "0"  disabled>
+						<BUTTON class="incrementButton plusButtons" onClick="changeCounter('autoScale', 1, 69)">+1</BUTTON>
+					</SPAN>
+					<BR>
+					<span id="autoDrops">
+						<span class="scoreboardText">Cubes Dropped:&nbsp;</span>
+						<button class="incrementButton minusButtons" onClick="changeCounter('autoDroppedCubes', -1, 69)">-1</button>
+						<input class="incrementScoreboard" id="autoDroppedCubes" type="text" value="0" disabled>
+						<button class="incrementButton plusButtons" onClick="changeCounter('autoDroppedCubes', 1, 69)">+1</button>
+					</span>
+				</div>
+				<div class="miscArea">
+					<span>Miscellaneous:&nbsp;</span><BR>
+					<input class="checkbox" id="crossedLine" type="checkbox"  value="false" onClick="fakeRadioButtons(['noShow'])">&nbsp;<label for="passLine" class="labels">Crossed Line <br>
+					<input class="checkbox" id="noShow" type="checkbox" value="false" onClick="fakeRadioButtons(['crossedLine', 'autoDeadBot', 'teleDeadBot'])">&nbsp;<label for="noShow" class="labels">No Show <br>
+					<input class="checkbox" id="autoDeadBot" type="checkbox" onClick="fakeRadioButtons(['noShow'])" value="false">&nbsp;<label for="deadBot" class="labels">Dead/Broken Bot<br>
+				</div>
+				<BUTTON class="backButtons" onClick="switchPage(false, 'splashPage')">GO<BR>BACK</BUTTON>
+				<BUTTON class="submitButtons" id="autoSubmit" onClick="switchPage(false, 'telePage')">GO TO<BR>TELEOP</BUTTON>
+			</div>
+		</div>
+
+		<!-- Tele page -->
+		<div class = "teleAutoSheet" id="telePage" hidden>
+			<span class="pageTitles" id="teleTitle">TELE OPERATED</span>
+			<BUTTON class="teamNumber" id="teleTeamNum" disabled>0000</BUTTON>
+			<div id="teleBoxesLeft">
+				<br>
+				<span>Power Cubes Placed:</span><BR>
+				<SPAN id="teleExchangeSpan">Exchange:&nbsp;
+					<BUTTON class="incrementButton minusButtons" onClick="changeCounter('teleExchange', -1, 69)">-1</BUTTON>
+					<INPUT class="incrementScoreboard" id="teleExchange" type="text" value="0"  disabled>
+					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('teleExchange', 1, 69)">+1</BUTTON>
+				</SPAN>
+				<BR>
+				<SPAN id="teleSwitchSpan">Low Goal:&nbsp;
+					<BUTTON class="incrementButton minusButtons" onClick="changeCounter('teleSwitch', -1, 69)">-1</BUTTON>
+					<INPUT class="incrementScoreboard" id="teleSwitch" type="text" value="0"  disabled>
+					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('teleSwitch', 1, 69)">+1</BUTTON>
+				</SPAN>
+				<BR>
+				<SPAN id="teleScaleSpan">High Goal:&nbsp;
+					<BUTTON class="incrementButton minusButtons" onClick="changeCounter('teleScale', -1, 69)">-1</BUTTON>
+					<INPUT class="incrementScoreboard" id="teleScale" type="text" value="0"  disabled>
+					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('teleScale', 1, 69)">+1</BUTTON>
+				</SPAN>
+				<BR>
+				<span id="teleDrops">
+					<span class="scoreboardText">Cubes Dropped:&nbsp;</span>
+					<button class="incrementButton minusButtons" onClick="changeCounter('teleDroppedCubes', -1, 69)">-1</button>
+					<input class="incrementScoreboard" id="teleDroppedCubes" type="text" value="0" disabled>
+					<button class="incrementButton plusButtons" onClick="changeCounter('teleDroppedCubes', 1, 69)">+1</button>
+				</span>
+			</div>
+			<div id="teleClimbLeft">
+				<span id="stupidClimbTitle">Climb:&nbsp;</span>
+				<br>
+				<SPAN>Assisted Others:&nbsp;
+					<BUTTON class="incrementButton minusButtons" onClick="changeCounter('AssistOthersClimb', -1, 2); fakeRadioButtons(['helpedClimb']);">-1</BUTTON>
+					<INPUT id="AssistOthersClimb" type="text" value="0"  disabled>
+					<BUTTON class="incrementButton plusButtons" onClick="changeCounter('AssistOthersClimb', 1, 2); fakeRadioButtons(['helpedClimb']);">+1</BUTTON>
+				</SPAN>
+				<input class="checkbox" id="helpedClimb" type="checkbox" value="false" onClick="fakeRadioButtons(['climb','park']); document.getElementById('AssistOthersClimb').value = '0';">&nbsp;<span>Received Climb (Drive on)</span><br>
+				<input class="checkbox" id="climb" type="checkbox" value="false" onClick="fakeRadioButtons(['helpedClimb','park']);">&nbsp;<span>Self Climb (Pull Themselves)</span><br>
+				<input class="checkbox" id="park" type="checkbox" value="false" onClick="fakeRadioButtons(['helpedClimb','climb']);">&nbsp;<span>Parked (on the Platform)</span>
+ 			</div>
+			<div class="miscArea">
+				<input class="checkbox" id="teleDeadBot" type="checkbox" value="false">&nbsp;<span>Dead/Broken Bot</span> <br>
+			</div>
+			<BUTTON class="backButtons" onClick="switchPage(false, 'autoPage')">GO<BR>BACK</BUTTON>
+			<BUTTON class="submitButtons" id="teleSubmit" onClick="submitTele();">SUBMIT</BUTTON>
+		</div>
+		<div id="noShowPage" hidden>
+			<BUTTON class="teamNumber" id="deadBotTeamNum" disabled>0000</BUTTON>
+			<SPAN id="noShowText">ARE YOU SURE THEY DIDN'T SHOW UP</SPAN>
+			<BUTTON class="backButtons" onClick="document.getElementById('noShow').checked = false; switchPage(false, 'autoPage');">Wait JK They<BR>Showed Up</BUTTON>
+			<BUTTON class="submitButtons" onClick="submitTele();">Yes they don't<BR>like points</BUTTON>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,324 @@
+/* Adding Skunk Works Fonts */
+@font-face {
+font-family: "Lobster";
+src: url("fonts/Lobster-Regular.ttf");
+}
+@font-face {
+  font-family: "Titillium";
+  src: url("fonts/Titillium-Regular.otf");
+}
+@keyframes flash {
+	from {color: ORANGE;}
+	to {color: black;}
+}
+
+html {
+	height: 99.6%;
+	font-family: "Titillium";
+	font-size: 2em;
+}
+#skunkBackground {
+	background-size: 15%;
+	background-image: url("images/8-BitTransSkunk.png");
+}
+#titleLogo {
+	border-style: solid;
+	border-color: BLACK;
+	border-width: 10px;
+	padding: 5px;
+	background-color: white;
+	border-radius: 10px;
+	width: 800px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 60px;
+	height: 1420px;
+}
+.titleImages {
+	width: 770px;
+}
+.splashSheet {
+	text-align: center;
+}
+.teleAutoSheet {
+	font-size: 1.75em;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+.pageTitles {
+	position: absolute;
+	color: black;
+	right: 50px;
+	top: 200px;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+.teamNumber{
+	position: absolute;
+	color: black;
+	left: -10px;
+	bottom: -10px;
+	font-size: 1.5em;
+	font-weight: bold;
+	width: 220px;
+	height: 162px;
+	border-style: solid;
+	border-width: 10px;
+	border-color: BLACK;
+	text-align: center;
+	color: black;
+	background-color: white;
+}
+.miscArea{
+	position: absolute;
+	bottom: 170px;
+	left: 20px;
+}
+
+.scoreboardText{
+	position: relative;
+	left: 0px;
+}
+
+/* Common data input types styling */
+.checkbox {
+	position: relative;
+	top: 8px;
+	height: 55px;
+	width: 55px;
+	border: 2px;
+	border-color: SOLID WHITE;
+}
+.submitButtons {
+	position: absolute;
+	bottom: -9px;
+	right: -10px;
+	border-style: solid;
+	border-color: BLACK;
+	border-width: 10px;
+	background-color: #EFEFEF;
+	font-size: 1em;
+	font-weight: bold;
+	height: 161px;
+	width: 310px;
+}
+.backButtons {
+	position: absolute;
+	bottom: -9px;
+	right: 290px;
+	border-style: solid;
+	border-color: black;
+	border-width: 10px;
+	background-color: #EFEFEF;
+	font-size: 1em;
+	font-weight: bold;
+	height: 161px;
+	width: 310px;
+}
+.dropdownMenus {
+	font-size: 0.9em;
+}
+.flash {
+	animation-name: flash;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+.incrementButton{
+	text-align: right;
+	font-size: 1.2em;
+	border-style: solid;
+	border-width: 2px;
+	border-color: BLACK;
+	width: 100px;
+	background-color: #EEEEEE;
+}
+.incrementScoreboard{
+	text-align: right;
+	font-size: 1.2em;
+	width: 2em;
+}
+.plusButtons {
+	border-color: #F3CA32;
+}
+.minusButtons {
+	border-color: #009BD4;
+}
+/* Splash Sheet individual ids */
+#splashSheetHeader {
+	font-size:3em;
+	padding: 0;
+	position: relative;
+	top: 15px;
+	font-weight: bold;
+}
+#splashInputs {
+	position: relative;
+	top: 50px;
+	font-size: 1.5em;
+}
+#matchesDownloadText {
+	font-size: 1.4em;
+}
+#matchNumber {
+	font-size: 0.9em;
+	width: 4em;
+	position: relative;
+	top: 2px;
+	border-style: solid;
+	border-width: medium;
+}
+#scoutSelect {
+}
+#eventSelect {
+}
+#splashButtons {
+	position: relative;
+	top: 100px;
+}
+#splashSubmit {
+	width: 220px;
+	height: 150px;
+	border-style: solid;
+	border-width: 7px;
+	border-color: black;
+	font-size: 32pt;
+	position: absolute;
+	right: 170px;
+	font-weight: bold;
+}
+#splashBackButton {
+	width: 220px;
+	height: 150px;
+	border-style: solid;
+	border-width: 7px;
+	border-color: black;
+	font-size: 32pt;
+	position: absolute;
+	left: 170px;
+	font-weight: bold;
+}
+#theOneAndOnly {
+	height: 400px;
+}
+#splashMemes {
+	position: absolute;
+	bottom: 30px;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+/* Auto Page ids */
+#autoTitle{
+
+}
+#autoSwitch {
+
+}
+#autoSwitchSpan {
+
+}
+#autoScale {
+
+}
+#autoScaleSpan {
+	position: relative;
+	top: 10px;
+}
+#crossedLine {
+
+}
+#noShow {
+
+}
+#autoDeadBot {
+
+}
+#autoTeamNum {
+
+}
+
+/* Tele Page ids */
+#autoStartLeft{
+	position: relative;
+	left: 20px;
+}
+#teleTitle{
+
+}
+#autoBoxesLeft{
+	position: relative;
+	left: 20px;
+	top: -20px;
+}
+#autoDrops {
+	position: relative;
+	top: 70px;
+}
+#teleSwitch {
+
+}
+#teleBoxesLeft{
+	position: relative;
+	left: 20px;
+	top: 0px;
+}
+#teleDrops {
+	position: relative;
+	top: 35px;
+}
+#teleSwitchSpan{
+	position: relative;
+	left: 10px;
+	top: 10px;
+}
+#teleScale {
+
+}
+#teleScaleSpan {
+	position: relative;
+	top: 20px;
+}
+#teleExchange {
+
+}
+#teleClimbLeft{
+	position: absolute;
+	left: 20px;
+	top: 770px;
+}
+#teleExchangeSpan{
+	position: relative;
+	top: 10;
+}
+#AssistOthersClimb {
+	width: 1.5em;
+	font-size: 1.2em;
+	text-align: right;
+}
+#teleDeadBot {
+
+}
+#climb {
+
+}
+#stupidClimbTitle {
+	position: relative;
+	top: 20px;
+}
+#helpedClimb {
+
+}
+#teleTeamNum {
+
+}
+
+#noShowText{
+	text-align: center;
+	font-size:5em;
+}
